@@ -1,0 +1,232 @@
+[26-Jul-2022 07:10:46 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[26-Jul-2022 07:13:56 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[26-Jul-2022 07:14:04 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[26-Jul-2022 07:18:34 UTC] PHP Warning:  Undefined variable $data in /home3/cp473227/public_html/incident-logs/admin/backend.php on line 133
+[26-Jul-2022 07:19:08 UTC] PHP Warning:  Undefined variable $data in /home3/cp473227/public_html/incident-logs/admin/backend.php on line 133
+[26-Jul-2022 07:19:16 UTC] PHP Warning:  Undefined variable $data in /home3/cp473227/public_html/incident-logs/admin/backend.php on line 133
+[26-Jul-2022 07:25:32 UTC] PHP Warning:  include_once(dbConfig.php): Failed to open stream: No such file or directory in /home3/cp473227/public_html/incident-logs/admin/export.php on line 4
+[26-Jul-2022 07:25:32 UTC] PHP Warning:  include_once(): Failed opening 'dbConfig.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home3/cp473227/public_html/incident-logs/admin/export.php on line 4
+[26-Jul-2022 07:25:32 UTC] PHP Warning:  Undefined variable $db in /home3/cp473227/public_html/incident-logs/admin/export.php on line 7
+[26-Jul-2022 07:25:32 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home3/cp473227/public_html/incident-logs/admin/export.php:7
+Stack trace:
+#0 {main}
+  thrown in /home3/cp473227/public_html/incident-logs/admin/export.php on line 7
+[26-Jul-2022 07:59:06 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[26-Jul-2022 09:03:13 UTC] PHP Warning:  Undefined variable $data in /home3/cp473227/public_html/incident-logs/admin/backend.php on line 133
+[26-Jul-2022 09:20:58 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[26-Jul-2022 09:21:01 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[27-Jul-2022 06:42:49 UTC] PHP Warning:  Undefined variable $data in /home3/cp473227/public_html/incident-logs/admin/backend.php on line 189
+[27-Jul-2022 06:46:42 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[27-Jul-2022 07:40:01 UTC] PHP Warning:  include_once(dbConfig.php): Failed to open stream: No such file or directory in /home3/cp473227/public_html/incident-logs/admin/export.php on line 4
+[27-Jul-2022 07:40:01 UTC] PHP Warning:  include_once(): Failed opening 'dbConfig.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home3/cp473227/public_html/incident-logs/admin/export.php on line 4
+[27-Jul-2022 07:40:01 UTC] PHP Warning:  Undefined variable $db in /home3/cp473227/public_html/incident-logs/admin/export.php on line 7
+[27-Jul-2022 07:40:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home3/cp473227/public_html/incident-logs/admin/export.php:7
+Stack trace:
+#0 {main}
+  thrown in /home3/cp473227/public_html/incident-logs/admin/export.php on line 7
+[27-Jul-2022 07:40:07 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[27-Jul-2022 07:41:25 UTC] PHP Warning:  include_once(dbConfig.php): Failed to open stream: No such file or directory in /home3/cp473227/public_html/incident-logs/admin/export.php on line 4
+[27-Jul-2022 07:41:25 UTC] PHP Warning:  include_once(): Failed opening 'dbConfig.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home3/cp473227/public_html/incident-logs/admin/export.php on line 4
+[27-Jul-2022 07:41:25 UTC] PHP Warning:  Undefined variable $db in /home3/cp473227/public_html/incident-logs/admin/export.php on line 7
+[27-Jul-2022 07:41:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home3/cp473227/public_html/incident-logs/admin/export.php:7
+Stack trace:
+#0 {main}
+  thrown in /home3/cp473227/public_html/incident-logs/admin/export.php on line 7
+[27-Jul-2022 07:44:11 UTC] PHP Warning:  Undefined variable $data in /home3/cp473227/public_html/incident-logs/admin/backend.php on line 133
+[27-Jul-2022 08:01:54 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[27-Jul-2022 09:07:10 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[27-Jul-2022 09:35:07 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[27-Jul-2022 10:12:39 UTC] PHP Warning:  Undefined array key "subcategory" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 64
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:02 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:04 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:24:07 UTC] PHP Warning:  Undefined array key "cat_id" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:25:12 UTC] PHP Parse error:  syntax error, unexpected token "?" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[27-Jul-2022 10:25:17 UTC] PHP Parse error:  syntax error, unexpected token "?" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[27-Jul-2022 10:25:36 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[27-Jul-2022 10:25:37 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[27-Jul-2022 10:32:46 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:20:38 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:27:52 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 46
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:32:23 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 86
+[28-Jul-2022 04:32:49 UTC] PHP Parse error:  syntax error, unexpected token ">" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 92
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:33 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:33:51 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 47
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:21 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:22 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 41
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 50
+[28-Jul-2022 04:34:26 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:34:30 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 51
+[28-Jul-2022 04:35:31 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:38:02 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 41
+[28-Jul-2022 04:38:02 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 42
+[28-Jul-2022 04:38:02 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 43
+[28-Jul-2022 04:38:02 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:38:09 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:40:20 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:42:20 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:42:20 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 116
+[28-Jul-2022 04:42:24 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 41
+[28-Jul-2022 04:42:24 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 42
+[28-Jul-2022 04:42:24 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 43
+[28-Jul-2022 04:42:24 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:42:24 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 116
+[28-Jul-2022 04:42:27 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 41
+[28-Jul-2022 04:42:27 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 42
+[28-Jul-2022 04:42:27 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 43
+[28-Jul-2022 04:42:27 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:42:27 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 116
+[28-Jul-2022 04:42:37 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 44
+[28-Jul-2022 04:42:37 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/view_logs.php on line 116
+[28-Jul-2022 04:44:47 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 41
+[28-Jul-2022 04:44:47 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 42
+[28-Jul-2022 04:44:47 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 43
+[28-Jul-2022 04:44:47 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 44
+[28-Jul-2022 04:44:47 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 116
+[28-Jul-2022 06:39:57 UTC] PHP Warning:  Undefined array key "username" in /home3/cp473227/public_html/incident-logs/admin/nav.php on line 11
+[28-Jul-2022 07:20:11 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 41
+[28-Jul-2022 07:20:11 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 42
+[28-Jul-2022 07:20:11 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 43
+[28-Jul-2022 07:20:11 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 44
+[28-Jul-2022 07:20:11 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 116
+[28-Jul-2022 07:20:13 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 41
+[28-Jul-2022 07:20:13 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 42
+[28-Jul-2022 07:20:13 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 43
+[28-Jul-2022 07:20:13 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 44
+[28-Jul-2022 07:20:13 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 116
+[31-Jul-2022 02:38:41 UTC] PHP Warning:  Undefined array key "start_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 41
+[31-Jul-2022 02:38:41 UTC] PHP Warning:  Undefined array key "end_date" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 42
+[31-Jul-2022 02:38:41 UTC] PHP Warning:  Undefined array key "category" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 43
+[31-Jul-2022 02:38:41 UTC] PHP Warning:  Undefined array key "subcat" in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 44
+[31-Jul-2022 02:38:41 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home3/cp473227/public_html/incident-logs/admin/advance_view_logs.php on line 116
