@@ -65,6 +65,25 @@
 
             <!-- Sub Category -->
 
+		
+		<div class="col-md-12">
+                <form action="backend.php" method="post">
+                    <input type="hidden" name="category" value="<?php echo $_GET["cat_id"]; ?>">
+                    <input type="hidden" name="subcategory" value="<?php echo $_GET["sub_id"]; ?>">
+                    <div class="form-group ">
+                        <label for="category">Incident :</label>
+                        <input type="text" class="form-control" placeholder="Enter Incident " name="incident"
+                            id="category" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" name="incident_create" class="btn btn-outline-primary" value="Create">
+                    </div>
+                </form>
+            </div>
+
+            <hr>
+
 
             <div class="col-md-12">
                 <table class="table table-striped">

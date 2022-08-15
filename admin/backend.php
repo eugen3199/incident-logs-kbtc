@@ -65,7 +65,7 @@ function image_filter($image,$location){
         $sql = "UPDATE category SET status='0' WHERE id=$id";
         $result = mysqli_query($connect,$sql);
         if($result){
-            $sql = "UPDATE sub_category SET status='0' WHERE id=$id";
+            $sql = "UPDATE sub_category SET status='0' WHERE cat_id=$id";
             $result = mysqli_query($connect,$sql);
             if($result){
                 $sql = "UPDATE incident SET status='0' WHERE sub_cat_id='$id'";

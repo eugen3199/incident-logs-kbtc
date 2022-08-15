@@ -22,13 +22,15 @@ if(isset($_POST['login'])){
       foreach($data as $key=>$value){
         $role = $value['role'];
         if($role == "admin"){
-          $_SESSION['admin_username'] = $value['name'];
-          $_SESSION["admin_password"] = $password;
+	  $_SESSION["role"] = $role;
+	  $_SESSION["admin_username"] = $username;
+	  $_SESSION["admin_password"] = $password;
           $_SESSION["username"] = $username;
           header("location:admin");
 	  exit;
         }else{
-          $_SESSION['user_username'] = $value['name'];
+	  $_SESSION["role"] = $role;
+	  $_SESSION["user_username"] = $username;
           $_SESSION["user_password"] = $password;
           $_SESSION["username"] = $username;
           header("location:user");
