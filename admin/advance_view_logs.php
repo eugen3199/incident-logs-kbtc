@@ -45,17 +45,17 @@
 		<div class="col-sm-3">
                 <?php
                  
-                 if(isset($_GET['category']))
-                 {
-                 $start_date = $_GET["start_date"];
-                 $end_date = $_GET["end_date"];
-                 $cat_id = $_GET['category'];
-                 $sub_cat_id = $_GET["subcat"];
-                 }
+                if(isset($_GET['category']))
+                {
+                    $start_date = $_GET["start_date"];
+                    $end_date = $_GET["end_date"];
+                    $cat_id = $_GET['category'];
+                    $sub_cat_id = $_GET["subcat"];
+                }
                 ?>
 
                 <label> Category :</label> 
-                <select name="category"  required class="form-control">  
+                <select name="category" required class="form-control" onchange='changeAction(this.value)'>
                     <?php
                         $sql = "SELECT * FROM category ORDER BY ID DESC";
                         $result = mysqli_query($connect,$sql);
@@ -63,7 +63,7 @@
 
                             $id = $r['id'];
                             $status ;
-                           
+                        
                             ?>
                             <option  <?php if($id == $cat_id){
                                 echo "selected";
@@ -72,31 +72,48 @@
                             <?php
                         }
                     ?>
-		 
+		
                 </select>
                </div>
                 
 		<div class="col-sm-3">
 	 	  <label> Sub Category :</label>
-                  <select name="subcat" class="form-control" >
+                <select name="subcat" class="form-control">
+                    <script>
+                        var catid_array = []
+                        var id_array = [];
+                        var name_array = [];
+                    </script>
                     <option selected disabled value=""> -- SUBCATEGORY -- </option>
-                   <?php
-                        if(isset($_GET['category'])){
-                            $cat_id = $_GET['category'];
-                             $sql = "SELECT * FROM sub_category WHERE cat_id=$cat_id";
-                             $result = mysqli_query($connect,$sql);
-                             foreach($result as $row){
-                                 ?>
-                                    <option value="<?php echo $row['id'] ?>"> <?php echo $row['subcategory'] ?> </option>
-                                 <?php
-                             }
+                    <?php
+                        $cat_id = $_GET['category'];
+                        $sql = "SELECT * FROM sub_category WHERE cat_id=$cat_id";
+                        $result = mysqli_query($connect,$sql);
+                        foreach($result as $row){
+                            ?>
+                            <script>
+                                catid_array.push("<?php echo $row['cat_id'] ?>");
+                                id_array.push("<?php echo $row['id'] ?>");
+                                name_array.push("<?php echo $row['subcategory'] ?>");
+                            </script>
+                            <?php
                         }
-                       
                     ?>
+                    
+                    <script type="text/javascript">
+                        function changeAction(id){
+                            for (var i = 0; i<=id_array.length; i++){
+                                var opt = document.createElement('option');
+                                if (catid_array[i] == id) {
+                                    opt.value = id_array[i];
+                                    opt.innerHTML = name_array[i];
+                                    select.appendChild(opt);
+                                }
+                            }
+                        }
+                    </script>
                 </select>
-                </div>
-                
-                
+            </div>
                 &nbsp; &nbsp; 
  	     <div class="row">
 	         <div class="col-sm-4">
