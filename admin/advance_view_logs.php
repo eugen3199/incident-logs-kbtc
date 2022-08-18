@@ -26,9 +26,8 @@
             <button onclick="window.print()" class="btn btn-primary ">Print</button>
             
                <br> <br>
-            
          
-	  <form action="view_logs.php" method="get" class="form-inline">
+	  <form action="advance_view_logs.php" method="post" class="form-inline">
 		<div class="row">
                 <div class="col-sm-3">
                	 <label>Start Date : </label>
@@ -39,75 +38,82 @@
                 <div class="col-sm-3">
                	 <label>End Date : </label>
                	 <input type="date" name="end_date" placeholder="" class="form-control" required>
-                
                
                 </div>
 		<div class="col-sm-3">
-                <?php
-                 
-                if(isset($_GET['category']))
-                {
-                    $start_date = $_GET["start_date"];
-                    $end_date = $_GET["end_date"];
-                    $cat_id = $_GET['category'];
-                    $sub_cat_id = $_GET["subcat"];
-                }
-                ?>
-
                 <label> Category :</label> 
-                <select name="category" required class="form-control" onchange='changeAction(this.value)'>
+                <select name="category" id="category" required class="form-control" onchange='changeAction(this.value)'>
+                    <script>
+                        var id_array = [];
+                        var name_array = [];
+                    </script>
+                    <option selected value="*"> -- CATEGORY -- </option>
+                    <script>
+                        var sel = document.getElementById('category');
                     <?php
                         $sql = "SELECT * FROM category ORDER BY ID DESC";
                         $result = mysqli_query($connect,$sql);
-                        foreach($result as $r){
-
-                            $id = $r['id'];
-                            $status ;
-                        
+                        foreach($result as $row){
                             ?>
-                            <option  <?php if($id == $cat_id){
-                                echo "selected";
-                            } ?>
-                            value="<?php echo $r['id'] ?>"> <?php echo $r['category'] ?> </option>
+                                id_array.push("<?php echo $row['id'] ?>");
+                                name_array.push("<?php echo $row['category'] ?>");
                             <?php
                         }
                     ?>
+                    for (var i = 0; i<=id_array.length; i++){
+                        var opt = document.createElement('option');
+                        opt.value = id_array[i];
+                        opt.innerHTML = name_array[i];
+                        sel.appendChild(opt);
+                    }
+                </script>
 		
                 </select>
                </div>
                 
 		<div class="col-sm-3">
 	 	  <label> Sub Category :</label>
-                <select name="subcat" class="form-control">
+                <select name="subcat" id="subcat" class="form-control">
                     <script>
-                        var catid_array = []
+                        var catid_array = [];
                         var id_array = [];
                         var name_array = [];
                     </script>
-                    <option selected disabled value=""> -- SUBCATEGORY -- </option>
+                    <option selected value="*"> -- SUBCATEGORY -- </option>
+                    <script>
                     <?php
                         $cat_id = $_GET['category'];
-                        $sql = "SELECT * FROM sub_category WHERE cat_id=$cat_id";
+                        $sql = "SELECT * FROM sub_category";
                         $result = mysqli_query($connect,$sql);
                         foreach($result as $row){
                             ?>
-                            <script>
                                 catid_array.push("<?php echo $row['cat_id'] ?>");
                                 id_array.push("<?php echo $row['id'] ?>");
                                 name_array.push("<?php echo $row['subcategory'] ?>");
-                            </script>
                             <?php
                         }
                     ?>
-                    
+                    </script>
                     <script type="text/javascript">
                         function changeAction(id){
+                            console.log(id);
+                            // id = 1;
+                            var sel = document.getElementById('subcat');
+                            var i, L = sel.options.length - 1;
+                            for(i = L; i >= 0; i--) {
+                              sel.remove(i);
+                            }
+                            var opt = document.createElement('option');
+                            opt.value = '*';
+                            opt.innerHTML = ' -- SUBCATEGORY -- ';
+                            sel.appendChild(opt);
                             for (var i = 0; i<=id_array.length; i++){
-                                var opt = document.createElement('option');
                                 if (catid_array[i] == id) {
+                                    // console.log();
+                                    var opt = document.createElement('option');
                                     opt.value = id_array[i];
                                     opt.innerHTML = name_array[i];
-                                    select.appendChild(opt);
+                                    sel.appendChild(opt);
                                 }
                             }
                         }
@@ -117,7 +123,7 @@
                 &nbsp; &nbsp; 
  	     <div class="row">
 	         <div class="col-sm-4">
-                  <input class="btn btn-outline-success" type="submit" value="Search">
+                  <input class="btn btn-outline-success" name="search" type="submit" value="Search">
                  </div> 	
               </div>
 </div>
@@ -145,9 +151,29 @@
                     <?php
                     $cateogry;$subcategory;$incident;$solution;
                     //  SELECT `id`, `cat_id`, `sub_cat_id`, `incident_id`, `solution_id`, `name`, `location`, `remark`, `create_at` FROM `logs` WHERE 1
-                        $sql = "SELECT * FROM logs WHERE cat_id=$cat_id && sub_cat_id=$sub_cat_id && ( $start_date < create_at < $end_date  )   order  by id desc";
+
+                        $sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
+                        $edate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['end_date'])));
+                        // echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
+                        $category = htmlspecialchars($_POST['category']);
+                        $subcat = htmlspecialchars($_POST['subcat']);
+
+                        if ($category == '*') {
+                            if ($subcat == '*') {
+                                $sql = "SELECT * FROM logs order by id desc";
+                            } else {
+                                $sql = "SELECT * FROM logs where sub_cat_id=$subcat order by id desc";
+                            }
+                        } else {
+                            if ($subcat == '*') {
+                                $sql = "SELECT * FROM logs where cat_id=$category order by id desc";
+                            }
+                            $sql = "SELECT * FROM logs where cat_id=$category AND sub_cat_id=$subcat order by id desc";
+                        }
+
                         $result = mysqli_query($connect,$sql);
                         foreach($result as $i=>$value){
+                            $l_id = $value['id'];
                             $cat_id = $value['cat_id'];
                             $sub_cat_id = $value['sub_cat_id'];
                             $incident_id = $value['incident_id'];
@@ -155,7 +181,8 @@
                             $name = $value['name'];
                             $location = $value['location'];
                             $remark = $value['remark'];
-                            $create_at = $value['create_at'];
+                            $create_at = explode("-",preg_replace('!\s+!', ' ', $value['create_at']));
+                            if($create_at[0] >= $sdate[0] && $create_at[0] <= edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= edate[2]){
 
                             $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                             $result2 = mysqli_query($connect,$sql2);
@@ -189,7 +216,7 @@
                             ?>
                     <tr>
                         <td><?php echo ++$i; ?></td>
-                        <td><?php echo $create_at; ?></td>
+                        <td><?php echo "$create_at[1]-$create_at[2]-$create_at[0]"; ?></td>
                         <td><?php echo $location; ?></td>
                         <td><?php echo $category; ?></td>
                         <td><?php echo $subcategory; ?></td>
@@ -201,16 +228,16 @@
 
 
                             <form style="display:inline-block" class="form-display" action="backend.php" method="post">
-                                <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
+                                <input type="hidden" value=<?php echo '"'.$l_id.'"' ?> name="id">
                                 <button type="submit" name="logs_delete" value="Delete"
-                                    onclick="return confirm('Are you sure you want to delete this Log?')"
-                                    class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                        onclick="return confirm('Are you sure you want to delete this Log?')"
+                                class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
                             </form>
                         </td>
                     </tr>
                     <?php
+                            }
                         }
-                       
                     ?>
                 </tbody>
             </table>

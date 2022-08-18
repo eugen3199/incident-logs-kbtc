@@ -293,13 +293,21 @@ function image_filter($image,$location){
         die();
        }
         /* No Encrypt Here Encrypt Your Self */
-       $sql2 = "INSERT INTO member(name,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$password','$role',1,'-','-','-','-','$data')";
+       $sql2 = "INSERT INTO member(name,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$password','$role',1,'-','-','-','-','$date')";
        $result2 = mysqli_query($connect,$sql2);
        if($result){
         success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
        }else{
         error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
        }
+    }
+
+    if(isset($_POST["search"])){
+        $sdate = htmlspecialchars($_POST['start_date']);
+        $edate = htmlspecialchars($_POST['end_date']);
+        $category = htmlspecialchars($_POST['category']);
+        $subcat = htmlspecialchars($_POST['subcat']);
+        header('Location: test2.php')
     }
 
 ?>
