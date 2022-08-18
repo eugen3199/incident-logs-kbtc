@@ -52,7 +52,7 @@
                         $sql = "SELECT * FROM logs    order  by id desc";
                         $result = mysqli_query($connect,$sql);
                         foreach($result as $i=>$value){
-				$l_id = $value['id'];
+				            $l_id = $value['id'];
                             $cat_id = $value['cat_id'];
                             $sub_cat_id = $value['sub_cat_id'];
                             $incident_id = $value['incident_id'];

@@ -302,12 +302,4 @@ function image_filter($image,$location){
        }
     }
 
-    if(isset($_POST["search"])){
-        $sdate = htmlspecialchars($_POST['start_date']);
-        $edate = htmlspecialchars($_POST['end_date']);
-        $category = htmlspecialchars($_POST['category']);
-        $subcat = htmlspecialchars($_POST['subcat']);
-        header('Location: test2.php')
-    }
-
 ?>
