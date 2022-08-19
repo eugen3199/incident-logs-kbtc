@@ -4,7 +4,7 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="index.php">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="category.php">Services Catalog Category </a> 
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="view_logs.php">Incident Logs </a> 
-                   
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="advance_view_logs.php">Advance Search Incident Logs </a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout.php">Logout </a> 
                 </div>
             </div>

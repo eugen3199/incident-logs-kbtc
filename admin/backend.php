@@ -266,6 +266,19 @@ function image_filter($image,$location){
         }
     }
 
+    /* Log Date Edit */
+    if(isset($_POST["date_edit"])){
+        $id = htmlspecialchars($_POST["id"]);
+        $date = date('Y-m-d', strtotime($_POST['date']));
+        $sql = "UPDATE logs SET create_at='$date' WHERE id=$id";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+         success_message("Edit Solution Success",$_SERVER['HTTP_REFERER']);
+        }else{
+         error_message("Edit Solution Fail",$_SERVER['HTTP_REFERER']);
+        }
+    }
+
     /* create_location */
     if(isset($_POST["create_location"])){
        $location = htmlspecialchars($_POST["location"]);

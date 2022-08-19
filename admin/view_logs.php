@@ -94,7 +94,7 @@
                             ?>
                     <tr>
                         <td><?php echo ++$i; ?></td>
-                        <td><?php echo $create_at; ?></td>
+                        <td><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
                         <td><?php echo $location; ?></td>
                         <td><?php echo $category; ?></td>
                         <td><?php echo $subcategory; ?></td>
@@ -113,6 +113,32 @@
                             </form>
                         </td>
                     </tr>
+                    <!-- Edit Model Starts Here (KHT) -->
+                    <div class="modal" id="detail<?php echo $l_id; ?>">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title"> Edit Date</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <form action="backend.php" method="post">
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <input type="hidden" name="id" value="<?php echo $l_id; ?>">
+                                        <input type="date" name="date" class="form-control" required>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                            <button type="submit" name="date_edit" value="Edit"  class="btn btn-success">Edit</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Edit Model Ends Here (KHT) -->
                     <?php
                         }
                     ?>
