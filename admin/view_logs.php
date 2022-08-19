@@ -34,6 +34,7 @@
                     <tr>
                         <th>No</th>
                         <th>Date</th>
+			<th>Time</th>
                         <th>Location</th>
                         <th>Category</th>
                         <th>SubCategory</th>
@@ -61,6 +62,7 @@
                             $location = $value['location'];
                             $remark = $value['remark'];
                             $create_at = $value['create_at'];
+			    $_time = $value['_time'];
 
                             $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                             $result2 = mysqli_query($connect,$sql2);
@@ -95,7 +97,8 @@
                     <tr>
                         <td><?php echo ++$i; ?></td>
                         <td><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
-                        <td><?php echo $location; ?></td>
+                        <td><a class="btn-link btn" data-toggle="modal" data-target="#time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
+			<td><?php echo $location; ?></td>
                         <td><?php echo $category; ?></td>
                         <td><?php echo $subcategory; ?></td>
                         <td><?php echo $incident; ?></td>
@@ -103,8 +106,6 @@
                         <td><?php echo $name; ?></td>
                         <td><?php echo $remark; ?></td>
                         <td>
-
-
                             <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                 <input type="hidden" value=<?php echo '"'.$l_id.'"' ?> name="id">
                                 <button type="submit" name="logs_delete" value="Delete"
@@ -144,7 +145,6 @@
                     ?>
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>

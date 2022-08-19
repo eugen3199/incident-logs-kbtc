@@ -238,8 +238,9 @@ function image_filter($image,$location){
        $location  = htmlspecialchars($_POST["location"]);
        $remark = htmlspecialchars($_POST["remark"]);
        $date = date("Y-m-d");
+	$_time = date("h-i-sa");
 	$user = $_SESSION['username'];
-       $sql = "INSERT INTO logs (cat_id,sub_cat_id,incident_id,solution_id, name, location,remark,create_at) VALUES ($cat_id,$sub_id,$inc_id,$answer_id,'$user','$location','$remark','$date')";
+       $sql = "INSERT INTO logs (cat_id,sub_cat_id,incident_id,solution_id, name, location,remark,create_at,_time) VALUES ($cat_id,$sub_id,$inc_id,$answer_id,'$user','$location','$remark','$date','$_time')";
        $result = mysqli_query($connect,$sql);
        if($result){
         success_message("Create Logs Success","view_logs.php");
