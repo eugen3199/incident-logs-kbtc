@@ -82,7 +82,6 @@
                     <option selected value="*"> -- SUBCATEGORY -- </option>
                     <script>
                     <?php
-                        $cat_id = $_GET['category'];
                         $sql = "SELECT * FROM sub_category";
                         $result = mysqli_query($connect,$sql);
                         foreach($result as $row){
@@ -149,15 +148,22 @@
                 <tbody>
 
                     <?php
-                    $cateogry;$subcategory;$incident;$solution;
-                    //  SELECT `id`, `cat_id`, `sub_cat_id`, `incident_id`, `solution_id`, `name`, `location`, `remark`, `create_at` FROM `logs` WHERE 1
-
-                        $sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
-                        $edate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['end_date'])));
-                        // echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
-                        $category = htmlspecialchars($_POST['category']);
-                        $subcat = htmlspecialchars($_POST['subcat']);
-
+                        if (isset($_POST['start_date'])) {
+                            $sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
+                        }
+                        if (isset($_POST['end_date'])) {
+                            $edate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['end_date'])));
+                        }
+                        if (isset($_POST['category'])) {
+                            $category = htmlspecialchars($_POST['category']);
+                        }
+                        if (isset($_POST['subcat'])) {
+                            $subcat = htmlspecialchars($_POST['subcat']);
+                        }
+                        if (isset($_POST['start_date']) AND isset($_POST['end_date']) AND isset($_POST['category']) AND isset($_POST['subcat'])) {
+                            // echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
+                        
+                        
                         if ($category == '*') {
                             if ($subcat == '*') {
                                 $sql = "SELECT * FROM logs order by id desc";
@@ -182,7 +188,7 @@
                             $location = $value['location'];
                             $remark = $value['remark'];
                             $create_at = explode("-",preg_replace('!\s+!', ' ', $value['create_at']));
-                            if($create_at[0] >= $sdate[0] && $create_at[0] <= edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= edate[2]){
+                            if($create_at[0] >= $sdate[0] && $create_at[0] <= $edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= $edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= $edate[2]){
 
                             $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                             $result2 = mysqli_query($connect,$sql2);
@@ -225,17 +231,14 @@
                         <td><?php echo $name; ?></td>
                         <td><?php echo $remark; ?></td>
                         <td>
-
-
                             <form style="display:inline-block" class="form-display" action="backend.php" method="post">
-                                <input type="hidden" value=<?php echo '"'.$l_id.'"' ?> name="id">
-                                <button type="submit" name="logs_delete" value="Delete"
-                        onclick="return confirm('Are you sure you want to delete this Log?')"
+                                <input type="hidden" value="<?php echo $l_id ?>" name="id">
+                                <button type="submit" name="logs_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Log?')"
                                 class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
                             </form>
                         </td>
                     </tr>
-                    <?php
+                    <?php       }
                             }
                         }
                     ?>
