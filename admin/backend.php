@@ -238,7 +238,8 @@ function image_filter($image,$location){
        $location  = htmlspecialchars($_POST["location"]);
        $remark = htmlspecialchars($_POST["remark"]);
        $date = date("Y-m-d");
-	$_time = date("h-i-sa");
+	date_default_timezone_set('Asia/Yangon');
+	$_time = date("h:i:sa");
 	$user = $_SESSION['username'];
        $sql = "INSERT INTO logs (cat_id,sub_cat_id,incident_id,solution_id, name, location,remark,create_at,_time) VALUES ($cat_id,$sub_id,$inc_id,$answer_id,'$user','$location','$remark','$date','$_time')";
        $result = mysqli_query($connect,$sql);
@@ -280,6 +281,20 @@ function image_filter($image,$location){
         }
     }
 
+	/* Log Time Edit */
+    if(isset($_POST["edit_time"])){
+        $id = htmlspecialchars($_POST["id"]);
+        $_time = date('h:i:sa', strtotime($_POST['_time']));
+        $sql = "UPDATE logs SET _time='$_time' WHERE id=$id";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+         success_message("Edit Solution Success",$_SERVER['HTTP_REFERER']);
+        }else{
+         error_message("Edit Solution Fail",$_SERVER['HTTP_REFERER']);
+        }
+    }
+
+
     /* create_location */
     if(isset($_POST["create_location"])){
        $location = htmlspecialchars($_POST["location"]);
@@ -315,5 +330,24 @@ function image_filter($image,$location){
         error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
        }
     }
+
+	/* Account Delete */
+    if(isset($_POST["account_delete"])){
+        $id = htmlspecialchars($_POST["id"]);
+        echo '<script>console.log('.$id.')</script>';
+        $sql = "UPDATE member SET status=0 WHERE id=$id"
+//      echo $sql;
+//      hearder('Location: '.$sql);
+//      exit;
+        $result = mysqli_query($connect,$sql);
+        //header('Location: '.$id);
+        //exit;
+        if($result){
+         success_message("Delete Log Success",$_SERVER['HTTP_REFERER']);
+        }else{
+         error_message("<br>Delete Log Fail",$_SERVER['HTTP_REFERER']);
+        }
+    }
+
 
 ?>

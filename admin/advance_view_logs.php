@@ -185,6 +185,7 @@
 <tr>
 <th>No</th>
 <th>Date</th>
+<th>Time</th>
 <th>Location</th>
 <th>Category</th>
 <th>SubCategory</th>
@@ -243,6 +244,7 @@ $location = $value['location'];
 $remark = $value['remark'];
 $create_at = $value['create_at'];
 $create_at1 = strtotime($value['create_at']);
+$_time = $value['_time'];
 // if($create_at[0] >= $sdate[0] && $create_at[0] <= $edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= $edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= $edate[2]){
 if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
 
@@ -284,6 +286,7 @@ $location = $value["name"];
 <a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
 <!-- Edit button Ends Here (KHT) -->
 </td>
+<td><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
 <td><?php echo $location; ?></td>
 <td><?php echo $category; ?></td>
 <td><?php echo $subcategory; ?></td>
@@ -325,6 +328,34 @@ class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></butto
 </div>
 </div>
 <!-- Edit Model Ends Here (KHT) -->
+
+<!-- Edit Model Starts Here (KHT) -->
+<div class="modal" id="edit_time<?php echo $l_id; ?>">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+<h4 class="modal-title"> Edit Time</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<form action="backend.php" method="post">
+<!-- Modal body -->
+<div class="modal-body">
+<input type="hidden" name="id" value="<?php echo $l_id; ?>">
+<input type="time" id="_time" name="_time">
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+<button type="submit" name="edit_time" value="Edit"  class="btn btn-success">Edit</button>
+<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Edit Model Ends Here (KHT) -->
+
 <?php       }
 }
 }
