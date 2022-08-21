@@ -1,3 +1,4 @@
+
 <?php
     session_start();
     include "database.php";
@@ -58,19 +59,6 @@ function image_filter($image,$location){
        }
     }
 
-    /* Sub Category Create */
-    if(isset($_POST["sub_category_create"])){
-       $category = htmlspecialchars($_POST["category"]);
-       $subcategory = htmlspecialchars($_POST["subcategory"]);
-       $sql = "INSERT INTO sub_category(cat_id,subcategory,status) VALUES ('$category','$subcategory',1)";
-       $result = mysqli_query($connect,$sql);
-       if($result){
-        success_message("Create SubCategory Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Create SubCategory Fail",$_SERVER['HTTP_REFERER']);
-       }
- }
-
     /* incident_create */
     if(isset($_POST['incident_create'])){
         $cat_id = htmlspecialchars($_POST['category']);
@@ -85,8 +73,11 @@ function image_filter($image,$location){
             error_message("Create Incident  Fail",$_SERVER['HTTP_REFERER']);
            }
     }
-     /* solution_create */
+
+    /* solution_create */
     if(isset($_POST['solution_create'])){
+
+       
         $incident = htmlspecialchars($_POST['incident']);
         $solution = htmlspecialchars($_POST['solution']);
         $date = date("Y-m-d");
@@ -99,10 +90,6 @@ function image_filter($image,$location){
            }
     }
 
-   
-
-    
-
     /* create_log */
     if(isset($_POST['create_log'])){
        $cat_id = htmlspecialchars($_POST["cat_id"]);
@@ -112,8 +99,10 @@ function image_filter($image,$location){
        $location  = htmlspecialchars($_POST["location"]);
        $remark = htmlspecialchars($_POST["remark"]);
        $date = date("Y-m-d");
-	$uname = $_SESSION['username'];
-       $sql = "INSERT INTO logs (cat_id,sub_cat_id,incident_id,solution_id, name, location,remark,create_at) VALUES ($cat_id,$sub_id,$inc_id,$answer_id,'$uname','$location','$remark','$date')";
+    date_default_timezone_set('Asia/Yangon');
+    $_time = date("h:i:sa");
+    $user = $_SESSION['username'];
+       $sql = "INSERT INTO logs (cat_id,sub_cat_id,incident_id,solution_id, name, location,remark,create_at,_time) VALUES ($cat_id,$sub_id,$inc_id,$answer_id,'$user','$location','$remark','$date','$_time')";
        $result = mysqli_query($connect,$sql);
        if($result){
         success_message("Create Logs Success","view_logs.php");
@@ -122,41 +111,29 @@ function image_filter($image,$location){
        }
     }
 
-     
-    /* create_location */
-    if(isset($_POST["create_location"])){
-       $location = htmlspecialchars($_POST["location"]);
-       $sql = "INSERT INTO location(name) VALUES ('$location')";
-       $result = mysqli_query($connect,$sql);
-       if($result){
-        success_message("Create Location Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Create Location  Fail",$_SERVER['HTTP_REFERER']);
-       }
+    /* Log Date Edit */
+    if(isset($_POST["date_edit"])){
+        $id = htmlspecialchars($_POST["id"]);
+        $date = date('Y-m-d', strtotime($_POST['date']));
+        $sql = "UPDATE logs SET create_at='$date' WHERE id=$id";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+         success_message("Edit Solution Success",$_SERVER['HTTP_REFERER']);
+        }else{
+         error_message("Edit Solution Fail",$_SERVER['HTTP_REFERER']);
+        }
     }
 
-
-    /* member_create */
-    if(isset($_POST["member_create"])){
-       $username = htmlspecialchars($_POST["username"]);
-       $password = htmlspecialchars($_POST["password"]);
-       $role = htmlspecialchars($_POST["role"]);
-       $date = date("Y-m-d");
-       $sql = "SELECT * FROM member WHERE name='$username'";
-       $result = mysqli_query($connect, $sql);
-       $row = mysqli_num_rows($result);
-       if($row > 0){
-        error_message("Member Already Exists ",$_SERVER['HTTP_REFERER']);
-        die();
-       }
-        /* No Encrypt Here Encrypt Your Self */
-       $sql2 = "INSERT INTO member(name,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$password','$role',1,'-','-','-','-','$data')";
-       $result2 = mysqli_query($connect,$sql2);
-       if($result){
-        success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
-       }
+    /* Log Time Edit */
+    if(isset($_POST["edit_time"])){
+        $id = htmlspecialchars($_POST["id"]);
+        $_time = date('h:i:sa', strtotime($_POST['_time']));
+        $sql = "UPDATE logs SET _time='$_time' WHERE id=$id";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+         success_message("Edit Solution Success",$_SERVER['HTTP_REFERER']);
+        }else{
+         error_message("Edit Solution Fail",$_SERVER['HTTP_REFERER']);
+        }
     }
-
 ?>

@@ -16,25 +16,24 @@
         <!-- Page content-->
         <div class="container-fluid">
             <br>
+            <div class="row">
+
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="category.php">Category</a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+
+            </div>
 
             <!-- Category -->
            
             <div class="row">
-                <div class="col-md-6">
-                    <form action="backend.php" method="post">
-                        <div class="form-group ">
-                            <label for="category">Category:</label>
-                            <input type="text" class="form-control" placeholder="Enter Category" name="category"
-                                id="category" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <input type="submit" name="category_create" class="btn btn-primary" value="Create">
-                            <!-- <p type="submit" name="category_create" class="btn btn-outline-primary" value="">  Create </p> -->
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <table class="table table-striped">
                         <thead>
                             <tr>

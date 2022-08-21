@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" name="create_log" class="btn btn-primary" value="Create Log">
+                    <input type="submit" name="create_log" class="btn btn-outline-primary" value="Create Log">
                 </div>
             </form>
 
