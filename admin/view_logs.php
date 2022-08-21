@@ -62,7 +62,7 @@
                             $location = $value['location'];
                             $remark = $value['remark'];
                             $create_at = $value['create_at'];
-			    $_time = $value['_time'];
+			                $_time = $value['_time'];
 
                             $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                             $result2 = mysqli_query($connect,$sql2);
