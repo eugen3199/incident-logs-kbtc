@@ -97,8 +97,14 @@
                     <tr>
                         <td><?php echo ++$i; ?></td>
                         <td><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
-                        <td><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
-			<td><?php echo $location; ?></td>
+                        <td><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php 
+                            if($_time != ""){
+                                echo $_time;
+                            }else{
+                                echo "Add time";
+                            }
+                        ?></a></td>
+                        <td><?php echo $location; ?></td>
                         <td><?php echo $category; ?></td>
                         <td><?php echo $subcategory; ?></td>
                         <td><?php echo $incident; ?></td>

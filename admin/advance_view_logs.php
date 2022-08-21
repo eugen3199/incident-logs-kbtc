@@ -52,7 +52,7 @@
                         <script>
                             var sel = document.getElementById('category');
                             <?php
-                                $sql = "SELECT * FROM category ORDER BY ID DESC";
+                                $sql = "SELECT * FROM category WHERE status=1 ORDER BY ID DESC";
                                 $result = mysqli_query($connect,$sql);
                                 foreach($result as $row){
                             ?>
@@ -83,7 +83,7 @@
                         <option selected value="*"> -- SUBCATEGORY -- </option>
                         <script>
                             <?php
-                                $sql = "SELECT * FROM sub_category";
+                                $sql = "SELECT * FROM sub_category WHERE status=1";
                                 $result = mysqli_query($connect,$sql);
                                 foreach($result as $row){
                             ?>
@@ -132,7 +132,7 @@
                         <option selected value="*"> -- INCIDENT -- </option>
                         <script>
                             <?php
-                                $sql = "SELECT * FROM incident";
+                                $sql = "SELECT * FROM incident WHERE status=1";
                                 $result = mysqli_query($connect,$sql);
                                 foreach($result as $row){
                             ?>
@@ -290,7 +290,16 @@
 		    <td>
 
                     <!-- Edit button Starts Here (KHT) -->
-                    <a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a>
+                    <a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" >
+                        <?php 
+                            if($_time != ""){
+                                echo $_time;
+                            }else{
+                                echo "Add time";
+                            }
+                        ?>
+                            
+                        </a>
                     <!-- Edit button Ends Here (KHT) -->
                     </td>
                     <td><?php echo $location; ?></td>
