@@ -320,7 +320,7 @@ function image_filter($image,$location){
        if($row > 0){
         error_message("Member Already Exists ",$_SERVER['HTTP_REFERER']);
         die();
-       }
+       }else{
         /* No Encrypt Here Encrypt Your Self */
        $sql2 = "INSERT INTO member(name,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$password','$role',1,'-','-','-','-','$date')";
        $result2 = mysqli_query($connect,$sql2);
@@ -329,6 +329,7 @@ function image_filter($image,$location){
        }else{
         error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
        }
+	}
     }
 
 	/* Account Delete */
