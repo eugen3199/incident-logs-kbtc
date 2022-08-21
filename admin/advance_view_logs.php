@@ -178,48 +178,6 @@
                 </div>     
                 </div>
         </form>
-<<<<<<< HEAD
-
-        <br> <br>
-        </div>
-<table class="table table-striped table-bordered table-hover">
-<thead>
-<tr>
-<th>No</th>
-<th>Date</th>
-<th>Time</th>
-<th>Location</th>
-<th>Category</th>
-<th>SubCategory</th>
-<th>Incident</th>
-<th>Solution</th>
-<th>User</th>
-<th>Remark</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-
-<?php
-if (isset($_POST['start_date'])) {
-$sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
-$sdate1 = strtotime(htmlspecialchars($_POST['start_date']));
-}
-if (isset($_POST['end_date'])) {
-$edate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['end_date'])));
-$edate1 = strtotime(htmlspecialchars($_POST['end_date']));
-}
-if (isset($_POST['category'])) {
-$category = htmlspecialchars($_POST['category']);
-}
-if (isset($_POST['subcat'])) {
-$subcat = htmlspecialchars($_POST['subcat']);
-}
-if (isset($_POST['start_date']) AND isset($_POST['end_date']) AND isset($_POST['category']) AND isset($_POST['subcat'])) {
-// echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
-$dstr = date('Y-m-d', strtotime($_POST['start_date']));
-// echo "$sdate1, $edate1, $dstr";
-=======
         <br>
         <br>
     </div>
@@ -228,6 +186,7 @@ $dstr = date('Y-m-d', strtotime($_POST['start_date']));
                 <tr>
                     <th>No</th>
                     <th>Date</th>
+		    <th>Time</th>
                     <th>Location</th>
                     <th>Category</th>
                     <th>SubCategory</th>
@@ -258,7 +217,6 @@ $dstr = date('Y-m-d', strtotime($_POST['start_date']));
                     // echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
                     $dstr = date('Y-m-d', strtotime($_POST['start_date']));
                     // echo "$sdate1, $edate1, $dstr";
->>>>>>> 146fd6ee4578bc7382f74585d3563f441b32a4a3
 
 
                     if ($category == '*') {
@@ -275,23 +233,6 @@ $dstr = date('Y-m-d', strtotime($_POST['start_date']));
                         }
                     }
 
-<<<<<<< HEAD
-$result = mysqli_query($connect,$sql);
-foreach($result as $i=>$value){
-$l_id = $value['id'];
-$cat_id = $value['cat_id'];
-$sub_cat_id = $value['sub_cat_id'];
-$incident_id = $value['incident_id'];
-$solution_id = $value['solution_id'];
-$name = $value['name'];
-$location = $value['location'];
-$remark = $value['remark'];
-$create_at = $value['create_at'];
-$create_at1 = strtotime($value['create_at']);
-$_time = $value['_time'];
-// if($create_at[0] >= $sdate[0] && $create_at[0] <= $edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= $edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= $edate[2]){
-if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
-=======
                         $result = mysqli_query($connect,$sql);
                         foreach($result as $i=>$value){
                             $l_id = $value['id'];
@@ -304,9 +245,9 @@ if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
                             $remark = $value['remark'];
                             $create_at = $value['create_at'];
                             $create_at1 = strtotime($value['create_at']);
+			    $_time = $value['_time'];
                             // if($create_at[0] >= $sdate[0] && $create_at[0] <= $edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= $edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= $edate[2]){
                             if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
->>>>>>> 146fd6ee4578bc7382f74585d3563f441b32a4a3
 
                                 $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                                 $result2 = mysqli_query($connect,$sql2);
@@ -342,93 +283,14 @@ if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
                     <td><?php echo ++$i; ?></td>
                     <td>
 
-<<<<<<< HEAD
-<!-- Edit button Starts Here (KHT) -->
-<a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
-<!-- Edit button Ends Here (KHT) -->
-</td>
-<td><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
-<td><?php echo $location; ?></td>
-<td><?php echo $category; ?></td>
-<td><?php echo $subcategory; ?></td>
-<td><?php echo $incident; ?></td>
-<td><?php echo $answer; ?></td>
-<td><?php echo $name; ?></td>
-<td><?php echo $remark; ?></td>
-<td>
-<form style="display:inline-block" class="form-display" action="backend.php" method="post">
-<input type="hidden" value="<?php echo $l_id ?>" name="id">
-<button type="submit" name="logs_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Log?')"
-class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
-</form>
-</td>
-</tr>
-<!-- Edit Model Starts Here (KHT) -->
-<div class="modal" id="detail<?php echo $l_id; ?>">
-<div class="modal-dialog">
-<div class="modal-content">
-
-<!-- Modal Header -->
-<div class="modal-header">
-<h4 class="modal-title"> Edit Date</h4>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-<form action="backend.php" method="post">
-<!-- Modal body -->
-<div class="modal-body">
-<input type="hidden" name="id" value="<?php echo $l_id; ?>">
-<input type="date" name="date" class="form-control" required>
-</div>
-<!-- Modal footer -->
-<div class="modal-footer">
-<button type="submit" name="date_edit" value="Edit"  class="btn btn-success">Edit</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-<!-- Edit Model Ends Here (KHT) -->
-
-<!-- Edit Model Starts Here (KHT) -->
-<div class="modal" id="edit_time<?php echo $l_id; ?>">
-<div class="modal-dialog">
-<div class="modal-content">
-
-<!-- Modal Header -->
-<div class="modal-header">
-<h4 class="modal-title"> Edit Time</h4>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-<form action="backend.php" method="post">
-<!-- Modal body -->
-<div class="modal-body">
-<input type="hidden" name="id" value="<?php echo $l_id; ?>">
-<input type="time" id="_time" name="_time">
-</div>
-<!-- Modal footer -->
-<div class="modal-footer">
-<button type="submit" name="edit_time" value="Edit"  class="btn btn-success">Edit</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-<!-- Edit Model Ends Here (KHT) -->
-
-<?php       }
-}
-}
-?>
-</tbody>
-</table>
-
-</div>
-</div>
-=======
                     <!-- Edit button Starts Here (KHT) -->
                     <a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
+                    <!-- Edit button Ends Here (KHT) -->
+                    </td>
+		    <td>
+
+                    <!-- Edit button Starts Here (KHT) -->
+                    <a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a>
                     <!-- Edit button Ends Here (KHT) -->
                     </td>
                     <td><?php echo $location; ?></td>
@@ -471,7 +333,33 @@ class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></butto
                         </div>
                     </div>
                 </div>
+
+                <div class="modal" id="edit_time<?php echo $l_id; ?>">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title"> Edit Date</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <form action="backend.php" method="post">
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <input type="hidden" name="id" value="<?php echo $l_id; ?>">
+                                    <input type="time" name="_time" class="form-control" required>
+                                </div>
+                                    <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" name="edit_time" value="Edit"  class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <!-- Edit Model Ends Here (KHT) -->
+
                 <?php       
                         }
                     }
@@ -480,7 +368,6 @@ class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></butto
             </tbody>
         </table>
     </div>
->>>>>>> 146fd6ee4578bc7382f74585d3563f441b32a4a3
 </div>
 
 <?php

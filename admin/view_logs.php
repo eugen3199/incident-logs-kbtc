@@ -141,31 +141,30 @@
                     </div>
                     <!-- Edit Model Ends Here (KHT) -->
 			<!-- Edit Model Starts Here (KHT) -->
-<div class="modal" id="edit_time<?php echo $l_id; ?>">
-<div class="modal-dialog">
-<div class="modal-content">
-
-<!-- Modal Header -->
-<div class="modal-header">
-<h4 class="modal-title"> Edit Time</h4>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-<form action="backend.php" method="post">
-<!-- Modal body -->
-<div class="modal-body">
-<input type="hidden" name="id" value="<?php echo $l_id; ?>">
-<input type="time" id="_time" name="_time">
-</div>
-<!-- Modal footer -->
-<div class="modal-footer">
-<button type="submit" name="edit_time" value="Edit"  class="btn btn-success">Edit</button>
-<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-<!-- Edit Model Ends Here (KHT) -->
+			<div class="modal" id="edit_time<?php echo $l_id; ?>">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title"> Edit Time</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<form action="backend.php" method="post">
+							<!-- Modal body -->
+							<div class="modal-body">
+								<input type="hidden" name="id" value="<?php echo $l_id; ?>">
+								<input type="time" id="_time" name="_time">
+							</div>
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<button type="submit" name="edit_time" value="Edit"  class="btn btn-success">Edit</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Edit Model Ends Here (KHT) -->
 
                     <?php
                         }

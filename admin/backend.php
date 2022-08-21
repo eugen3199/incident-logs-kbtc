@@ -335,7 +335,7 @@ function image_filter($image,$location){
     if(isset($_POST["account_delete"])){
         $id = htmlspecialchars($_POST["id"]);
         echo '<script>console.log('.$id.')</script>';
-        $sql = "UPDATE member SET status=0 WHERE id=$id"
+        $sql = "UPDATE member SET status=0 WHERE id=$id";
 //      echo $sql;
 //      hearder('Location: '.$sql);
 //      exit;
