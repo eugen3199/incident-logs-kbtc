@@ -63,19 +63,27 @@
                                 <td>
 
                                     <!-- Edit button Starts Here (KHT) -->
-                                    <a class="btn btn-outline-warning" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" ><ion-icon name="pencil-outline"></ion-icon></a>
+                                <div class="d-flex flex-row">
+                                        <div class="p-2">
+                                    <h5><a class="text-dark" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
+                                    <ion-icon name="pencil"></ion-icon></a></h5>
+                                        </div>
                                     <!-- Edit button Ends Here (KHT) -->
-
+                                    <div class="p-2">
                                     <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                         <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                        <button type="submit" name="category_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Category?')" class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                                        <h5><a class="text-dark" type="submit" name="category_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Category?')"
+                                         ><ion-icon name="trash"></ion-icon></a></h5>
                                     </form>
+                                        </div>
+                                </div>
 
                                 </td>
                             </tr>
                             <!-- Edit Model Starts Here (KHT) -->
                             <div class="modal" id="detail<?php echo $value['id'] ?>">
                                 <div class="modal-dialog">
+                                    
                                     <div class="modal-content">
 
                                         <!-- Modal Header -->
