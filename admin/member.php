@@ -28,6 +28,7 @@
                                 id="category" required>
                         </div>
                         <br>
+
                         <div class="form-group ">
                             <label for="category">Email:</label>
                             <input type="text" class="form-control" placeholder="Enter Email" name="useremail"
@@ -41,7 +42,7 @@
                                 id="category" required>
                         </div>
                         <br>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label for="category">Role:</label>
                             <select type="text" name="role" class="form-control" id="category" required="required">
                                 <option value="user"> User </option>
@@ -85,7 +86,6 @@
                                         <?php echo $value['name']; ?> <a></td>
                                 <td><a href="#">
                                         <?php echo $value['email']; ?> <a></td>
-                                        
                                 <td><a href="#"> <?php echo $value['role']; ?> <a></td>
                                 <td>
 
@@ -94,9 +94,9 @@
                                     <form style="display:inline-block" class="form-display" action="backend.php"
                                         method="post">
                                         <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                        <button type="submit" name="account_delete" value="Delete"
+                                        <h5><a class="text-dark" type="submit" name="account_delete" value="Delete"
                                             onclick="return confirm('Are you sure you want to delete this Account?')"
-                                            class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                                            ><ion-icon name="trash-outline"></ion-icon></button></h5>
                                     </form>
 
                                 </td>
