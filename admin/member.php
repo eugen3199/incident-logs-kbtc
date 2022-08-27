@@ -30,8 +30,8 @@
                         <br>
 
                         <div class="form-group ">
-                            <label for="category">Useremail:</label>
-                            <input type="text" class="form-control" placeholder="Enter Useremail" name="useremail"
+                            <label for="category">Email:</label>
+                            <input type="text" class="form-control" placeholder="Enter Email" name="useremail"
                                 id="category" required>
                         </div>
                         <br>

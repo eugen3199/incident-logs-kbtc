@@ -311,10 +311,11 @@ function image_filter($image,$location){
     /* member_create */
     if(isset($_POST["member_create"])){
        $username = htmlspecialchars($_POST["username"]);
+       $useremail= htmlspecialchars($_POST["useremail"]);
        $password = htmlspecialchars($_POST["password"]);
        $role = htmlspecialchars($_POST["role"]);
        $date = date("Y-m-d");
-       $sql = "SELECT * FROM member WHERE name='$username'";
+       $sql = "SELECT * FROM member WHERE name='$username' OR email='$useremail'";
        $result = mysqli_query($connect, $sql);
        $row = mysqli_num_rows($result);
        if($row > 0){
@@ -322,7 +323,7 @@ function image_filter($image,$location){
         die();
        }else{
         /* No Encrypt Here Encrypt Your Self */
-       $sql2 = "INSERT INTO member(name,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$password','$role',1,'-','-','-','-','$date')";
+       $sql2 = "INSERT INTO member(name,email,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$useremail','$password','$role',1,'-','-','-','-','$date')";
        $result2 = mysqli_query($connect,$sql2);
        if($result){
         success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
