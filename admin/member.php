@@ -28,6 +28,12 @@
                                 id="category" required>
                         </div>
                         <br>
+                        <div class="form-group ">
+                            <label for="category">Email:</label>
+                            <input type="text" class="form-control" placeholder="Enter Email" name="useremail"
+                                id="category" required>
+                        </div>
+                        <br>
                        
                         <div class="form-group ">
                             <label for="category">Password:</label>
@@ -54,6 +60,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Email</th>
                                 <th>Role</th>
                                 <th>Action</th>
                             </tr>
@@ -76,6 +83,9 @@
                                 <td><?php echo ++$number; ?></td>
                                 <td><a href="#">
                                         <?php echo $value['name']; ?> <a></td>
+                                <td><a href="#">
+                                        <?php echo $value['email']; ?> <a></td>
+                                        
                                 <td><a href="#"> <?php echo $value['role']; ?> <a></td>
                                 <td>
 
