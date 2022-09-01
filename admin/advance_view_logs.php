@@ -52,7 +52,7 @@
                         <script>
                             var sel = document.getElementById('category');
                             <?php
-                                $sql = "SELECT * FROM category ORDER BY ID DESC";
+                                $sql = "SELECT * FROM category WHERE status=1 ORDER BY ID DESC";
                                 $result = mysqli_query($connect,$sql);
                                 foreach($result as $row){
                             ?>
@@ -83,7 +83,7 @@
                         <option selected value="*"> -- SUBCATEGORY -- </option>
                         <script>
                             <?php
-                                $sql = "SELECT * FROM sub_category";
+                                $sql = "SELECT * FROM sub_category WHERE status=1 ORDER BY ID DESC";
                                 $result = mysqli_query($connect,$sql);
                                 foreach($result as $row){
                             ?>
@@ -132,7 +132,7 @@
                         <option selected value="*"> -- INCIDENT -- </option>
                         <script>
                             <?php
-                                $sql = "SELECT * FROM incident";
+                                $sql = "SELECT * FROM incident WHERE status = 1 ORDER BY ID DESC";
                                 $result = mysqli_query($connect,$sql);
                                 foreach($result as $row){
                             ?>

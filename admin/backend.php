@@ -181,11 +181,11 @@ function image_filter($image,$location){
             $result = mysqli_query($connect,$sql);
             if($result){
                 success_message("Delete Incident Success",$_SERVER['HTTP_REFERER']);
-                }else{
-                    error_message("Delete Incident  Fail",$_SERVER['HTTP_REFERER']);
-                }
+            }else{
+                error_message("Delete Incident  Fail",$_SERVER['HTTP_REFERER']);
             }
         }
+    }
 
     /* solution_create */
     if(isset($_POST['solution_create'])){
