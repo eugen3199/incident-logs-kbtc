@@ -43,7 +43,7 @@
                 <br>
                 <div class="col-sm-4">
                     <label> Category :</label> 
-                    <select name="category" id="category" required class="form-control" onchange='changeAction(this.value)'>
+                    <select name="category" id="category" required class="form-control form-select" onchange='changeAction(this.value)'>
                         <script>
                         var id_array = [];
                         var name_array = [];
@@ -74,7 +74,7 @@
                 <br>
                 <div class="col-sm-4">
                     <label> Sub Category :</label>
-                    <select name="subcat" id="subcat" class="form-control" onchange='changeincAction(this.value)'>
+                    <select name="subcat" id="subcat" class="form-control  form-select" onchange='changeincAction(this.value)'>
                         <script>
                             var catid_array = [];
                             var id_array = [];
@@ -122,7 +122,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label> Incident :</label>
-                    <select name="incident" id="incident" class="form-control">
+                    <select name="incident" id="incident" class="form-control  form-select">
                         <script>
                             var inc_catid_array = [];
                             var inc_subcatid_array = [];
