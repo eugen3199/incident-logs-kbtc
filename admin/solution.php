@@ -121,17 +121,24 @@
                             <td>
 
                                 <!-- Edit button Starts Here (KHT) -->
-                                    <!-- <a class="btn btn-outline-warning" data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>" ><ion-icon name="pencil-outline"></ion-icon></a> -->
-                                    <button class="btn btn-outline-warning"  data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>"><ion-icon name="pencil-outline"></ion-icon></button>
+                                <!-- <a class="btn btn-outline-warning" data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>" ><ion-icon name="pencil-outline"></ion-icon></a> -->
+                                    <div class="d-flex flex-row">
+                                        <div class="p-2">
+                                    <h5><a class="text-dark"  data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>">
+                                    <ion-icon name="pencil-outline"></ion-icon></button></h5>
+                                    </div>
                                     <!-- Edit button Ends Here (KHT) -->
 
+                                    <div class="p-2">
                                 <form style="display:inline-block" class="form-display" action="backend.php"
                                     method="post">
                                     <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                    <button type="submit" name="solution_delete" value="Delete"
+                                    <h5><a class="text-dark" type="submit" name="solution_delete" value="Delete"
                                         onclick="return confirm('Are you sure you want to delete this Solution?')"
-                                        class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                                        ><ion-icon name="trash-outline"></ion-icon></button></h5>
                                 </form>
+                                    </div>
+                                    </div>
 
                             </td>
                         </tr>

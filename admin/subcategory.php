@@ -101,16 +101,23 @@
                                 <td>
 
                                     <!-- Edit button Starts Here (KHT) -->
-                                    <a class="btn btn-outline-warning" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" ><ion-icon name="pencil-outline"></ion-icon></a>
+                                    <div class="d-flex flex-row">
+                                    <div class="p-2">
+                                    <h5><a class="text-dark" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
+                                    <ion-icon name="pencil-outline"></ion-icon></a><h5>
+                                    </div>
                                     <!-- Edit button Ends Here (KHT) -->
-
+                                    
+                                    <div class="p-2">
                                     <form style="display:inline-block" class="form-display" action="backend.php"
                                         method="post">
                                         <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                        <button type="submit" name="sub_category_delete" value="Delete"
+                                        <h5><a class="text-dark" type="submit" name="sub_category_delete" value="Delete"
                                             onclick="return confirm('Are you sure you want to delete this Sub Category?')"
-                                            class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                                            ><ion-icon name="trash-outline"></ion-icon></button></h5>
                                     </form>
+                                    </div>
+                                     </div>
 
                                 </td>
                             </tr>
