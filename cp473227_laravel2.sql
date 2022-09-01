@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jul 31, 2022 at 09:39 AM
--- Server version: 5.6.51
--- PHP Version: 7.3.32
+-- Host: 127.0.0.1
+-- Generation Time: Sep 01, 2022 at 05:08 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -114,19 +113,20 @@ CREATE TABLE `logs` (
   `name` varchar(225) NOT NULL,
   `location` varchar(255) NOT NULL,
   `remark` text NOT NULL,
-  `create_at` varchar(255) NOT NULL
+  `create_at` varchar(255) NOT NULL,
+  `_time` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `logs`
 --
 
-INSERT INTO `logs` (`id`, `cat_id`, `sub_cat_id`, `incident_id`, `solution_id`, `name`, `location`, `remark`, `create_at`) VALUES
-(2, 1, 1, 1, 1, 'Admin', '2', 'Tester', '2022-07-26'),
-(3, 7, 26, 5, 4, 'Admin', '3', 'áƒá„áƒá„áƒá„áƒá„', '2022-07-26'),
-(4, 7, 26, 5, 3, 'Admin', '2', 'nope', '2022-07-26'),
-(5, 3, 13, 6, 6, 'Admin', '2', '', '2022-07-26'),
-(6, 4, 9, 8, 7, 'Admin', '2', '', '2022-07-27');
+INSERT INTO `logs` (`id`, `cat_id`, `sub_cat_id`, `incident_id`, `solution_id`, `name`, `location`, `remark`, `create_at`, `_time`) VALUES
+(2, 1, 1, 1, 1, 'Admin', '2', 'Tester', '2022-07-26', NULL),
+(3, 7, 26, 5, 4, 'Admin', '3', 'áƒá„áƒá„áƒá„áƒá„', '2022-07-26', NULL),
+(4, 7, 26, 5, 3, 'Admin', '2', 'nope', '2022-07-26', NULL),
+(5, 3, 13, 6, 6, 'Admin', '2', '', '2022-07-26', NULL),
+(6, 4, 9, 8, 7, 'Admin', '2', '', '2022-07-27', NULL);
 
 -- --------------------------------------------------------
 
@@ -137,6 +137,9 @@ INSERT INTO `logs` (`id`, `cat_id`, `sub_cat_id`, `incident_id`, `solution_id`, 
 CREATE TABLE `member` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `job_title` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
@@ -151,12 +154,13 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`id`, `name`, `password`, `role`, `status`, `profile`, `position`, `department`, `phone`, `create_at`) VALUES
-(1, 'admin', '123', 'admin', '1', '-', '-', '-', '-', ''),
-(3, 'tester', '123', 'user', '1', '-', '-', '-', '-', ''),
-(4, 'Thomas Naing', 'Thuwai12', 'admin', '1', '-', '-', '-', '-', ''),
-(5, 'Thu Wai', 'Thuwai12', 'user', '1', '-', '-', '-', '-', ''),
-(6, 'nandar', '142142', 'user', '1', '-', '-', '-', '-', '');
+INSERT INTO `member` (`id`, `name`, `email`, `display_name`, `job_title`, `password`, `role`, `status`, `profile`, `position`, `department`, `phone`, `create_at`) VALUES
+(1, 'admin', '', '', '', '123', 'admin', '0', '-', '-', '-', '-', ''),
+(4, 'Thomas Naing', '', '', '', 'Thuwai12', 'admin', '0', '-', '-', '-', '-', ''),
+(5, 'Thu Wai', '', '', '', 'Thuwai12', 'user', '0', '-', '-', '-', '-', ''),
+(9, 'phyu sin', 'phyusin@gmail.com', '', '', '12345', 'admin', '0', '-', '-', '-', '-', '2022-08-27'),
+(11, 'wllp', 'wllp@gmail.com', 'Win Lae Lae Phyo', 'IT Intern', '$2y$10$BWmGta1Gv0jqQ2bnaRcc0./XIsc4ITbIiUqosdpTBOEH.84d6YSau', 'admin', '1', '-', '-', '-', '-', '2022-08-30'),
+(12, 'kht', 'kht@gmail.com', 'Kaung Htun Thant', 'IT Associate', '$2y$10$kbpcZ5jedTx.0hPWtheI4eRzHjB1Y33/e95Ctn0vHx.zGamST9rhC', 'admin', '1', '-', '-', '-', '-', '2022-08-30');
 
 -- --------------------------------------------------------
 
@@ -309,7 +313,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `solution`

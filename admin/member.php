@@ -20,7 +20,7 @@
             <!-- Category -->
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <form action="backend.php" method="post">
                         <div class="form-group ">
                             <label for="category">Username:</label>
@@ -34,8 +34,20 @@
                                 id="category" required>
                         </div>
                         <br>
-                       
                         <div class="form-group ">
+                            <label for="category">Displayname:</label>
+                            <input type="text" class="form-control" placeholder="Enter Displayname" name="display_name"
+                                id="category" required>
+                        </div>
+                        <br>
+                        <div class="form-group ">
+                            <label for="category">Job Title:</label>
+                            <input type="text" class="form-control" placeholder="Enter Job Title" name="job_title"
+                                id="category" required>
+                        </div>
+                        <br>
+                       
+                       <div class="form-group ">
                             <label for="category">Password:</label>
                             <input type="password" class="form-control" placeholder="Enter Password" name="password"
                                 id="category" required>
@@ -43,7 +55,7 @@
                         <br>
                         <div class="form-group ">
                             <label for="category">Role:</label>
-                            <select type="text" name="role" class="form-control" id="category" required="required">
+                            <select type="text" name="role" class="form-control form-select" id="category" required="required">
                                 <option value="user"> User </option>
                                 <option value="admin"> Admin </option>
                             </select>
@@ -54,13 +66,15 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
+                                <th>Username</th>
                                 <th>Email</th>
+                                <th>Displayname</th>
+                                <th>Job Title</th>
                                 <th>Role</th>
                                 <th>Action</th>
                             </tr>
@@ -85,6 +99,11 @@
                                         <?php echo $value['name']; ?> <a></td>
                                 <td><a href="#">
                                         <?php echo $value['email']; ?> <a></td>
+                                <td><a href="#">
+                                        <?php echo $value['display_name']; ?> <a></td>
+                                <td><a href="#">
+                                        <?php echo $value['job_title']; ?> <a></td>
+                                        
                                         
                                 <td><a href="#"> <?php echo $value['role']; ?> <a></td>
                                 <td>

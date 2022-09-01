@@ -312,7 +312,9 @@ function image_filter($image,$location){
     if(isset($_POST["member_create"])){
        $username = htmlspecialchars($_POST["username"]);
        $useremail= htmlspecialchars($_POST["useremail"]);
-       $password = htmlspecialchars($_POST["password"]);
+       $display_name= htmlspecialchars($_POST["display_name"]);
+       $job_title= htmlspecialchars($_POST["job_title"]);
+       $password = password_hash(htmlspecialchars($_POST["password"]),PASSWORD_DEFAULT);
        $role = htmlspecialchars($_POST["role"]);
        $date = date("Y-m-d");
        $sql = "SELECT * FROM member WHERE name='$username' OR email='$useremail'";
@@ -323,7 +325,7 @@ function image_filter($image,$location){
         die();
        }
         /* No Encrypt Here Encrypt Your Self */
-       $sql2 = "INSERT INTO member(name,email,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$useremail','$password','$role',1,'-','-','-','-','$date')";
+       $sql2 = "INSERT INTO member(name,email,display_name,job_title,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$useremail','$display_name','$job_title','$password','$role',1,'-','-','-','-','$date')";
        $result2 = mysqli_query($connect,$sql2);
        if($result){
         success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
