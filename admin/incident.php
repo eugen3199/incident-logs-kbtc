@@ -131,7 +131,7 @@ echo $count;
                                 <!-- Edit button Starts Here (KHT) -->
                                 <div class="d-flex flex-row">
                                     <div class="p-2">
-                                    <button class="text-dark" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
+                                    <button class="text-dark btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
                                     <h5><ion-icon name="pencil-outline"></ion-icon></h5></button>
                                     </div>
                                     <!-- Edit button Ends Here (KHT) -->

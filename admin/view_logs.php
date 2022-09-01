@@ -108,9 +108,9 @@
                         <td>
                             <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                 <input type="hidden" value=<?php echo '"'.$l_id.'"' ?> name="id">
-                                <h5><a class="text-dark" type="submit" name="logs_delete" value="Delete"
+                                <button class="text-dark btn" type="submit" name="logs_delete" value="Delete"
             			onclick="return confirm('Are you sure you want to delete this Log?')"
-                                ><ion-icon name="trash-outline"></ion-icon></button></h5>
+                                ><h5><ion-icon name="trash-outline"></ion-icon></h5></button>
                             </form>
                         </td>
                     </tr>
