@@ -44,8 +44,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="category.php">Category</a></li>
-                            <li class="breadcrumb-item"><a
-                                    href="subcategory.php?id=<?php echo $cat_id ?>"><?php echo $name ?></a></li>
+                            <li class="breadcrumb-item">
+                                <a href="subcategory.php?id=<?php echo $cat_id ?>"><?php echo $name ?></a></li>
                             <li class="breadcrumb-item"><a href="#"><?php echo $subcategory ?></a></li>
 
                         </ol>
@@ -65,8 +65,7 @@
 
             <!-- Sub Category -->
 
-		
-		<div class="col-md-12">
+            <div class="col-md-12">
                 <form action="backend.php" method="post">
                     <input type="hidden" name="category" value="<?php echo $_GET["cat_id"]; ?>">
                     <input type="hidden" name="subcategory" value="<?php echo $_GET["sub_id"]; ?>">
@@ -84,7 +83,6 @@
 
             <hr>
 
-
             <div class="col-md-12">
                 <table class="table table-striped">
                     <thead>
@@ -92,12 +90,12 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Soultion Count</th>
-                            
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                                $sql = "SELECT * FROM incident WHERE cat_id=$cat_id && sub_cat_id=$sub_id";
+                                $sql = "SELECT * FROM incident WHERE cat_id=$cat_id && sub_cat_id=$sub_id && status=1;";
                                 $result = mysqli_query($connect,$sql);
                                 $number_row = mysqli_num_rows($result);
                                 $number = 0;
@@ -117,7 +115,7 @@
                             </td>
                             <td>
                                 <?php
-                                        $sql2 = "SELECT * FROM solution WHERE incident_id=$id";
+                                        $sql2 = "SELECT * FROM solution WHERE incident_id=$id AND status=1";
                                         $result2 = mysqli_query($connect,$sql2);
                                         $count = mysqli_num_rows($result2);
                                         
@@ -128,8 +126,34 @@ echo $count;
 ?>
                                 </button>
                             </td>
-                            
+
                         </tr>
+                        <!-- Edit Model Starts Here (KHT) -->
+                            <div class="modal" id="detail<?php echo $value['id'] ?>">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title"> Edit Form</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <form action="backend.php" method="post">
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                                <input type="text" name="title" value="<?php echo $value['title']; ?>">
+                                            </div>
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                    <button type="submit" name="incident_edit" value="Edit"  class="btn btn-success">Edit</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Edit Model Ends Here (KHT) -->
                         <?php
                                         }
                                     }

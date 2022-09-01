@@ -89,20 +89,18 @@
         
 
             <div class="col-md-12">
-               <button class="btn btn-outline-primary"  data-toggle="modal" data-target="#addSolution"> Add New Solution </button>
+                <button class="btn btn-outline-primary"  data-toggle="modal" data-target="#addSolution"> Add New Solution </button>
                 <br> <br>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Solution</th>
-                           
-                            
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                                $sql = "SELECT * FROM solution WHERE incident_id='$incident_id' ";
+                                $sql = "SELECT * FROM solution WHERE incident_id='$incident_id' AND status=1;";
                                 $result = mysqli_query($connect,$sql);
                                 $number_row = mysqli_num_rows($result);
                                 $number = 0;
@@ -117,41 +115,79 @@
                             <td>
                                 <p  data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >Solution <?php echo $number; ?></p>
                             </td>
-       
-                           
                         </tr>
                         <div class="modal" id="detail<?php echo $value['id'] ?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title"> Solution</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title"> Solution</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
 
-      <!-- Modal body -->
-      <div class="modal-body">
-       <?php echo $value['answer']; ?>
-                
-      </div>
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                               <?php echo $value['answer']; ?>
+                                        
+                              </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <form action="logs.php" method="post">
-            <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
-            <input type="hidden" name="sub_id" value="<?php echo $sub_id; ?>">
-            <input type="hidden"  name="inc_id" value="<?php echo $incident_id; ?>">
-            <input type="hidden"  name="answer_id" value="<?php echo $value['id']; ?>">
-            <input type="submit" name="redirect_log" class="btn btn-primary" value="Log with this solution" />
-        </form>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <form action="logs.php" method="post">
+                                    <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
+                                    <input type="hidden" name="sub_id" value="<?php echo $sub_id; ?>">
+                                    <input type="hidden"  name="inc_id" value="<?php echo $incident_id; ?>">
+                                    <input type="hidden"  name="answer_id" value="<?php echo $value['id']; ?>">
+                                    <input type="submit" name="redirect_log" class="btn btn-outline-primary" value="Log with this solution" />
+                                </form>
+                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                              </div>
 
-    </div>
+                            </div>
 
-  </div>
-</div>
+                          </div>
+                        </div>
+
+
+                        
+
+                        <!-- Edit Model Starts Here (KHT) -->
+                        <div class="modal" id="edit<?php echo $value['id'] ?>">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> Edit Form</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <form action="backend.php" method="post">
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <div class="form-group ">
+                                                <label for="category">Incident:</label>
+                                                <input type="hidden" name="id" value="<?php echo $incident_id;  ?>">
+                                                <input type="text" disabled class="form-control" placeholder="Enter Sub Category"
+                                                id="category"  value="<?php echo $question; ?>" required>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="category">Solution :</label>
+                                                <textarea type="text" class="form-control" placeholder="<?php echo $value['answer'];  ?>" name="answer" style="height: 200px;"
+                                                id="answer" required><?php echo $value['answer'];  ?></textarea>
+                                            </div>
+                                            <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                        </div>
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                                <button type="submit" name="solution_edit" value="Edit"  class="btn btn-success">Edit</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Edit Model Ends Here (KHT) -->
 
                         <?php
                                         }
@@ -166,6 +202,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 <!-- The Modal -->
@@ -211,8 +249,6 @@
     </form>
   </div>
 </div>
-
-
 
 
 

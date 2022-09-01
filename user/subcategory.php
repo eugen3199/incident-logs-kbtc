@@ -42,37 +42,13 @@
                         </ol>
                     </nav>
                 </div>
-		<div class="col-md-6">
-                    <form action="backend.php" method="post">
-                        <div class="form-group ">
 
-                            <input type="hidden" class="form-control" placeholder="Enter Sub Category" name="category"
-                                id="category" value="<?php echo $_GET["id"] ?>" required>
-                        </div>
-                        <div class="form-group ">
-                            <label for="category">Category:</label>
-                            <input type="text" disabled class="form-control" placeholder="Enter Sub Category"
-                                id="category" value="<?php echo $row["category"] ?>" required>
-                        </div>
-                        <br>
-                        <div class="form-group ">
-                            <label for="category">Sub Category:</label>
-                            <input type="text" class="form-control" placeholder="Enter Sub Category" name="subcategory"
-                                id="category" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <input type="submit" name="sub_category_create" class="btn btn-outline-primary" value="Create"> 
-                        </div>
-                    </form>
-                </div>
-	        <div class="col-md-6">
+                <div class="col-md-12">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th> SubCategory Name</th>
-                             
                             </tr>
                         </thead>
                         <tbody>
@@ -97,8 +73,33 @@
                                         <?php echo $value['subcategory']; ?> </a>
 
                                 </td>
-                               
                             </tr>
+                            <!-- Edit Model Starts Here (KHT) -->
+                            <div class="modal" id="detail<?php echo $value['id'] ?>">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title"> Edit Form</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <form action="backend.php" method="post">
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <input type="hidden" name="subcat_id" value="<?php echo $value['id']; ?>">
+                                                <input type="text" name="subcat_name" value="<?php echo $value['subcategory']; ?>">
+                                            </div>
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                    <button type="submit" name="subcategory_edit" value="Edit"  class="btn btn-success">Edit</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Edit Model Ends Here (KHT) -->
                             <?php
                                         }
                                     }
