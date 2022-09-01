@@ -16,6 +16,7 @@
         <!-- Page content-->
         <div class="container-fluid">
             <br>
+            <h3> Profile </h3>
 
             <!-- Category -->
 
@@ -32,7 +33,16 @@
                     <br>
                     <input type="text" name="email" class="form-control" placeholder="Useremail" required>
                     <br>
+                    <input type="submit" class="btn btn-primary" name="save" value="Save">
+                </form> &nbsp;&nbsp;
+
+                <h3> Change Password </h3>
+                    <form action="backend.php" method="post" enctype="multipart/form">
+                    <input type="password" name="old_password" class="form-control" placeholder="Old Password" required>
+                    <br>
                     <input type="password" name="new_password" class="form-control" placeholder="New Password" required>
+                    <br>
+                    <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required>
                     <br>
                     <input type="submit" class="btn btn-primary" name="save" value="Save">
                 </form>
