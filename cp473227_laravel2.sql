@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 01, 2022 at 05:08 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost:3306
+-- Generation Time: Sep 01, 2022 at 04:03 AM
+-- Server version: 5.7.39-0ubuntu0.18.04.2
+-- PHP Version: 7.2.34-33+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -46,7 +45,8 @@ INSERT INTO `category` (`id`, `category`, `status`) VALUES
 (6, 'Wifi', '0'),
 (7, 'Wifi', '0'),
 (8, 'test', '0'),
-(9, 'Normal Error', '0');
+(9, 'Normal Error', '0'),
+(10, 'test', '0');
 
 -- --------------------------------------------------------
 
@@ -59,22 +59,24 @@ CREATE TABLE `incident` (
   `title` text NOT NULL,
   `cat_id` int(11) NOT NULL,
   `sub_cat_id` int(11) NOT NULL,
-  `create_at` varchar(255) NOT NULL
+  `create_at` varchar(255) NOT NULL,
+  `status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `incident`
 --
 
-INSERT INTO `incident` (`id`, `title`, `cat_id`, `sub_cat_id`, `create_at`) VALUES
-(1, 'Network Port Lose', 1, 1, '2022-07-20'),
-(2, 'Cant Download', 3, 15, '2022-07-20'),
-(3, 'Excel files open only sometimes', 4, 8, '2022-07-26'),
-(4, 'Cant Connect', 4, 8, '2022-07-26'),
-(5, 'fdjhsrlfsb fkgfjjvfkjfljkf', 7, 26, '2022-07-26'),
-(6, 'Excel Cannot Open File ', 3, 13, '2022-07-26'),
-(7, 'dkha;fl', 9, 27, '2022-07-27'),
-(8, 'can ping but no internet', 4, 9, '2022-07-27');
+INSERT INTO `incident` (`id`, `title`, `cat_id`, `sub_cat_id`, `create_at`, `status`) VALUES
+(1, 'Network Port Lose', 1, 1, '2022-07-20', NULL),
+(2, 'Cant Download', 3, 15, '2022-07-20', NULL),
+(3, 'Excel files open only sometimes', 4, 8, '2022-07-26', NULL),
+(4, 'Cant Connect', 4, 8, '2022-07-26', NULL),
+(5, 'fdjhsrlfsb fkgfjjvfkjfljkf', 7, 26, '2022-07-26', NULL),
+(6, 'Excel Cannot Open File ', 3, 13, '2022-07-26', NULL),
+(7, 'dkha;fl', 9, 27, '2022-07-27', NULL),
+(8, 'can ping but no internet', 4, 9, '2022-07-27', NULL),
+(9, 'hello', 2, 20, '2022-09-01', 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,8 @@ INSERT INTO `logs` (`id`, `cat_id`, `sub_cat_id`, `incident_id`, `solution_id`, 
 (3, 7, 26, 5, 4, 'Admin', '3', 'áƒá„áƒá„áƒá„áƒá„', '2022-07-26', NULL),
 (4, 7, 26, 5, 3, 'Admin', '2', 'nope', '2022-07-26', NULL),
 (5, 3, 13, 6, 6, 'Admin', '2', '', '2022-07-26', NULL),
-(6, 4, 9, 8, 7, 'Admin', '2', '', '2022-07-27', NULL);
+(6, 4, 9, 8, 7, 'Admin', '2', '', '2022-07-27', NULL),
+(7, 2, 20, 9, 8, 'kht', '2', '', '2022-09-01', '10:15:40am');
 
 -- --------------------------------------------------------
 
@@ -160,7 +163,8 @@ INSERT INTO `member` (`id`, `name`, `email`, `display_name`, `job_title`, `passw
 (5, 'Thu Wai', '', '', '', 'Thuwai12', 'user', '0', '-', '-', '-', '-', ''),
 (9, 'phyu sin', 'phyusin@gmail.com', '', '', '12345', 'admin', '0', '-', '-', '-', '-', '2022-08-27'),
 (11, 'wllp', 'wllp@gmail.com', 'Win Lae Lae Phyo', 'IT Intern', '$2y$10$BWmGta1Gv0jqQ2bnaRcc0./XIsc4ITbIiUqosdpTBOEH.84d6YSau', 'admin', '1', '-', '-', '-', '-', '2022-08-30'),
-(12, 'kht', 'kht@gmail.com', 'Kaung Htun Thant', 'IT Associate', '$2y$10$kbpcZ5jedTx.0hPWtheI4eRzHjB1Y33/e95Ctn0vHx.zGamST9rhC', 'admin', '1', '-', '-', '-', '-', '2022-08-30');
+(12, 'kht', 'kht@gmail.com', 'Kaung Htun Thant', 'IT Associate', '$2y$10$kbpcZ5jedTx.0hPWtheI4eRzHjB1Y33/e95Ctn0vHx.zGamST9rhC', 'admin', '1', '-', '-', '-', '-', '2022-08-30'),
+(13, 'heinmahn', 'heinmahn@kbtc.edu.mm', 'Hein Mahn', 'Senior IT Associate', '$2y$10$qQyRMd1vnp0hrDPaSpqCJ.hOEjzO5r1g616CPZxB7uNa3OYXc7ofq', 'admin', '1', '-', '-', '-', '-', '2022-09-01');
 
 -- --------------------------------------------------------
 
@@ -173,21 +177,23 @@ CREATE TABLE `solution` (
   `incident_id` int(11) NOT NULL,
   `answer` text NOT NULL,
   `member_id` int(11) NOT NULL,
-  `create_date` varchar(255) NOT NULL
+  `create_date` varchar(255) NOT NULL,
+  `status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `solution`
 --
 
-INSERT INTO `solution` (`id`, `incident_id`, `answer`, `member_id`, `create_date`) VALUES
-(1, 1, 'Recrimp Network Head', 1, ''),
-(2, 2, 'Uninstall and Install', 1, ''),
-(3, 5, 'eikghrgherluih', 1, ''),
-(4, 5, 'á€ºá€á€”á€¡á€™á€á€”á€™á€¡á€á€”á€¡á€á€”á€¡', 1, ''),
-(5, 5, 'á€ºá€·á€«á€­á€žá€„á€«á€¯á€¼á€¡á€„á€¯á€¼', 1, ''),
-(6, 6, 'Appwiz.cpl&gt;Office&gt;right Click&gt;change&gt;Repair', 1, ''),
-(7, 8, 'find vpn\r\ndisable vpn', 1, '');
+INSERT INTO `solution` (`id`, `incident_id`, `answer`, `member_id`, `create_date`, `status`) VALUES
+(1, 1, 'Recrimp Network Head', 1, '', NULL),
+(2, 2, 'Uninstall and Install', 1, '', NULL),
+(3, 5, 'eikghrgherluih', 1, '', NULL),
+(4, 5, 'á€ºá€á€”á€¡á€™á€á€”á€™á€¡á€á€”á€¡á€á€”á€¡', 1, '', NULL),
+(5, 5, 'á€ºá€·á€«á€­á€žá€„á€«á€¯á€¼á€¡á€„á€¯á€¼', 1, '', NULL),
+(6, 6, 'Appwiz.cpl&gt;Office&gt;right Click&gt;change&gt;Repair', 1, '', NULL),
+(7, 8, 'find vpn\r\ndisable vpn', 1, '', NULL),
+(8, 9, 'hi 2', 1, '', 1);
 
 -- --------------------------------------------------------
 
@@ -289,45 +295,37 @@ ALTER TABLE `sub_category`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `incident`
 --
 ALTER TABLE `incident`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `solution`
 --
 ALTER TABLE `solution`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
