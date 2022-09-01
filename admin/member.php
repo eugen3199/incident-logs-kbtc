@@ -100,15 +100,15 @@
                                         <?php echo $value['name']; ?> <a></td>
                                 <td><a href="#">
                                         <?php echo $value['email']; ?> <a></td>
-<<<<<<< HEAD
+
                                 <td><a href="#">
                                         <?php echo $value['display_name']; ?> <a></td>
                                 <td><a href="#">
                                         <?php echo $value['job_title']; ?> <a></td>
                                         
                                         
-=======
->>>>>>> 31ad754cd412e8a74a0829a9a99dddb9f25af72b
+
+
                                 <td><a href="#"> <?php echo $value['role']; ?> <a></td>
                                 <td>
 

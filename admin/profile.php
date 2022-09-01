@@ -30,7 +30,7 @@
                     <br>
                     <input type="text" name="job_title" class="form-control" placeholder="Job Title" required>
                     <br>
-                    <input type="password" name="password" class="form-control" placeholder="Old Password" required>
+                    <input type="text" name="email" class="form-control" placeholder="Useremail" required>
                     <br>
                     <input type="password" name="new_password" class="form-control" placeholder="New Password" required>
                     <br>
