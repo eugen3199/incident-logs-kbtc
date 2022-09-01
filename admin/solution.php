@@ -124,8 +124,8 @@
                                 <!-- <a class="btn btn-outline-warning" data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>" ><ion-icon name="pencil-outline"></ion-icon></a> -->
                                     <div class="d-flex flex-row">
                                         <div class="p-2">
-                                    <h5><a class="text-dark"  data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>">
-                                    <ion-icon name="pencil-outline"></ion-icon></button></h5>
+                                    <button class="text-dark btn"  data-toggle="modal" data-target="#edit<?php echo $value['id']; ?>">
+                                    <h5><ion-icon name="pencil-outline"></ion-icon></h5></button>
                                     </div>
                                     <!-- Edit button Ends Here (KHT) -->
 
@@ -133,9 +133,13 @@
                                 <form style="display:inline-block" class="form-display" action="backend.php"
                                     method="post">
                                     <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                    <h5><a class="text-dark" type="submit" name="solution_delete" value="Delete"
+                                    <button class="text-dark btn" type="submit" name="solution_delete" value="Delete"
                                         onclick="return confirm('Are you sure you want to delete this Solution?')"
-                                        ><ion-icon name="trash-outline"></ion-icon></button></h5>
+                                        >
+                                        <h5>
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </h5>
+                                    </button>
                                 </form>
                                     </div>
                                     </div>
@@ -176,49 +180,7 @@
                         </div>
 
 
-                        <!-- 
-                        <div class="modal" id="edit<?php echo $value['id'];     ?>">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-
-                              
-                              <div class="modal-header">
-                                <h4 class="modal-title">Edit Solution</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              </div>
-
-                              
-                              <div class="modal-body">
-                              <form action="backend.php" method="post">
-                                            
-                                            <div class="form-group ">
-                                                    <label for="category">Incident:</label>
-                                                    <input type="hidden" name="id" value="<?php echo $incident_id;  ?>">
-                                                    <input type="text" disabled class="form-control" placeholder="Enter Sub Category"
-                                                        id="category"  value="<?php echo $question; ?>" required>
-                                                </div>
-                                            <div class="form-group ">
-                                                <label for="category">Solution :</label>
-                                                <textarea type="text" class="form-control" placeholder="<?php echo $value['answer'];  ?>" name="answer" style="height: 200px;"
-                                                    id="answer" required></textarea>
-                                            </div>
-                                            <br>
-                                            <div class="form-group">
-                                               
-                                            </div>
-                                        
-                              </div>
-
-                              
-                              <div class="modal-footer">
-                              <input type="submit" name="solution_edit" class="btn btn-outline-primary" value="Edit">
-                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                              </div>
-
-                            </div>
-                            </form>
-                          </div>
-                        </div> -->
+                        
 
                         <!-- Edit Model Starts Here (KHT) -->
                         <div class="modal" id="edit<?php echo $value['id'] ?>">
