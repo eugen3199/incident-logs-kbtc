@@ -156,7 +156,7 @@
                                 opt.value = '*';
                                 opt.innerHTML = ' -- INCIDENT -- ';
                                 incsel.appendChild(opt);
-                                for (var i = 0; i<=id_array.length; i++){
+                                for (var i = 0; i<=inc_id_array.length; i++){
                                     if (inc_subcatid_array[i] == id) {
                                         // console.log();
                                         var opt = document.createElement('option');
