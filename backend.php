@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
     $username = htmlspecialchars($_POST["username"]);
     $password = htmlspecialchars($_POST["password"]);
     
-    $sql = "SELECT * FROM member WHERE  name='$username'";
+    $sql = "SELECT * FROM member WHERE  name='$username' AND status=1";
     $data = mysqli_query($connect,$sql);
     $result = mysqli_num_rows($data);
     if($result > 0){
