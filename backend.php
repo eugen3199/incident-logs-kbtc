@@ -30,13 +30,15 @@ if(isset($_POST['login'])){
                 $_SESSION["admin_username"] = $username;
                 $_SESSION["admin_password"] = $password;
                 $_SESSION["username"] = $username;
-                  header("location:admin");
-          exit;
+                $_SESSION["FullName"] = $value['display_name'];
+                header("location:admin");
+                exit;
             }else{
               $_SESSION["role"] = $role;
               $_SESSION["user_username"] = $username;
               $_SESSION["user_password"] = $password;
               $_SESSION["username"] = $username;
+              $_SESSION["FullName"] = $value['display_name'];
                   header("location:user");
           exit;
             }

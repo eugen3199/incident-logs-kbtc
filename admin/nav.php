@@ -5,7 +5,7 @@
             <li class="nav-item">
                 <a href="profile.php" class="text-dark text-decoration-none">
                     <ion-icon class="ion-person" name="person"></ion-icon>
-                    <?php echo $_SESSION["username"]; ?>
+                    <?php echo $_SESSION["FullName"]; ?>
                 </a>
             </li>
         </ul>

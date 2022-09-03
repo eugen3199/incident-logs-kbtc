@@ -68,7 +68,6 @@
                                 sel.appendChild(opt);
                             }
                         </script>
-
                     </select>
                 </div>
                 <br>
