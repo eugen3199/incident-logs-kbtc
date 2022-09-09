@@ -74,7 +74,7 @@
                                 <th>No</th>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Displayname</th>
+                                <th>Display Name</th>
                                 <th>Job Title</th>
                                 <th>Role</th>
                                 <th>Action</th>
@@ -100,10 +100,15 @@
                                         <?php echo $value['name']; ?> <a></td>
                                 <td><a href="#">
                                         <?php echo $value['email']; ?> <a></td>
+
                                 <td><a href="#">
                                         <?php echo $value['display_name']; ?> <a></td>
                                 <td><a href="#">
                                         <?php echo $value['job_title']; ?> <a></td>
+                                        
+                                        
+
+
                                 <td><a href="#"> <?php echo $value['role']; ?> <a></td>
                                 <td>
 

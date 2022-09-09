@@ -31,6 +31,7 @@ if(isset($_POST['login'])){
                 $_SESSION["admin_password"] = $password;
                 $_SESSION["username"] = $username;
                 $_SESSION["FullName"] = $value['display_name'];
+                $_SESSION['id'] = $value['id'];
                 header("location:admin");
                 exit;
             }else{
@@ -39,8 +40,9 @@ if(isset($_POST['login'])){
               $_SESSION["user_password"] = $password;
               $_SESSION["username"] = $username;
               $_SESSION["FullName"] = $value['display_name'];
-                  header("location:user");
-          exit;
+              $_SESSION['id'] = $value['id'];
+              header("location:user");
+              exit;
             }
           }
     }
@@ -48,3 +50,6 @@ if(isset($_POST['login'])){
     header("location: /");
 }
 ?>
+
+
+
