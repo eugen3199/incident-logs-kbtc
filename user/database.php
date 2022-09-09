@@ -1,5 +1,5 @@
 <?php
-   $connect = mysqli_connect("localhost","admin","passwordformoodledude","cp473227_laravel2");
+   $connect = mysqli_connect("kmh-mysql-db.mysql.database.azure.com","itadmin","Kbtc321!@#","ims_db");
    //$connect = mysqli_connect("localhost","yuuji","3ug3n32c4r13T//","cp473227_laravel2");
     if(!$connect){
         ?>
