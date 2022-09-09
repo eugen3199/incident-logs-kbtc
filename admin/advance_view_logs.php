@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label> Incident :</label>
-                    <select name="incident" id="incident" class="form-control">
+                    <select name="incident" id="incident" class="form-control" onchange="changeggAction(this.value)">
                         <script>
                             var inc_catid_array = [];
                             var inc_subcatid_array = [];
@@ -156,7 +156,7 @@
                                 opt.value = '*';
                                 opt.innerHTML = ' -- INCIDENT -- ';
                                 incsel.appendChild(opt);
-                                for (var i = 0; i<=id_array.length; i++){
+                                for (var i = 0; i<=inc_id_array.length; i++){
                                     if (inc_subcatid_array[i] == id) {
                                         // console.log();
                                         var opt = document.createElement('option');
@@ -165,6 +165,10 @@
                                         incsel.appendChild(opt);
                                     }
                                 }
+                            }
+
+                            function changeggAction(id){
+                                console.log(id);
                             }
                         </script>
                     </select>
@@ -212,6 +216,9 @@
                     if (isset($_POST['subcat'])) {
                         $subcat = htmlspecialchars($_POST['subcat']);
                     }
+                    if (isset($_POST['incident'])) {
+                        $incident = htmlspecialchars($_POST['incident']);
+                    }
                     if (isset($_POST['start_date']) AND isset($_POST['end_date']) AND isset($_POST['category']) AND isset($_POST['subcat'])) {
                     // echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
                     $dstr = date('Y-m-d', strtotime($_POST['start_date']));
@@ -222,13 +229,24 @@
                         if ($subcat == '*') {
                             $sql = "SELECT * FROM logs order by id desc";
                         } else {
-                            $sql = "SELECT * FROM logs where sub_cat_id=$subcat order by id desc";
+                            if ($incident == '*'){
+                                $sql = "SELECT * FROM logs where sub_cat_id=$subcat order by id desc";
+                            }
+                            else{
+                                $sql = "SELECT * FROM logs where sub_cat_id=$subcat AND incident_id=$incident order by id desc";
+                            }
+                            
                         }
                     } else {
                         if ($subcat == '*') {
                             $sql = "SELECT * FROM logs where cat_id=$category order by id desc";
                         } else {
-                            $sql = "SELECT * FROM logs where cat_id=$category AND sub_cat_id=$subcat order by id desc";
+                            if ($incident == '*'){
+                                $sql = "SELECT * FROM logs where sub_cat_id=$subcat order by id desc";
+                            }
+                            else{
+                                $sql = "SELECT * FROM logs where sub_cat_id=$subcat AND incident_id=$incident order by id desc";
+                            }
                         }
                     }
 
