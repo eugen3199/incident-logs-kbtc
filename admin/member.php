@@ -20,7 +20,7 @@
             <!-- Category -->
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <form action="backend.php" method="post">
                         <div class="form-group ">
                             <label for="category">Username:</label>
@@ -67,7 +67,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <table class="table table-striped">
                         <thead>
                             <tr>
