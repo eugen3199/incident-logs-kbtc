@@ -25,30 +25,30 @@
 
         <button onclick="window.print()" class="btn btn-primary ">Print</button>
 
-        <br> <br>
+        <br><br><hr><br>
 
         <form action="advance_view_logs.php" method="post" class="form-inline">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label>Start Date : </label>
                     <input type="date" name="start_date" placeholder="" class="form-control" required>
                     
                 </div>  
                 <br>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label>End Date : </label>
                     <input type="date" name="end_date" placeholder="" class="form-control" required>
 
                 </div>
                 <br>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label> Category :</label> 
-                    <select name="category" id="category" required class="form-control" onchange='changeAction(this.value)'>
+                    <select name="category" id="category" required class="form-control form-select" onchange='changeAction(this.value)'>
                         <script>
                         var id_array = [];
                         var name_array = [];
                         </script>
-                        <option selected value="*"> -- CATEGORY -- </option>
+                        <option selected value="*"> -- Category -- </option>
                         <script>
                             var sel = document.getElementById('category');
                             <?php
@@ -71,15 +71,15 @@
                     </select>
                 </div>
                 <br>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label> Sub Category :</label>
-                    <select name="subcat" id="subcat" class="form-control" onchange='changeincAction(this.value)'>
+                    <select name="subcat" id="subcat" class="form-control form-select" onchange='changeincAction(this.value)'>
                         <script>
                             var catid_array = [];
                             var id_array = [];
                             var name_array = [];
                         </script>
-                        <option selected value="*"> -- SUBCATEGORY -- </option>
+                        <option selected value="*"> -- Sub-category -- </option>
                         <script>
                             <?php
                                 $sql = "SELECT * FROM sub_category WHERE status=1 ORDER BY ID DESC";
@@ -119,7 +119,7 @@
                         </script>
                     </select>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <label> Incident :</label>
                     <select name="incident" id="incident" class="form-control" onchange="changeggAction(this.value)">
                         <script>
@@ -128,7 +128,7 @@
                             var inc_id_array = [];
                             var inc_name_array = [];
                         </script>
-                        <option selected value="*"> -- INCIDENT -- </option>
+                        <option selected value="*"> -- Incident -- </option>
                         <script>
                             <?php
                                 $sql = "SELECT * FROM incident WHERE status = 1 ORDER BY ID DESC";
@@ -174,7 +174,7 @@
                     </select>
                 </div>
 
-                <div class="col-sm-12">
+                <div class="col-sm-2">
                     <label></label>
                     <br>
                     <input class="btn btn-outline-success" name="search" type="submit" value="Search">
@@ -182,24 +182,41 @@
                 </div>
         </form>
         <br>
+        <hr>
         <br>
     </div>
-        <table class="table table-striped table-bordered table-hover">
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover display table-responsive" id="example" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Date</th>
-		    <th>Time</th>
-                    <th>Location</th>
-                    <th>Category</th>
-                    <th>SubCategory</th>
-                    <th>Incident</th>
-                    <th>Solution</th>
-                    <th>User</th>
-                    <th>Remark</th>
-                    <th>Action</th>
+                    <th class="px-1 py-1">No</th>
+                    <th class="px-1 py-1">Date</th>
+                    <th class="px-1 py-1">Time</th>
+                    <th class="px-1 py-1">Location</th>
+                    <th class="px-1 py-1">Category</th>
+                    <th class="px-1 py-1">SubCategory</th>
+                    <th class="px-1 py-1">Incident</th>
+                    <th class="px-1 py-1">Solution</th>
+                    <th class="px-1 py-1">User</th>
+                    <th class="px-1 py-1">Remark</th>
+                    <th class="px-1 py-1">Action</th>
                 </tr>
             </thead>
+            <tfoot>
+                <tr>
+                    <th class="px-1 py-1">No</th>
+                    <th class="px-1 py-1">Date</th>
+                    <th class="px-1 py-1">Time</th>
+                    <th class="px-1 py-1">Location</th>
+                    <th class="px-1 py-1">Category</th>
+                    <th class="px-1 py-1">SubCategory</th>
+                    <th class="px-1 py-1">Incident</th>
+                    <th class="px-1 py-1">Solution</th>
+                    <th class="px-1 py-1">User</th>
+                    <th class="px-1 py-1">Remark</th>
+                    <th class="px-1 py-1">Action</th>
+                </tr>
+            </tfoot>
             <tbody>
                 <?php
                     if (isset($_POST['start_date'])) {
@@ -262,7 +279,7 @@
                             $remark = $value['remark'];
                             $create_at = $value['create_at'];
                             $create_at1 = strtotime($value['create_at']);
-			    $_time = $value['_time'];
+                $_time = $value['_time'];
                             // if($create_at[0] >= $sdate[0] && $create_at[0] <= $edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= $edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= $edate[2]){
                             if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
 
@@ -297,27 +314,27 @@
                                 }
                 ?>
                 <tr>
-                    <td><?php echo ++$i; ?></td>
-                    <td>
+                    <td class="px-1 py-1"><?php echo ++$i; ?></td>
+                    <td class="px-1 py-1">
 
                     <!-- Edit button Starts Here (KHT) -->
                     <a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
                     <!-- Edit button Ends Here (KHT) -->
                     </td>
-		    <td>
+            <td class="px-1 py-1">
 
                     <!-- Edit button Starts Here (KHT) -->
                     <a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a>
                     <!-- Edit button Ends Here (KHT) -->
                     </td>
-                    <td><?php echo $location; ?></td>
-                    <td><?php echo $category; ?></td>
-                    <td><?php echo $subcategory; ?></td>
-                    <td><?php echo $incident; ?></td>
-                    <td><?php echo $answer; ?></td>
-                    <td><?php echo $name; ?></td>
-                    <td><?php echo $remark; ?></td>
-                    <td>
+                    <td class="px-1 py-1"><?php echo $location; ?></td>
+                    <td class="px-1 py-1"><?php echo $category; ?></td>
+                    <td class="px-1 py-1"><?php echo $subcategory; ?></td>
+                    <td class="px-1 py-1"><?php echo $incident; ?></td>
+                    <td class="px-1 py-1"><?php echo $answer; ?></td>
+                    <td class="px-1 py-1"><?php echo $name; ?></td>
+                    <td class="px-1 py-1"><?php echo $remark; ?></td>
+                    <td class="px-1 py-1">
                         <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                             <input type="hidden" value="<?php echo $l_id ?>" name="id">
                             <button type="submit" name="logs_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Log?')"
@@ -385,8 +402,15 @@
             </tbody>
         </table>
     </div>
+    </div>
 </div>
-
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+</script>
 <?php
 include "footer.php";
 ?>
