@@ -32,18 +32,32 @@
             <table id="example" class="table table-striped table-bordered table-hover display">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Date</th>
-            <th>Time</th>
-                        <th>Location</th>
-                        <th>Category</th>
-                        <th>SubCategory</th>
-                        <th>Incident</th>
-                        <th>Solution</th>
-                        <th>User</th>
-                        <th>Remark</th>
+                        <th class="px-1 py-1">No</th>
+                        <th class="px-1 py-1">Date</th>
+                        <th class="px-1 py-1">Time</th>
+                        <th class="px-1 py-1">Location</th>
+                        <th class="px-1 py-1">Category</th>
+                        <th class="px-1 py-1">SubCategory</th>
+                        <th class="px-1 py-1">Incident</th>
+                        <th class="px-1 py-1">Solution</th>
+                        <th class="px-1 py-1">User</th>
+                        <th class="px-1 py-1">Remark</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th class="px-1 py-1">No</th>
+                        <th class="px-1 py-1">Date</th>
+                        <th class="px-1 py-1">Time</th>
+                        <th class="px-1 py-1">Location</th>
+                        <th class="px-1 py-1">Category</th>
+                        <th class="px-1 py-1">SubCategory</th>
+                        <th class="px-1 py-1">Incident</th>
+                        <th class="px-1 py-1">Solution</th>
+                        <th class="px-1 py-1">User</th>
+                        <th class="px-1 py-1">Remark</th>
+                    </tr>
+                </tfoot>
                 <tbody>
 
                     <?php
