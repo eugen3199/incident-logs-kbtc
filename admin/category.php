@@ -99,7 +99,7 @@
                                             </div>
                                             <!-- Modal footer -->
                                             <div class="modal-footer">
-                                                    <button type="submit" name="category_edit" value="Edit"  class="btn btn-success">Edit</button>
+                                                    <button type="submit" name="category_edit" value="Edit"  class="btn btn-success">Confirm</button>
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                                             </div>
                                         </form>

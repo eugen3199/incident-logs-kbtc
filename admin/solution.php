@@ -115,7 +115,7 @@
                         <tr>
                             <td><?php echo ++$number; ?></td>
                             <td>
-                                <p  data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >Solution <?php echo $number; ?></p>
+                                <p  data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" ><a href="#">Solution <?php echo $number; ?></a></p>
                             </td>
        
                             <td>
@@ -210,7 +210,7 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                                <button type="submit" name="solution_edit" value="Edit"  class="btn btn-success">Edit</button>
+                                                <button type="submit" name="solution_edit" value="Edit"  class="btn btn-success">Confirm</button>
                                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                                         </div>
                                     </form>
