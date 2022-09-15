@@ -31,32 +31,32 @@
                     <table class="table table-striped table-bordered table-hover display table-responsive" id="example" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Location</th>
-                                <th>Category</th>
-                                <th>SubCategory</th>
-                                <th>Incident</th>
-                                <th>Solution</th>
-                                <th>User</th>
-                                <th>Remark</th>
-                                <th>Action</th>
+                                <th class="px-1 py-1">No</th>
+                                <th class="px-1 py-1">Date</th>
+                                <th class="px-1 py-1">Time</th>
+                                <th class="px-1 py-1">Location</th>
+                                <th class="px-1 py-1">Category</th>
+                                <th class="px-1 py-1">SubCategory</th>
+                                <th class="px-1 py-1">Incident</th>
+                                <th class="px-1 py-1">Solution</th>
+                                <th class="px-1 py-1">User</th>
+                                <th class="px-1 py-1">Remark</th>
+                                <th class="px-1 py-1">Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>No</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Location</th>
-                                <th>Category</th>
-                                <th>SubCategory</th>
-                                <th>Incident</th>
-                                <th>Solution</th>
-                                <th>User</th>
-                                <th>Remark</th>
-                                <th>Action</th>
+                                <th class="px-1 py-1">No</th>
+                                <th class="px-1 py-1">Date</th>
+                                <th class="px-1 py-1">Time</th>
+                                <th class="px-1 py-1">Location</th>
+                                <th class="px-1 py-1">Category</th>
+                                <th class="px-1 py-1">SubCategory</th>
+                                <th class="px-1 py-1">Incident</th>
+                                <th class="px-1 py-1">Solution</th>
+                                <th class="px-1 py-1">User</th>
+                                <th class="px-1 py-1">Remark</th>
+                                <th class="px-1 py-1">Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -109,17 +109,17 @@
                                     }
                                     ?>
                             <tr>
-                                <td><?php echo ++$i; ?></td>
-                                <td><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
-                                <td><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
-        			<td><?php echo $location; ?></td>
-                                <td><?php echo $category; ?></td>
-                                <td><?php echo $subcategory; ?></td>
-                                <td><?php echo $incident; ?></td>
-                                <td><?php echo $answer; ?></td>
-                                <td><?php echo $name; ?></td>
-                                <td><?php echo $remark; ?></td>
-                                <td>
+                                <td class="px-1 py-1"><?php echo ++$i; ?></td>
+                                <td class="px-1 py-1"><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
+                                <td class="px-1 py-1"><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
+        			<td class="px-1 py-1"><?php echo $location; ?></td>
+                                <td class="px-1 py-1"><?php echo $category; ?></td>
+                                <td class="px-1 py-1"><?php echo $subcategory; ?></td>
+                                <td class="px-1 py-1"><?php echo $incident; ?></td>
+                                <td class="px-1 py-1"><?php echo $answer; ?></td>
+                                <td class="px-1 py-1"><?php echo $name; ?></td>
+                                <td class="px-1 py-1"><?php echo $remark; ?></td>
+                                <td class="px-1 py-1">
                                     <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                         <input type="hidden" value=<?php echo '"'.$l_id.'"' ?> name="id">
                                         <button class="text-dark btn" type="submit" name="logs_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Log?')"
