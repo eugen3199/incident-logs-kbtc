@@ -121,7 +121,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label> Incident :</label>
-                    <select name="incident" id="incident" class="form-control" onchange="changeggAction(this.value)">
+                    <select name="incident" id="incident" class="form-control form-select" onchange="changeggAction(this.value)">
                         <script>
                             var inc_catid_array = [];
                             var inc_subcatid_array = [];
