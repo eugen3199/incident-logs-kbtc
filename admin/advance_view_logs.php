@@ -31,13 +31,13 @@
             <div class="row">
                 <div class="col-sm-2">
                     <label>Start Date : </label>
-                    <input type="date" name="start_date" placeholder="" class="form-control" required>
+                    <input type="date" name="start_date" placeholder="" class="form-control" onchange='changeggAction(this.value)'>
                     
                 </div>  
                 <br>
                 <div class="col-sm-2">
                     <label>End Date : </label>
-                    <input type="date" name="end_date" placeholder="" class="form-control" required>
+                    <input type="date" name="end_date" placeholder="" class="form-control" onchange='changeggAction(this.value)'>
 
                 </div>
                 <br>
@@ -219,6 +219,7 @@
             </tfoot>
             <tbody>
                 <?php
+
                     if (isset($_POST['start_date'])) {
                         $sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
                         $sdate1 = strtotime(htmlspecialchars($_POST['start_date']));
@@ -236,12 +237,7 @@
                     if (isset($_POST['incident'])) {
                         $incident = htmlspecialchars($_POST['incident']);
                     }
-                    if (isset($_POST['start_date']) AND isset($_POST['end_date']) AND isset($_POST['category']) AND isset($_POST['subcat'])) {
-                    // echo "$sdate[0], $sdate[1], $sdate[2]<br>$edate[0], $edate[1], $edate[2]";
                     $dstr = date('Y-m-d', strtotime($_POST['start_date']));
-                    // echo "$sdate1, $edate1, $dstr";
-
-
                     if ($category == '*') {
                         if ($subcat == '*') {
                             $sql = "SELECT * FROM logs order by id desc";
@@ -267,51 +263,50 @@
                         }
                     }
 
-                        $result = mysqli_query($connect,$sql);
-                        foreach($result as $i=>$value){
-                            $l_id = $value['id'];
-                            $cat_id = $value['cat_id'];
-                            $sub_cat_id = $value['sub_cat_id'];
-                            $incident_id = $value['incident_id'];
-                            $solution_id = $value['solution_id'];
-                            $name = $value['name'];
-                            $location = $value['location'];
-                            $remark = $value['remark'];
-                            $create_at = $value['create_at'];
-                            $create_at1 = strtotime($value['create_at']);
-                $_time = $value['_time'];
-                            // if($create_at[0] >= $sdate[0] && $create_at[0] <= $edate[0] && $create_at[1] >= $sdate[1] && $create_at[1] <= $edate[1] && $create_at[2] >= $sdate[2] && $create_at[2] <= $edate[2]){
-                            if($create_at1 >= $sdate1 && $create_at1 <= $edate1){
+                    $result = mysqli_query($connect,$sql);
+                    foreach($result as $i=>$value){
+                        $l_id = $value['id'];
+                        $cat_id = $value['cat_id'];
+                        $sub_cat_id = $value['sub_cat_id'];
+                        $incident_id = $value['incident_id'];
+                        $solution_id = $value['solution_id'];
+                        $name = $value['name'];
+                        $location = $value['location'];
+                        $remark = $value['remark'];
+                        $create_at = $value['create_at'];
+                        $create_at1 = strtotime($value['create_at']);
+                        $_time = $value['_time'];
+                        if((sdate1=="" && edate1=="") || ($create_at1 >= $sdate1 && $create_at1 <= $edate1)){
 
-                                $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
-                                $result2 = mysqli_query($connect,$sql2);
-                                foreach($result2 as $value){
-                                    $category = $value["category"];
-                                }
+                            $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
+                            $result2 = mysqli_query($connect,$sql2);
+                            foreach($result2 as $value){
+                                $category = $value["category"];
+                            }
 
-                                $sql2 = "SELECT * FROM sub_category WHERE id=$sub_cat_id && status=1";
-                                $result2 = mysqli_query($connect,$sql2);
-                                foreach($result2 as $value){
-                                    $subcategory = $value["subcategory"];
-                                }
+                            $sql2 = "SELECT * FROM sub_category WHERE id=$sub_cat_id && status=1";
+                            $result2 = mysqli_query($connect,$sql2);
+                            foreach($result2 as $value){
+                                $subcategory = $value["subcategory"];
+                            }
 
-                                $sql3 = "SELECT * FROM incident WHERE id=$incident_id";
-                                $result3 = mysqli_query($connect,$sql3);
-                                foreach($result3 as $value){
-                                    $incident = $value["title"];
-                                }
+                            $sql3 = "SELECT * FROM incident WHERE id=$incident_id";
+                            $result3 = mysqli_query($connect,$sql3);
+                            foreach($result3 as $value){
+                                $incident = $value["title"];
+                            }
 
-                                $sql4 = "SELECT * FROM solution WHERE id=$solution_id";
-                                $result4 = mysqli_query($connect,$sql4);
-                                foreach($result4 as $value){
-                                    $answer = $value["answer"];
-                                }
+                            $sql4 = "SELECT * FROM solution WHERE id=$solution_id";
+                            $result4 = mysqli_query($connect,$sql4);
+                            foreach($result4 as $value){
+                                $answer = $value["answer"];
+                            }
 
-                                $sql5 = "SELECT * FROM location WHERE id=$location";
-                                $result5 = mysqli_query($connect,$sql5);
-                                foreach($result5 as $value){
-                                    $location = $value["name"];
-                                }
+                            $sql5 = "SELECT * FROM location WHERE id=$location";
+                            $result5 = mysqli_query($connect,$sql5);
+                            foreach($result5 as $value){
+                                $location = $value["name"];
+                            }
                 ?>
                 <tr>
                     <td class="px-1 py-1"><?php echo ++$i; ?></td>
@@ -321,7 +316,7 @@
                     <a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
                     <!-- Edit button Ends Here (KHT) -->
                     </td>
-            <td class="px-1 py-1">
+                    <td class="px-1 py-1">
 
                     <!-- Edit button Starts Here (KHT) -->
                     <a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a>
@@ -395,7 +390,6 @@
                 <!-- Edit Model Ends Here (KHT) -->
 
                 <?php       
-                        }
                     }
                 }
                 ?>
@@ -408,8 +402,12 @@
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function () {
-    $('#example').DataTable();
-});
+        $('#example').DataTable();
+    });
+
+    function changedateAction(){
+
+    }
 </script>
 <?php
 include "footer.php";
