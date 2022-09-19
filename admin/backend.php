@@ -353,10 +353,7 @@ function image_filter($image,$location){
         }
     }
 
-
-?>
-
-<?php
+    /* Member profile edit */
     if(isset($_POST['save'])){
       $id = htmlspecialchars($_POST["id"]);
       $display_name = htmlspecialchars($_POST["display_name"]);
@@ -373,9 +370,8 @@ function image_filter($image,$location){
       }
            
     }
-  ?>
 
-<?php
+    /* Member Password Change */
     if(isset($_POST['update'])){
         $id = htmlspecialchars($_POST["id"]);
         $old_password = htmlspecialchars($_POST['old_password']); 
