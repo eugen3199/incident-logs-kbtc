@@ -48,7 +48,7 @@
                         var id_array = [];
                         var name_array = [];
                         </script>
-                        <option selected value="*"> -- Category -- </option>
+                        <option selected value="*"> -- All -- </option>
                         <script>
                             var sel = document.getElementById('category');
                             <?php
@@ -79,7 +79,7 @@
                             var id_array = [];
                             var name_array = [];
                         </script>
-                        <option selected value="*"> -- Sub-category -- </option>
+                        <option selected value="*"> -- All -- </option>
                         <script>
                             <?php
                                 $sql = "SELECT * FROM sub_category WHERE status=1 ORDER BY ID DESC";
@@ -104,7 +104,7 @@
                                 }
                                 var opt = document.createElement('option');
                                 opt.value = '*';
-                                opt.innerHTML = ' -- SUBCATEGORY -- ';
+                                opt.innerHTML = ' -- All -- ';
                                 sel.appendChild(opt);
                                 for (var i = 0; i<=id_array.length; i++){
                                     if (catid_array[i] == id) {
@@ -128,7 +128,7 @@
                             var inc_id_array = [];
                             var inc_name_array = [];
                         </script>
-                        <option selected value="*"> -- Incident -- </option>
+                        <option selected value="*"> -- All -- </option>
                         <script>
                             <?php
                                 $sql = "SELECT * FROM incident WHERE status = 1 ORDER BY ID DESC";
@@ -154,7 +154,7 @@
                                 }
                                 var opt = document.createElement('option');
                                 opt.value = '*';
-                                opt.innerHTML = ' -- INCIDENT -- ';
+                                opt.innerHTML = ' -- All -- ';
                                 incsel.appendChild(opt);
                                 for (var i = 0; i<=inc_id_array.length; i++){
                                     if (inc_subcatid_array[i] == id) {
@@ -224,6 +224,7 @@
                         $sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
                         $sdate1 = strtotime(htmlspecialchars($_POST['start_date']));
                     }
+                    
                     if (isset($_POST['end_date'])) {
                         $edate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['end_date'])));
                         $edate1 = strtotime(htmlspecialchars($_POST['end_date']));
@@ -276,7 +277,16 @@
                         $create_at = $value['create_at'];
                         $create_at1 = strtotime($value['create_at']);
                         $_time = $value['_time'];
-                        if(($sdate1=="" && $edate1=="") || ($create_at1 >= $sdate1 && $create_at1 <= $edate1)){
+                        $datecon = true;
+                        $sdatecon = true;
+                        if ($sdate1=='' and $edate1==''){
+                            $datecon = false;
+                        }
+                        elseif ($sdate1!='' and $edate1=='') {
+                            $sdatecon = false;
+                        }
+                        
+                        if(($sdate1=='' and $edate1=='') or ($create_at1 >= $sdate1 and $create_at1 <= $edate1)){
 
                             $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                             $result2 = mysqli_query($connect,$sql2);
