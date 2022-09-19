@@ -276,7 +276,7 @@
                         $create_at = $value['create_at'];
                         $create_at1 = strtotime($value['create_at']);
                         $_time = $value['_time'];
-                        if((sdate1=="" && edate1=="") || ($create_at1 >= $sdate1 && $create_at1 <= $edate1)){
+                        if(($sdate1=="" && $edate1=="") || ($create_at1 >= $sdate1 && $create_at1 <= $edate1)){
 
                             $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
                             $result2 = mysqli_query($connect,$sql2);
