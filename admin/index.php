@@ -19,7 +19,7 @@
             <h2> Dashboard </h2>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                 <table class="table table-striped text">
                         
                             <tr>
@@ -31,63 +31,53 @@
                        
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="row">
-                       <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body bg-info">
-                                    <h4 class="card-title">Network</h4>
-                                    <p class="card-text">25</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
+                        <div class="col-sm-6">
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Network</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
                                 </div>
                             </div>
                         </div>
-            
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body bg-info">
-                                    <h4 class="card-title">Software</h4>
-                                    <p class="card-text">30</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
+                    
+                        <div class="col-sm-6">
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Network</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                       <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body bg-info">
-                                    <h4 class="card-title">Network</h4>
-                                    <p class="card-text">25</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
+                        
+                        <div class="col-sm-6">
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Network</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
                                 </div>
                             </div>
                         </div>
-            
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body bg-info">
-                                    <h4 class="card-title">Software</h4>
-                                    <p class="card-text">30</p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
+                        
+                        <div class="col-sm-6">
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Network</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        
+        </div>
+    </div>
 
-</div>
-</div>
 
 <?php
             include "footer.php";
