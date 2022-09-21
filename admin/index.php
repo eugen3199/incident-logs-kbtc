@@ -46,7 +46,7 @@
                                         ?>
                             <tr>
                                 <td><?php echo ++$number; ?></td>
-                                <td><a href="incident.php?sub_id=<?php echo $value['sub_cat_id'] ?>&&cat_id=<?php echo $value['cat_id'] ?>&&incident_id=<?php echo $value['id'] ?>">
+                                <td><a href="solution.php?sub_id=<?php echo $value['sub_cat_id'] ?>&&cat_id=<?php echo $value['cat_id'] ?>&&incident_id=<?php echo $value['id'] ?>">
             
                                         <?php echo $value['title']; ?> <a></td>
                                 <td><a href="#">
