@@ -20,12 +20,13 @@
 
             <div class="row">
                 <div class="col-md-7">
-                <table class="shadow-sm table table-striped text-center">
+                <table class="shadow-sm table table-striped table-hover display table-responsive" id="example">
+                
                     <thead>    
                             <tr>
-                                <th class="text-center">No</th>
-                                <th class="text-center">Incident Name</th>
-                                <th class="text-center">Count</th>
+                                <th>No</th>
+                                <th>Incident Name</th>
+                                <th>Count</th>
                             </tr>
                     </thead>
                     <tbody>
@@ -34,15 +35,14 @@
                                 $result = mysqli_query($connect,$sql);
                                 $number_row = mysqli_num_rows($result);
                                 $number = 0;
-                                $number += $number;
+                            
                                 if($number_row > 0){
+                                    
                                     foreach($result as $key=>$value){
                                         $count_id=$value['id'];
                                         $sql = "SELECT * FROM logs WHERE incident_id='$count_id'";
-                                        $result = mysqli_query($connect,$sql);
-                                        $number_row = mysqli_num_rows($result);
-                                        
-                                        
+                                        $result1 = mysqli_query($connect,$sql);
+                                        $number_row1 = mysqli_num_rows($result1);
                                         ?>
                             <tr>
                                 <td><?php echo ++$number; ?></td>
@@ -50,7 +50,7 @@
             
                                         <?php echo $value['title']; ?> <a></td>
                                 <td><a href="#">
-                                        <?php echo $number_row; ?> <a></td>
+                                        <?php echo $number_row1; ?> <a></td>
                             </tr>
                             <?php
                                         }
@@ -109,7 +109,13 @@
             </div>
         </div>
     </div>
-
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            $('#example').DataTable();
+        });
+        </script>
 
 <?php
             include "footer.php";
