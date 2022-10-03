@@ -354,4 +354,60 @@ function image_filter($image,$location){
     }
 
 
-?>
+
+/* Member profile edit */
+    if(isset($_POST['save'])){
+      $id = htmlspecialchars($_POST["id"]);
+      $display_name = htmlspecialchars($_POST["display_name"]);
+      $job_title = htmlspecialchars($_POST["job_title"]);
+      $email = htmlspecialchars($_POST["email"]);
+
+      $sql = "UPDATE member SET display_name='$display_name',job_title='$job_title',email='$email' WHERE id=$id";
+      $result = mysqli_query($connect,$sql);
+      
+      if($result){
+        success_message("Edit Member Success", $_SERVER['HTTP_REFERER']);
+      }else{
+        error_message("Edit Member Fail",$_SERVER['HTTP_REFERER']);
+      }
+           
+    }
+
+    /* Member Password Change */
+    if(isset($_POST['update'])){
+        $id = htmlspecialchars($_POST["id"]);
+        $old_password = htmlspecialchars($_POST['old_password']); 
+        $new_password = htmlspecialchars($_POST['new_password']); 
+        $confirm_password = htmlspecialchars($_POST['confirm_password']); 
+
+        $sql = "SELECT * FROM member WHERE  id='$id'";
+        $data = mysqli_query($connect,$sql);
+        $result = mysqli_num_rows($data);
+        if($result > 0){
+            foreach($data as $key=>$value){
+                if(password_verify($old_password,$value['password'])){
+        
+                    if($new_password == $confirm_password){
+                        $password = password_hash(htmlspecialchars($new_password),PASSWORD_DEFAULT);
+                        $sql = "UPDATE member SET password='$password' WHERE id=$id";
+                        $result = mysqli_query($connect,$sql);
+                        $_SESSION["admin_password"] = $new_password;
+                        if($result){
+                            success_message("Edit Password Success", $_SERVER['HTTP_REFERER']);
+                        }else{
+                            error_message("Edit Password Fail",$_SERVER['HTTP_REFERER']);
+
+                        }
+                    }
+                    else{
+                        error_message("Password didn't match", $_SERVER['HTTP_REFERER']);
+                    }
+                }
+                else{
+                    error_message("Password didn't match",$_SERVER['HTTP_REFERER']);
+                }
+            }
+        }
+    }
+  ?>
+
