@@ -16,87 +16,107 @@
         <!-- Page content-->
         <div class="container-fluid">
             <br>
+            <h2> Dashboard </h2>
 
             <div class="row">
-                <div class="col-md-4 col-xs-12">
-                    <div class="card">
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">Software</h4>
-                            <h5 class="card-text"><i class="fa-brands fa-uncharted"></i>12</h5>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-xs-12">
-                    <div class="card">
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">Hardware</h4>
-                            <p class="card-text">15</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-xs-12">
-                    <div class="card">
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">System</h4>
-                            <p class="card-text">20</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-
+                <div class="col-md-7">
+                <table class="shadow-sm table table-striped table-hover display table-responsive" id="example">
                 
+                    <thead>    
+                            <tr>
+                                <th>No</th>
+                                <th>Incident Name</th>
+                                <th>Count</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                                $sql = "SELECT * FROM incident WHERE status=1";
+                                $result = mysqli_query($connect,$sql);
+                                $number_row = mysqli_num_rows($result);
+                                $number = 0;
+                                
+                                if($number_row > 0){
+                                    $titles = [];
+                                    $scid = [];
+                                    $cid = [];
+                                    $inid = [];
+                                    foreach($result as $key=>$value){
+                                        $count_id=$value['id'];
+                                        $sql = "SELECT * FROM logs WHERE incident_id='$count_id'";
+                                        $result1 = mysqli_query($connect,$sql);
+                                        $number_row1 = mysqli_num_rows($result1);
+                                        $artmp =[   'count'=>$number_row1,
+                                                    'scid'=>$value['sub_cat_id'],
+                                                    'cid'=>$value['cat_id'],
+                                                    'inid'=>$value['id']
+                                                ];
+                                        $titles[$value['title']]=$artmp;
+                                    }
+                                    arsort($titles);
+                                    foreach ($titles as $key => $value) {
 
+                                        ?>
+                            <tr>
+                                <td><?php echo ++$number; ?></td>
+                                <td><a href="solution.php?sub_id=<?php echo $value['scid']; ?>&&cat_id=<?php echo $value['cid'] ?>&&incident_id=<?php echo $value['inid'] ?>">
+            
+                                        <?php echo $key; ?> <a></td>
+                                <td><a href="#">
+                                        <?php echo $value['count']; ?> <a></td>
+                            </tr>
+                            <?php
+                                        }
+                                    }
+                                
+                            ?>
 
+                        </tbody>
+                </table>
+                       
+                </div>
+
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-sm-6">
+                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Network</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-sm-6">
+                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Software</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Hardware</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Network</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">25</h5>
+                                    <p class="card-text">Some quick example</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <br> <br>
-
-            <div class="row">
-            <div class="col-md-4 col-xs-12">
-                    <div class="card">
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">Network</h4>
-                            <p class="card-text">25</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-xs-12">
-                    <div class="card">
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">Software</h4>
-                            <p class="card-text">30</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="col-md-4 col-xs-12">
-                    <div class="card">
-                        <div class="card-body bg-info">
-                            <h4 class="card-title">Hardware</h4>
-                            <p class="card-text">16</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<?php
-            include "footer.php";
-        ?>
