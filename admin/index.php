@@ -35,22 +35,35 @@
                                 $result = mysqli_query($connect,$sql);
                                 $number_row = mysqli_num_rows($result);
                                 $number = 0;
-                            
+                                
                                 if($number_row > 0){
-                                    
+                                    $titles = [];
+                                    $scid = [];
+                                    $cid = [];
+                                    $inid = [];
                                     foreach($result as $key=>$value){
                                         $count_id=$value['id'];
                                         $sql = "SELECT * FROM logs WHERE incident_id='$count_id'";
                                         $result1 = mysqli_query($connect,$sql);
                                         $number_row1 = mysqli_num_rows($result1);
+                                        $artmp =[   'count'=>$number_row1,
+                                                    'scid'=>$value['sub_cat_id'],
+                                                    'cid'=>$value['cat_id'],
+                                                    'inid'=>$value['id']
+                                                ];
+                                        $titles[$value['title']]=$artmp;
+                                    }
+                                    arsort($titles);
+                                    foreach ($titles as $key => $value) {
+
                                         ?>
                             <tr>
                                 <td><?php echo ++$number; ?></td>
-                                <td><a href="solution.php?sub_id=<?php echo $value['sub_cat_id'] ?>&&cat_id=<?php echo $value['cat_id'] ?>&&incident_id=<?php echo $value['id'] ?>">
+                                <td><a href="solution.php?sub_id=<?php echo $value['scid']; ?>&&cat_id=<?php echo $value['cid'] ?>&&incident_id=<?php echo $value['inid'] ?>">
             
-                                        <?php echo $value['title']; ?> <a></td>
+                                        <?php echo $key; ?> <a></td>
                                 <td><a href="#">
-                                        <?php echo $number_row1; ?> <a></td>
+                                        <?php echo $value['count']; ?> <a></td>
                             </tr>
                             <?php
                                         }

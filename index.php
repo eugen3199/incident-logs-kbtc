@@ -318,16 +318,18 @@ input[type=password]:placeholder {
 
     <!-- Login Form -->
     <form action="backend.php" method="post" style="margin-bottom:30px">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
 
-           
+     
 
-            <button type="submit" class="btn btn-primary"  name="login">Login</button>
+      <button type="submit" class="btn btn-primary"  name="login">Login</button>
 
-          </form>
-
- 
+    </form>
+      <a href="ms_login.php">
+        <button type="submit" class="btn btn-primary"  name="login">Sign in With Microsoft</button>
+        <br>
+      </a>
   </div>
 </div>
 </body>
