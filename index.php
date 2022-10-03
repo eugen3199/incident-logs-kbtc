@@ -326,10 +326,10 @@ input[type=password]:placeholder {
       <button type="submit" class="btn btn-primary"  name="login">Login</button>
 
     </form>
-      <a href="ms_login.php">
+      <!-- <a href="ms_login.php">
         <button type="submit" class="btn btn-primary"  name="login">Sign in With Microsoft</button>
         <br>
-      </a>
+      </a> -->
   </div>
 </div>
 </body>
