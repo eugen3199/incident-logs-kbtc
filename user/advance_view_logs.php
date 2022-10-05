@@ -199,7 +199,7 @@
                         <th class="px-1 py-1">Solution</th>
                         <th class="px-1 py-1">User</th>
                         <th class="px-1 py-1">Remark</th>
-
+                        <th class="px-1 py-1">Action</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -214,7 +214,7 @@
                         <th class="px-1 py-1">Solution</th>
                         <th class="px-1 py-1">User</th>
                         <th class="px-1 py-1">Remark</th>
-                        
+                        <th class="px-1 py-1">Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -339,7 +339,13 @@
                         <td class="px-1 py-1"><?php echo $answer; ?></td>
                         <td class="px-1 py-1"><?php echo $name; ?></td>
                         <td class="px-1 py-1"><?php echo $remark; ?></td>
-                        
+                        <td class="px-1 py-1">
+                            <form style="display:inline-block" class="form-display" action="backend.php" method="post">
+                                <input type="hidden" value="<?php echo $l_id ?>" name="id">
+                                <button type="submit" name="logs_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Log?')"
+                                class="text-dark btn"><h5><ion-icon name="trash-outline"></ion-icon></h5></button>
+                            </form>
+                        </td>
                     </tr>
                     <!-- Edit Model Starts Here (KHT) -->
                     <div class="modal" id="detail<?php echo $l_id; ?>">
