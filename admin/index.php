@@ -17,9 +17,10 @@
         <div class="container-fluid">
             <br>
             <h2> Dashboard </h2>
-
+            <hr>
             <div class="row">
                 <div class="col-md-7">
+                <h5> Incidents List</h5>
                 <table class="shadow-sm table table-striped table-hover display table-responsive" id="example">
                 
                     <thead>    
@@ -52,7 +53,7 @@
                                                     'inid'=>$value['id']
                                                 ];
                                         $titles[$value['title']]=$artmp;
-                                    }
+                                }
                                     arsort($titles);
                                     foreach ($titles as $key => $value) {
 
@@ -68,55 +69,49 @@
                             <?php
                                         }
                                     }
-                                
                             ?>
-
                         </tbody>
                 </table>
                        
                 </div>
-
                 <div class="col-md-5">
+                    <h5>Top Categories</h5>
                     <div class="row">
+                <?php
+                    $sql1 = "SELECT cat_id, COUNT(*) AS total FROM logs GROUP BY cat_id ORDER BY COUNT(*) DESC";
+                    $result1 = mysqli_query($connect,$sql1);
+                    $number_row1 = mysqli_num_rows($result1);
+
+                    $n = 0;
+
+                    if($number_row > 0){
+                        foreach ($result1 as $key1 => $value1) {
+                            if ($n>4) {
+                                break;
+                            }
+                            $cat_id=$value1['cat_id'];
+                            $sql2 = "SELECT * FROM category WHERE status=1 AND id=$cat_id";
+                            $result2 = mysqli_query($connect,$sql2);
+                            $number_row2 = mysqli_num_rows($result2);
+                            foreach ($result2 as $key2 => $value2) {
+                ?>
                         <div class="col-sm-6">
-                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Network</div>
+                            <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-header"><?php echo $value2["category"]; ?></div>
                                 <div class="card-body">
-                                    <h5 class="card-title">25</h5>
-                                    <p class="card-text">Some quick example</p>
+                                    <h3 class="card-title"><?php echo $value1["total"]; ?></h3>
+                                    <p class="card-text">
+                                        <a href="subcategory.php?id=<?php echo $value1['cat_id']; ?>">details..</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    
-                        <div class="col-sm-6">
-                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Software</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">25</h5>
-                                    <p class="card-text">Some quick example</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-sm-6">
-                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Hardware</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">25</h5>
-                                    <p class="card-text">Some quick example</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-sm-6">
-                        <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Network</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">25</h5>
-                                    <p class="card-text">Some quick example</p>
-                                </div>
-                            </div>
-                        </div>
+                <?php
+                            }
+                            $n += 1;
+                        }
+                    }
+                ?>
                     </div>
                 </div>
             </div>
