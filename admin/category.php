@@ -64,18 +64,20 @@
 
                                     <!-- Edit button Starts Here (KHT) -->
                                 <div class="d-flex flex-row">
-                                        <div class="p-2">
-                                    <button class="text-dark btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
-                                    <h5><ion-icon name="pencil"></ion-icon></h5></button>
-                                        </div>
+                                    <div class="p-2">
+                                        <button class="text-dark btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
+                                            <h5><ion-icon name="pencil"></ion-icon></h5>
+                                        </button>
+                                    </div>
                                     <!-- Edit button Ends Here (KHT) -->
                                     <div class="p-2">
-                                    <form style="display:inline-block" class="form-display" action="backend.php" method="post">
-                                        <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                        <button class="text-dark btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
-                                         ><h5><ion-icon name="trash"></ion-icon></h5></button>
-                                    </form>
-                                        </div>
+                                        <form style="display:inline-block" class="form-display" action="backend.php" method="post">
+                                            <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
+                                            <button class="text-dark btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
+                                             ><h5><ion-icon name="trash"></ion-icon></h5>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 </td>

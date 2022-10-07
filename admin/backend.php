@@ -407,4 +407,17 @@ function image_filter($image,$location){
             }
         }
     }
+
+    /* Member Password reset */
+    if(isset($_POST['password_reset'])){
+        $id = htmlspecialchars($_POST["id"]);
+        $password = password_hash('12345',PASSWORD_DEFAULT);
+        $sql = "UPDATE member SET password='$password' WHERE id=$id";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+            success_message("Password Reset Successful.", $_SERVER['HTTP_REFERER']);
+        }else{
+            error_message("Password Reset Fail",$_SERVER['HTTP_REFERER']);
+        }
+    }
   ?>

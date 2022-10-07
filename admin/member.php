@@ -1,24 +1,22 @@
 <?php
-            include "head.php";
-            include "alert.php";
-        ?>
+    include "head.php";
+    include "alert.php";
+?>
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <?php
-                include "slidebar.php";
-           ?>
+        include "slidebar.php";
+    ?>
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
         <!-- Top navigation-->
         <?php
-                    include "nav.php";
-                ?>
+            include "nav.php";
+        ?>
         <!-- Page content-->
         <div class="container-fluid">
             <br>
-
             <!-- Category -->
-
             <div class="row">
                 <div class="col-md-3">
                     <form action="backend.php" method="post">
@@ -47,7 +45,6 @@
                                 id="category" required>
                         </div>
                         <br>
-                       
                        <div class="form-group ">
                             <label for="category">Password:</label>
                             <input type="password" class="form-control" placeholder="Enter Password" name="password"
@@ -82,7 +79,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                $sql = "SELECT * FROM member Order by id DESC";
+                                $sql = "SELECT * FROM member Order by name";
                                 $result = mysqli_query($connect,$sql);
                                 $number_row = mysqli_num_rows($result);
                                 $number = 0;
@@ -91,36 +88,44 @@
                                     foreach($result as $key=>$value){
                                         $status = $value['status'];
                                         if($status == 1){
-
-                                        
                                         ?>
                             <tr>
                                 <td><?php echo ++$number; ?></td>
-                                <td><a href="#">
-                                        <?php echo $value['name']; ?> <a></td>
-                                <td><a href="#">
-                                        <?php echo $value['email']; ?> <a></td>
-
-                                <td><a href="#">
-                                        <?php echo $value['display_name']; ?> <a></td>
-                                <td><a href="#">
-                                        <?php echo $value['job_title']; ?> <a></td>
-                                        
-                                        
-
-
-                                <td><a href="#"> <?php echo $value['role']; ?> <a></td>
                                 <td>
-
-
-
-                                    <form style="display:inline-block" class="form-display" action="backend.php"
-                                        method="post">
-                                        <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                        <button class="text-dark btn" type="submit" name="account_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Account?')"
-                                            ><h5><ion-icon name="trash-outline"></ion-icon></h5></button>
-                                    </form>
-
+                                    <a href="#"><?php echo $value['name']; ?> <a>
+                                </td>
+                                <td>
+                                    <a href="#"><?php echo $value['email']; ?> <a>
+                                </td>
+                                <td>
+                                    <a href="#"><?php echo $value['display_name']; ?> <a>
+                                </td>
+                                <td>
+                                    <a href="#"><?php echo $value['job_title']; ?> <a>
+                                </td>
+                                <td>
+                                    <a href="#"> <?php echo $value['role']; ?> <a>
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-row">
+                                        <div class="p-0">
+                                            <form style="display:inline-block" class="form-display" action="backend.php" method="post">
+                                                <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
+                                                <button class="text-dark btn" type="submit" name="password_reset" value="Password reset" onclick="return confirm('Are you sure you want to reset password for this account?')">
+                                                    <h5><ion-icon name="key"></ion-icon></h5>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <!-- Edit button Ends Here (KHT) -->
+                                        <div class="p-0">
+                                            <form style="display:inline-block" class="form-display" action="backend.php" method="post">
+                                                <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
+                                                <button class="text-dark btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
+                                                 ><h5><ion-icon name="trash"></ion-icon></h5>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php
@@ -128,15 +133,11 @@
                                     }
                                 }
                             ?>
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
             <hr>
-
-
         </div>
     </div>
 </div>
@@ -149,5 +150,5 @@
 });
 </script>
 <?php
-            include "footer.php";
-        ?>
+    include "footer.php";
+?>
