@@ -68,7 +68,7 @@
                     </form>
                 </div>
                 <div class="col-md-9">
-                    <table class="table table-striped">
+                    <table id="example" class="table table-striped table-bordered table-hover display">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -141,8 +141,13 @@
     </div>
 </div>
 
-
-
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable();
+});
+</script>
 <?php
             include "footer.php";
         ?>
