@@ -46,103 +46,6 @@ function image_filter($image,$location){
 
 }
 
-
-    /* Create Category */
-    if(isset($_POST["category_create"])){
-       $category = htmlspecialchars($_POST["category"]);
-       $sql = "INSERT INTO category(category,status) VALUES ('$category',1)";
-       $result = mysqli_query($connect,$sql);
-       if($result){
-        success_message("Create Category Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Create Category Fail",$_SERVER['HTTP_REFERER']);
-       }
-    }
-
-        /* Category Delete */
-    if(isset($_POST["category_delete"])){
-        $id = htmlspecialchars($_POST["id"]);
-        $sql = "UPDATE category SET status='0' WHERE id=$id";
-        $result = mysqli_query($connect,$sql);
-        if($result){
-            $sql = "UPDATE sub_category SET status='0' WHERE cat_id=$id";
-            $result = mysqli_query($connect,$sql);
-            if($result){
-                $sql = "UPDATE incident SET status='0' WHERE sub_cat_id='$id'";
-                $result = mysqli_query($connect,$sql);
-                if($result){
-                    $sql = "UPDATE solution SET status='0' WHERE incident_id='$id'";
-                $result = mysqli_query($connect,$sql);
-                if($result){
-                    success_message("Delete Category Success",$_SERVER['HTTP_REFERER']);
-                }else{
-                error_message("Delete Category Fail",$_SERVER['HTTP_REFERER']);
-                }
-            }
-        }
-    }
- }
-
-
-    /* Category Edit */
-    if(isset($_POST["category_edit"])){
-        $id = htmlspecialchars($_POST["cat_id"]);
-        $category = htmlspecialchars($_POST["cat_name"]);
-        $sql = "UPDATE category SET category='$category' WHERE id=$id";
-        $result = mysqli_query($connect,$sql);
-        if($result){
-         success_message("Edit Category Success",$_SERVER['HTTP_REFERER']);
-        }else{
-         error_message("Edit Category Fail",$_SERVER['HTTP_REFERER']);
-        }
-    }
-
-    /* Sub Category Create */
-    if(isset($_POST["sub_category_create"])){
-       $category = htmlspecialchars($_POST["category"]);
-       $subcategory = htmlspecialchars($_POST["subcategory"]);
-       $sql = "INSERT INTO sub_category(cat_id,subcategory,status) VALUES ('$category','$subcategory','1')";
-       $result = mysqli_query($connect,$sql);
-       if($result){
-        success_message("Create SubCategory Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Create SubCategory Fail",$_SERVER['HTTP_REFERER']);
-       }
-    }
-
-    /* Sub Category Delete*/
-    if(isset($_POST["sub_category_delete"])){
-        $id = $_POST["id"];
-        $sql = "UPDATE sub_category SET status='0' WHERE id=$id";
-        $result = mysqli_query($connect,$sql);
-        if($result){
-            $sql = "UPDATE incident SET status='0' WHERE sub_cat_id='$id'";
-            $result = mysqli_query($connect,$sql);
-            if($result){
-                $sql = "UPDATE solution SET status='0' WHERE incident_id='$id'";
-            $result = mysqli_query($connect,$sql);
-            if($result){
-               success_message("Delete SubCategory Success",$_SERVER['HTTP_REFERER']);
-            }else{
-               error_message("Delete SubCategory Fail",$_SERVER['HTTP_REFERER']);
-            }
-        }
-   }
-}
-
-    /* Sub Category Edit */
-    if(isset($_POST["subcategory_edit"])){
-        $id = htmlspecialchars($_POST["subcat_id"]);
-        $subcategory = htmlspecialchars($_POST["subcat_name"]);
-        $sql = "UPDATE sub_category SET subcategory='$subcategory' WHERE id=$id";
-        $result = mysqli_query($connect,$sql);
-        if($result){
-         success_message("Edit Subcategory Success",$_SERVER['HTTP_REFERER']);
-        }else{
-         error_message("Edit Subcategory Fail",$_SERVER['HTTP_REFERER']);
-        }
-    }
-
     /* incident_create */
     if(isset($_POST['incident_create'])){
         $cat_id = htmlspecialchars($_POST['category']);
@@ -171,7 +74,7 @@ function image_filter($image,$location){
         }
     }
 
-/* incident_delete */
+    /* incident_delete */
     if(isset($_POST["incident_delete"])){
         $id = htmlspecialchars($_POST["id"]);
         $sql = "UPDATE incident SET status='0' WHERE id='$id'";
@@ -250,24 +153,6 @@ function image_filter($image,$location){
        }
     }
 
-    /* Log Delete */
-    if(isset($_POST["logs_delete"])){
-        $id = htmlspecialchars($_POST["id"]);
-        echo '<script>console.log('.$id.')</script>';
-        $sql = "DELETE FROM logs WHERE id=$id;";
-//  echo $sql;
-//  hearder('Location: '.$sql);
-//  exit;
-        $result = mysqli_query($connect,$sql);
-    //header('Location: '.$id);
-    //exit;
-        if($result){
-         success_message("Delete Log Success",$_SERVER['HTTP_REFERER']);
-        }else{
-         error_message("<br>Delete Log Fail",$_SERVER['HTTP_REFERER']);
-        }
-    }
-
     /* Log Date Edit */
     if(isset($_POST["date_edit"])){
         $id = htmlspecialchars($_POST["id"]);
@@ -295,19 +180,6 @@ function image_filter($image,$location){
     }
 
 
-    /* create_location */
-    if(isset($_POST["create_location"])){
-       $location = htmlspecialchars($_POST["location"]);
-       $sql = "INSERT INTO location(name) VALUES ('$location')";
-       $result = mysqli_query($connect,$sql);
-       if($result){
-        success_message("Create Location Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Create Location  Fail",$_SERVER['HTTP_REFERER']);
-       }
-    }
-
-
     /* member_create */
     if(isset($_POST["member_create"])){
        $username = htmlspecialchars($_POST["username"]);
@@ -324,35 +196,16 @@ function image_filter($image,$location){
         error_message("Member Already Exists ",$_SERVER['HTTP_REFERER']);
         die();
        }else{
-        /* No Encrypt Here Encrypt Your Self */
-       $sql2 = "INSERT INTO member(name,email,display_name,job_title,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$useremail','$display_name','$job_title','$password','$role',1,'-','-','-','-','$date')";
-       $result2 = mysqli_query($connect,$sql2);
-       if($result){
-        success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
-       }else{
-        error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
-       }
-    }
-    }
-
-    /* Account Delete */
-    if(isset($_POST["account_delete"])){
-        $id = htmlspecialchars($_POST["id"]);
-        echo '<script>console.log('.$id.')</script>';
-        $sql = "UPDATE member SET status=0 WHERE id=$id";
-//      echo $sql;
-//      hearder('Location: '.$sql);
-//      exit;
-        $result = mysqli_query($connect,$sql);
-        //header('Location: '.$id);
-        //exit;
-        if($result){
-         success_message("Delete Log Success",$_SERVER['HTTP_REFERER']);
-        }else{
-         error_message("<br>Delete Log Fail",$_SERVER['HTTP_REFERER']);
+            /* No Encrypt Here Encrypt Your Self */
+           $sql2 = "INSERT INTO member(name,email,display_name,job_title,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$useremail','$display_name','$job_title','$password','$role',1,'-','-','-','-','$date')";
+           $result2 = mysqli_query($connect,$sql2);
+           if($result){
+            success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
+           }else{
+            error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
+           }
         }
     }
-
 
 
 /* Member profile edit */
@@ -370,7 +223,6 @@ function image_filter($image,$location){
       }else{
         error_message("Edit Member Fail",$_SERVER['HTTP_REFERER']);
       }
-           
     }
 
     /* Member Password Change */
