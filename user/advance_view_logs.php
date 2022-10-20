@@ -199,7 +199,6 @@
                         <th class="px-1 py-1">Solution</th>
                         <th class="px-1 py-1">User</th>
                         <th class="px-1 py-1">Remark</th>
-                        <th class="px-1 py-1">Action</th>
                     </tr>
                 </thead>
                 <tfoot>
