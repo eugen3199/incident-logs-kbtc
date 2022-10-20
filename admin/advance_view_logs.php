@@ -445,7 +445,7 @@
                             </tr>
                             <tr>
                                 <th>No</th>
-                                <th>Incident Name</th>
+                                <th>Category Name</th>
                                 <th>Count</th>
                             </tr>
                         </thead>
@@ -474,7 +474,7 @@
                             </tr>
                             <tr>
                                 <th>No</th>
-                                <th>Incident Name</th>
+                                <th>Sub-Category Name</th>
                                 <th>Count</th>
                             </tr>
                         </thead>
