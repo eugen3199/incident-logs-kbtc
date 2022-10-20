@@ -415,7 +415,7 @@ function image_filter($image,$location){
         $sql = "UPDATE member SET password='$password' WHERE id=$id";
         $result = mysqli_query($connect,$sql);
         if($result){
-            success_message("Password Reset Successful.", $_SERVER['HTTP_REFERER']);
+            success_message("Password Reset Successful. The Password is - 12345", $_SERVER['HTTP_REFERER']);
         }else{
             error_message("Password Reset Fail",$_SERVER['HTTP_REFERER']);
         }
