@@ -183,9 +183,9 @@
             </form>
             <br>
             <hr>
-            <br>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid justify-content-center">
+            <h6>Results Found - <span id="result_count"></span></h6>
             <table class="table table-striped table-bordered table-hover display table-responsive" id="example" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -249,7 +249,6 @@
                                 else{
                                     $sql = "SELECT * FROM logs where sub_cat_id=$subcat AND incident_id=$incident order by id desc";
                                 }
-                                
                             }
                         } else {
                             if ($subcat == '*') {
@@ -265,6 +264,13 @@
                         }
 
                         $result = mysqli_query($connect,$sql);
+                        $cat_count = 0;
+                        $subcat_count = 0;
+                        $incident_count = 0;
+                        $cat_result_arr = array();
+                        $subcat_result_arr = array();
+                        $inc_result_arr = array();
+
                         foreach($result as $i=>$value){
                             $l_id = $value['id'];
                             $cat_id = $value['cat_id'];
@@ -288,22 +294,46 @@
                             
                             if(($sdate1=='' and $edate1=='') or ($create_at1 >= $sdate1 and $create_at1 <= $edate1)){
 
-                                $sql2 = "SELECT * FROM category WHERE id=$cat_id && status=1";
+                                $sql2 = "SELECT * FROM category WHERE id=$cat_id";
                                 $result2 = mysqli_query($connect,$sql2);
                                 foreach($result2 as $value){
                                     $category = $value["category"];
+                                    if (array_key_exists($category, $cat_result_arr)){
+                                        $cat_result_arr[$category]['count'] += 1;
+                                    }
+                                    else{
+                                        // array_push($result_arr, $category);
+                                        $cat_result_arr[$category]['count'] = 1;
+                                        $cat_result_arr[$category]['id'] = $cat_id;
+                                    }
                                 }
 
-                                $sql2 = "SELECT * FROM sub_category WHERE id=$sub_cat_id && status=1";
+                                $sql2 = "SELECT * FROM sub_category WHERE id=$sub_cat_id";
                                 $result2 = mysqli_query($connect,$sql2);
                                 foreach($result2 as $value){
                                     $subcategory = $value["subcategory"];
+                                    if (array_key_exists($subcategory, $subcat_result_arr)){
+                                        $subcat_result_arr[$subcategory]['count'] += 1;
+                                    }
+                                    else{
+                                        // array_push($result_arr, $category);
+                                        $subcat_result_arr[$subcategory]['count'] = 1;
+                                        $subcat_result_arr[$subcategory]['id'] = $sub_cat_id;
+                                    }
                                 }
 
                                 $sql3 = "SELECT * FROM incident WHERE id=$incident_id";
                                 $result3 = mysqli_query($connect,$sql3);
                                 foreach($result3 as $value){
                                     $incident = $value["title"];
+                                    if (array_key_exists($incident, $inc_result_arr)){
+                                        $inc_result_arr[$incident]['count'] += 1;
+                                    }
+                                    else{
+                                        // array_push($result_arr, $category);
+                                        $inc_result_arr[$incident]['count'] = 1;
+                                        $inc_result_arr[$incident]['id'] = $incident_id;
+                                    }
                                 }
 
                                 $sql4 = "SELECT * FROM solution WHERE id=$solution_id";
@@ -405,6 +435,96 @@
                     ?>
                 </tbody>
             </table>
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                    <table class="shadow-sm table table-striped table-hover display table-responsive" id="dt1">
+                        <thead>
+                            <tr>
+                                <th colspan="3">Category</th>
+                            </tr>
+                            <tr>
+                                <th>No</th>
+                                <th>Category Name</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $n = 1;
+                            foreach ($cat_result_arr as $cat => $cvalue) {
+                            ?>
+                            <tr>
+                                <td><?php echo $n; ?></td>
+                                <td><?php echo $cat; ?></td>
+                                <td><?php echo $cvalue['count']; ?></td>
+                            </tr>
+                            <?php
+                            $n += 1;
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <table class="shadow-sm table table-striped table-hover display table-responsive" id="dt2">
+                        <thead>
+                            <tr>
+                                <th colspan="3">Sub-Category</th>
+                            </tr>
+                            <tr>
+                                <th>No</th>
+                                <th>Sub-Category Name</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $n = 1;
+                            foreach ($subcat_result_arr as $subcat => $scvalue) {
+                            ?>
+                            <tr>
+                                <td><?php echo $n; ?></td>
+                                <td><?php echo $subcat; ?></td>
+                                <td><?php echo $scvalue['count']; ?></td>
+                            </tr>
+                            <?php
+                            $n += 1;
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <table class="shadow-sm table table-striped table-hover display table-responsive" id="dt3">
+                        <thead>
+                            <tr>
+                                <th colspan="3">Incident</th>
+                            </tr>
+                            <tr>
+                                <th>No</th>
+                                <th>Incident Name</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $n = 1;
+                            foreach ($inc_result_arr as $inc => $incvalue) {
+                            ?>
+                            <tr>
+                                <td><?php echo $n; ?></td>
+                                <td><?php echo $inc; ?></td>
+                                <td><?php echo $incvalue['count']; ?></td>
+                            </tr>
+                            <?php
+                            $n += 1;
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -414,10 +534,15 @@
     $(document).ready(function () {
         $('#example').DataTable();
     });
-
-    function changedateAction(){
-
-    }
+    $(document).ready(function () {
+        $('#dt1').DataTable();
+    });
+    $(document).ready(function () {
+        $('#dt2').DataTable();
+    });
+    $(document).ready(function () {
+        $('#dt3').DataTable();
+    });
 </script>
 <?php
 include "footer.php";
