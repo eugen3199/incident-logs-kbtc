@@ -46,7 +46,13 @@
                                         $result = mysqli_query($connect,$sql);
                                         foreach($result as $row){
                                 ?>
-                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                <option value="<?php echo $row['id']; ?>" <?php
+                                    if (isset($_POST['location'])) {
+                                        if ($_POST['location']==$row['id']) {
+                                            echo " selected";
+                                        }
+                                    }
+                                ?>><?php echo $row['name'];?></option>
                                 <?php
                                         }
                                 ?>
@@ -130,6 +136,9 @@
                                             }
                                         }
                                     }
+                                    
+                                    
+                                    
                                 </script>
                             </select>
                         </div>
@@ -181,10 +190,12 @@
                                             }
                                         }
                                     }
-
+                                    
                                     function changeggAction(id){
                                         console.log(id);
                                     }
+                                    
+                                    
                                 </script>
                             </select>
                         </div>
@@ -203,7 +214,7 @@
                 <hr>
                 <div class="container-fluid justify-content-center">
                     <h6>Results Found - <span id="result_count"></span></h6>
-                    <table class="table table-striped table-bordered table-sm" id="example" width="100%">
+                    <table id="example" class="table table-striped table-bordered table-sm" width="100%">
                         <thead>
                             <tr>
                                 <th class="px-1 py-1">No</th>
@@ -236,7 +247,7 @@
                         </tfoot>
                         <tbody>
                             <?php
-
+                            if(isset($_POST["search"])){
                                 if (isset($_POST['start_date'])) {
                                     $sdate = explode("-",preg_replace('!\s+!', ' ', htmlspecialchars($_POST['start_date'])));
                                     $sdate1 = strtotime(htmlspecialchars($_POST['start_date']));
@@ -333,14 +344,14 @@
                                     $create_at = $value['create_at'];
                                     $create_at1 = strtotime($value['create_at']);
                                     $_time = $value['_time'];
-                                    $datecon = true;
-                                    $sdatecon = true;
-                                    if ($sdate1=='' and $edate1==''){
-                                        $datecon = false;
-                                    }
-                                    elseif ($sdate1!='' and $edate1=='') {
-                                        $sdatecon = false;
-                                    }
+                                    // $datecon = true;
+                                    // $sdatecon = true;
+                                    // if ($sdate1=='' and $edate1==''){
+                                    //     $datecon = false;
+                                    // }
+                                    // elseif ($sdate1!='' and $edate1=='') {
+                                    //     $sdatecon = false;
+                                    // }
                                     
                                     if(($sdate1=='' and $edate1=='') or ($create_at1 >= $sdate1 and $create_at1 <= $edate1)){
 
@@ -479,8 +490,15 @@
                             </div>
                             <!-- Edit Model Ends Here (KHT) -->
 
-                            <?php       
+                            <?php
+                                    }
                                 }
+                            }
+                            elseif(isset($_POST["clear"])){
+                                $_POST['location']='*';
+                                $_POST['category']='*';
+                                $_POST['subcat']='*';
+                                $_POST['incident']='*';
                             }
                             ?>
                         </tbody>
@@ -581,21 +599,65 @@
         </div>
     </div>
 </div>
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#example').DataTable();
+        $('#example').dataTable({
+            "sort": true
+        });
     });
     $(document).ready(function () {
-        $('#dt1').DataTable();
+        $('#dt1').dataTable({
+            "sort": false,
+            "searching":false
+        });
     });
     $(document).ready(function () {
-        $('#dt2').DataTable();
+        $('#dt2').dataTable({
+            "sort": false,
+            "searching":false
+        });
     });
     $(document).ready(function () {
-        $('#dt3').DataTable();
+        $('#dt3').dataTable({
+            "sort": false,
+            "searching":false
+        });
     });
+</script>
+<script>
+    <?php
+        if (isset($_POST['category'])) {
+            if ($_POST['category']!='*') {
+                ?>
+                var sel = document.getElementById('category');
+                sel.value=<?php echo $_POST['category']; ?>;
+                var subsel = document.getElementById('subcat');
+                changeAction(sel.value);
+                <?php
+            }
+        }
+
+        if (isset($_POST['subcat'])) {
+            if ($_POST['subcat']!='*') {
+                ?>
+                subsel.value=<?php echo $_POST['subcat']; ?>;
+                var incsel = document.getElementById('incident');
+                changeincAction(subsel.value);
+                <?php
+            }
+        }
+
+        if (isset($_POST['incident'])) {
+            if ($_POST['incident']!='*') {
+                ?>
+                incsel.value=<?php echo $_POST['incident']; ?>;
+                <?php
+            }
+        }
+
+    ?>
 </script>
 <?php
 include "footer.php";
