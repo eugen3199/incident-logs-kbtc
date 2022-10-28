@@ -24,7 +24,6 @@
                     <div class="shadow-sm px-3 pt-3 mb-3 card">
                         <h5><u>Incidents List</u></h5>
                         <br>
-                        <!-- <table class="table shadow-sm table-sm table-striped table-hover display table-responsive table-sm" id="example"> -->
                         <table id="example" class="table table-striped table-bordered table-sm">
                             <thead>
                                     <tr>
