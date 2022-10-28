@@ -16,7 +16,11 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <!-- Datatable CSS -->
-    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- Vue Js -->
     <!-- <script src="vue.js"></script> -->
