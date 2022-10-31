@@ -15,16 +15,16 @@
         ?>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="shadow-sm my-3 px-3 py-3 card">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
                 <h2> Dashboard </h2>
                 <hr>
             </div>
             <div class="row">
                 <div class="col-md-7">
-                    <div class="shadow-sm px-3 pt-3 mb-3 card">
+                    <div class="shadow px-3 py-3 mb-3 card bg-dark text-light">
                         <h5><u>Incidents List</u></h5>
                         <br>
-                        <table id="example" class="table table-striped table-bordered table-sm">
+                        <table id="example" class="table table-dark table-striped table-bordered table-sm">
                             <thead>
                                     <tr>
                                         <th>No</th>
@@ -62,10 +62,10 @@
                                             ?>
                                 <tr>
                                     <td><?php echo ++$number; ?></td>
-                                    <td><a href="solution.php?sub_id=<?php echo $value['scid']; ?>&&cat_id=<?php echo $value['cid'] ?>&&incident_id=<?php echo $value['inid'] ?>">
+                                    <td><a class="text-info" href="solution.php?sub_id=<?php echo $value['scid']; ?>&&cat_id=<?php echo $value['cid'] ?>&&incident_id=<?php echo $value['inid'] ?>">
                 
                                             <?php echo $key; ?> <a></td>
-                                    <td><a href="#">
+                                    <td><a href="#" class="text-info">
                                             <?php echo $value['count']; ?> <a></td>
                                 </tr>
                                 <?php
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="shadow-sm px-3 pt-3 card">
+                    <div class="shadow-sm px-3 pt-3 card bg-dark text-light">
                         <h5><u>Top Categories</u></h5>
                         <br>
                         <div class="row">
@@ -100,12 +100,12 @@
                                 foreach ($result2 as $key2 => $value2) {
                     ?>
                             <div class="col-sm-6">
-                                <div class="shadow-sm card bg-light mb-3" style="max-width: 18rem;">
-                                    <div class="card-header"><?php echo $value2["category"]; ?></div>
+                                <div class="shadow-sm card bg-dark mb-3" style="max-width: 18rem;">
+                                    <div class="card-header bg-dark text-light"><?php echo $value2["category"]; ?></div>
                                     <div class="card-body">
                                         <h3 class="card-title"><?php echo $value1["total"]; ?></h3>
                                         <p class="card-text">
-                                            <a href="subcategory.php?id=<?php echo $value1['cat_id']; ?>">details..</a>
+                                            <a href="subcategory.php?id=<?php echo $value1['cat_id']; ?>" class="text-info">details..</a>
                                         </p>
                                     </div>
                                 </div>

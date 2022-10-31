@@ -39,7 +39,7 @@
 
 </head>
 
-<body>
+<body class="bootstrap-dark bg-secondary">
 
     <?php
         session_start();

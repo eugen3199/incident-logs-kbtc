@@ -15,17 +15,18 @@
                 ?>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="shadow-sm my-3 px-3 pt-3 card">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
                 <h3>Incident Logs</h3>
                 <hr>
-
+            </div>
+            <div class="shadow-sm my-3 p-3 pb-3 card bg-dark text-light">
                 <!-- View All Logs -->
 
                 <!--<a href="export.php" class="btn btn-primary ">Download As CSV</a>-->
 
-                <button onclick="window.print()" class="btn btn-secondary" style="width: 100px;">Print</button>
+                <button onclick="window.print()" class="btn btn-info text-dark" style="width: 100px;">Print</button>
                 <br>
-                <table id="example" class="table table-striped table-bordered table-sm">
+                <table id="example" class="table table-dark table-striped table-bordered table-sm">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -107,8 +108,8 @@
                                 ?>
                         <tr>
                             <td><?php echo ++$i; ?></td>
-                            <td class="px-1 py-1"><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
-                            <td class="px-1 py-1"><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
+                            <td class="px-1 py-1"><a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
+                            <td class="px-1 py-1"><a class="btn-link btn text-info" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
                             <td class="px-1 py-1"><?php echo $location; ?></td>
                             <td class="px-1 py-1"><?php echo $category; ?></td>
                             <td class="px-1 py-1"><?php echo $subcategory; ?></td>

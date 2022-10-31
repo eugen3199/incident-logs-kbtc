@@ -16,11 +16,11 @@
         ?>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="shadow-sm my-3 px-3 py-3 card">
-                <h3>Advanced View Logs</h3>
+            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
+                <h3>Advanced Search Incident Logs</h3>
                 <hr>
             </div>
-            <div class="shadow-sm my-3 px-3 py-3 card">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
                 <h6><u>Filters</u></h6>
                 <form action="advance_view_logs.php" method="post" class="form-inline">
                     <div class="row">
@@ -39,22 +39,17 @@
                         <div class="col-md-2">
                             <br>
                             <label>Location :</label>
-                            <select class="form-control form-select" name="location" style="width: 100%;">
-                                <option value="*"> -- All -- </option>
+                            <select class="form-control form-select" name="location" style="width: 100%;" id="locsel">
+                                <option value="*" selected> -- All -- </option>
                                 <?php
+                                        $selected = false;
                                         $sql = "SELECT * FROM location ORDER BY id DESC";
                                         $result = mysqli_query($connect,$sql);
                                         foreach($result as $row){
                                 ?>
-                                <option value="<?php echo $row['id']; ?>" <?php
-                                    if (isset($_POST['location'])) {
-                                        if ($_POST['location']==$row['id']) {
-                                            echo " selected";
-                                        }
-                                    }
-                                ?>><?php echo $row['name'];?></option>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name'];?></option>
                                 <?php
-                                        }
+                                    }
                                 ?>
                             </select>
                         </div>
@@ -202,11 +197,11 @@
 
                         <div class="col-md-2 col-6">
                             <br>
-                            <input class="btn btn-outline-success" name="search" type="submit" value="Search" style="width: 100%;">
+                            <input class="btn btn-info text-dark" name="search" type="submit" value="Search" style="width: 100%;">
                         </div>
                         <div class="col-md-2 col-6">
                             <br>
-                            <input class="btn btn-outline-danger" name="clear" type="submit" value="Clear" style="width: 100%;">
+                            <input class="btn btn-info text-dark" name="clear" type='submit' value="Clear" style="width: 100%;">
                         </div>
                     </div>
                 </form>
@@ -214,7 +209,7 @@
                 <hr>
                 <div class="container-fluid justify-content-center">
                     <h6>Results Found - <span id="result_count"></span></h6>
-                    <table id="example" class="table table-striped table-bordered table-sm" width="100%">
+                    <table id="example" class="table table-responsive-sm table-dark table-striped table-bordered table-sm" width="100%">
                         <thead>
                             <tr>
                                 <th class="px-1 py-1">No</th>
@@ -331,6 +326,7 @@
                                 $cat_result_arr = array();
                                 $subcat_result_arr = array();
                                 $inc_result_arr = array();
+                                $result_count = 0;
 
                                 foreach($result as $i=>$value){
                                     $l_id = $value['id'];
@@ -344,14 +340,7 @@
                                     $create_at = $value['create_at'];
                                     $create_at1 = strtotime($value['create_at']);
                                     $_time = $value['_time'];
-                                    // $datecon = true;
-                                    // $sdatecon = true;
-                                    // if ($sdate1=='' and $edate1==''){
-                                    //     $datecon = false;
-                                    // }
-                                    // elseif ($sdate1!='' and $edate1=='') {
-                                    //     $sdatecon = false;
-                                    // }
+                                    $result_count += 1;
                                     
                                     if(($sdate1=='' and $edate1=='') or ($create_at1 >= $sdate1 and $create_at1 <= $edate1)){
 
@@ -495,20 +484,20 @@
                                 }
                             }
                             elseif(isset($_POST["clear"])){
-                                $_POST['location']='*';
-                                $_POST['category']='*';
-                                $_POST['subcat']='*';
-                                $_POST['incident']='*';
+                                unset($_POST['location']);
+                                unset($_POST['category']);
+                                unset($_POST['subcat']);
+                                unset($_POST['incident']);
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="shadow-sm my-3 px-3 py-3 card">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
                 <div class="row">
                     <div class="col-sm-4">
-                        <table class="table table-striped table-bordered table-sm" id="dt1" width="100%">
+                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm" id="dt1" width="100%">
                             <thead>
                                 <tr>
                                     <th colspan="3">Category</th>
@@ -537,7 +526,7 @@
                         </table>
                     </div>
                     <div class="col-sm-4">
-                        <table class="table table-striped table-bordered table-sm" id="dt2" width="100%">
+                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm" id="dt2" width="100%">
                             <thead>
                                 <tr>
                                     <th colspan="3">Sub-Category</th>
@@ -566,7 +555,7 @@
                         </table>
                     </div>
                     <div class="col-sm-4">
-                        <table class="table table-striped table-bordered table-sm" id="dt3" width="100%">
+                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm" id="dt3" width="100%">
                             <thead>
                                 <tr>
                                     <th colspan="3">Incident</th>
@@ -627,7 +616,20 @@
     });
 </script>
 <script>
-    <?php
+
+        var v = document.getElementById('result_count');
+        v.innerHTML="<?php echo $result_count; ?>";
+            <?php
+        if (isset($_POST['location'])) {
+            if ($_POST['location']!='*') {
+                ?>
+                var loc = document.getElementById('locsel');
+                loc.value="<?php echo $_POST['location']; ?>";
+
+                <?php
+            }
+        }
+
         if (isset($_POST['category'])) {
             if ($_POST['category']!='*') {
                 ?>
