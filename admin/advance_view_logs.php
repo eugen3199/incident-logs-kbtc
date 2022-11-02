@@ -2,6 +2,7 @@
     include "head.php";
     include "nav.php";
     include "alert.php";
+    $_SESSION['cpage'] = "advlogs";
 ?>
 <div class="d-flex" id="wrapper">
     <div class="container-fluid px-0">
@@ -214,7 +215,7 @@
                 <br>
                 <hr>
                 <div class="container-fluid justify-content-center">
-                    <h6>Results Found - <span id="result_count"></span></h6>
+                    <h6 class="text-light">Results Found - <span id="result_count"></span></h6>
                     <table id="example" class="table table-responsive-sm table-dark table-striped table-bordered table-sm" width="100%">
                         <thead>
                             <tr>

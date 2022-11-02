@@ -30,6 +30,7 @@ if(isset($_POST['login'])){
               $_SESSION["username"] = $username;
               $_SESSION["FullName"] = $value['display_name'];
               $_SESSION['id'] = $value['id'];
+              $_SESSION['cpage'] = 'home';
               header("location:admin");
               exit;
           }else{
@@ -39,6 +40,7 @@ if(isset($_POST['login'])){
             $_SESSION["username"] = $username;
             $_SESSION["FullName"] = $value['display_name'];
             $_SESSION['id'] = $value['id'];
+            $_SESSION['cpage'] = 'home';
             header("location:user");
             exit;
           }

@@ -2,6 +2,7 @@
     include "head.php";
     include "nav.php";
     include "alert.php";
+    $_SESSION['cpage'] = "catalog";
 ?>
 <div class="d-flex" id="wrapper">
     <div class="container-fluid px-0">

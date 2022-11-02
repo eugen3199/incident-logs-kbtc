@@ -2,6 +2,7 @@
 <?php
             include "head.php";
             include "nav.php";
+            $_SESSION['cpage'] = "home";
         ?>
 <div class="d-flex" id="wrapper">
     <div class="container-fluid px-0">
