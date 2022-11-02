@@ -306,30 +306,29 @@ input[type=password]:placeholder {
 
 </style>
 </head>
-<body>
+<body class="bootstrap-dark bg-secondary text-light">
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="logo.png" id="icon" alt="User Icon" />
+      <img src="logo2.png" id="icon" alt="User Icon" />
     </div>
 
     <!-- Login Form -->
     <form action="backend.php" method="post" style="margin-bottom:30px">
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-
-     
-
-      <button type="submit" class="btn btn-primary"  name="login">Login</button>
+      <input class="form-control border-bottom" type="text" name="username" placeholder="Username">
+      <input class="form-control border-bottom" type="password" name="password" placeholder="Password">
+      <hr class="bg-dark">
+      <button type="submit" class="btn btn-info" name="login">Login</button>
 
     </form>
-      <!-- <a href="ms_login.php">
+      <!-- <a href="#">
         <button type="submit" class="btn btn-primary"  name="login">Sign in With Microsoft</button>
-        <br>
       </a> -->
+      <br>
+      <br>
   </div>
 </div>
 </body>

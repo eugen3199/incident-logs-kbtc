@@ -1,26 +1,32 @@
 <?php
     include "head.php";
+    include "nav.php";
     include "alert.php";
 ?>
-
 <div class="d-flex" id="wrapper">
+    <div class="container-fluid px-0">
+        <div class="d-flex" id="wrapper">
+            <div id="page-content-wrapper">
+                <div class="row  collapse show no-gutters d-flex">
     <!-- Sidebar-->
     <?php
-    include "slidebar.php";
+        include "slidebar.php";
     ?>
+        
     <!-- Page content wrapper-->
-    <div id="page-content-wrapper">
+    <div class="col p-3">
+
         <!-- Top navigation-->
         <?php
         include "nav.php";
         ?>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
                 <h3>Advanced Search Incident Logs</h3>
                 <hr>
             </div>
-            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
                 <h6><u>Filters</u></h6>
                 <form action="advance_view_logs.php" method="post" class="form-inline">
                     <div class="row">
@@ -87,7 +93,7 @@
                         <br>
                         <div class="col-md-2">
                             <br>
-                            <label> Sub Category :</label>
+                            <label> Sub-Category :</label>
                             <select name="subcat" id="subcat" class="form-control form-select" onchange='changeincAction(this.value)' style="width: 100%;">
                                 <script>
                                     var catid_array = [];
@@ -197,11 +203,11 @@
 
                         <div class="col-md-2 col-6">
                             <br>
-                            <input class="btn btn-info text-dark" name="search" type="submit" value="Search" style="width: 100%;">
+                            <input class="btn btn-info text-black" name="search" type="submit" value="Search" style="width: 100%;">
                         </div>
                         <div class="col-md-2 col-6">
                             <br>
-                            <input class="btn btn-info text-dark" name="clear" type='submit' value="Clear" style="width: 100%;">
+                            <input class="btn btn-info text-black" name="clear" type='submit' value="Clear" style="width: 100%;">
                         </div>
                     </div>
                 </form>
@@ -403,13 +409,13 @@
                                 <td class="px-1 py-1">
 
                                 <!-- Edit button Starts Here (KHT) -->
-                                <a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
+                                    <a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
                                 <!-- Edit button Ends Here (KHT) -->
                                 </td>
                                 <td class="px-1 py-1">
 
                                 <!-- Edit button Starts Here (KHT) -->
-                                <a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a>
+                                    <a class="btn-link btn text-info" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a>
                                 <!-- Edit button Ends Here (KHT) -->
                                 </td>
                                 <td class="px-1 py-1"><?php echo $location; ?></td>
@@ -423,7 +429,7 @@
                                     <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                         <input type="hidden" value="<?php echo $l_id ?>" name="id">
                                         <button type="submit" name="logs_delete" value="Delete" onclick="return confirm('Are you sure you want to delete this Log?')"
-                                        class="text-dark btn"><h5><ion-icon name="trash-outline"></ion-icon></h5></button>
+                                        class="text-black btn"><h5><ion-icon name="trash-outline"></ion-icon></h5></button>
                                     </form>
                                 </td>
                             </tr>
@@ -494,10 +500,10 @@
                     </table>
                 </div>
             </div>
-            <div class="shadow-sm my-3 px-3 py-3 card bg-dark text-light">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
                 <div class="row">
                     <div class="col-sm-4">
-                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm" id="dt1" width="100%">
+                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm mx-auto" id="dt1" width="100%">
                             <thead>
                                 <tr>
                                     <th colspan="3">Category</th>
@@ -587,6 +593,9 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 </div>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
