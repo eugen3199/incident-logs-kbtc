@@ -132,7 +132,7 @@
                                 <!-- Edit Model Starts Here (KHT) -->
                                 <div class="modal" id="detail<?php echo $value['id'] ?>">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
+                                        <div class="modal-content bg-dark">
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
@@ -147,8 +147,8 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                        <button type="submit" name="subcategory_edit" value="Edit"  class="btn btn-success">Confirm</button>
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                                        <button type="submit" name="subcategory_edit" value="Edit"  class="btn btn-info">Confirm</button>
+                                                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </form>
                                         </div>

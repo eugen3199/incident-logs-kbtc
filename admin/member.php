@@ -121,7 +121,8 @@
                                                         <?php echo $value['job_title']; ?>
                                                     </td>
                                                     <td>
-                                                        <a class="text-info" href="#"> <?php echo $value['role']; ?> </a>
+                                                        <a class="btn-link btn text-info" data-toggle="modal" data-target="#role-<?php echo $value['id']; ?>" ><?php echo $value['role']; ?></a>
+                                                        <a class="text-info" href="#">  </a>
                                                     </td>
                                                     <td>
                                                         <div class="d-flex flex-row">
@@ -146,6 +147,33 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                <div class="modal" id="role-<?php echo $value['id'] ?>">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content bg-dark">
+
+                                                            <!-- Modal Header -->
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title"> Edit Role For <?php echo $value['display_name']; ?></h4>
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
+                                                            <form action="backend.php" method="post">
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body">
+                                                                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                                                    <select class="form-select" name="role">
+                                                                        <option value="user"> User </option>
+                                                                        <option value="admin"> Admin </option>
+                                                                    </select>
+                                                                </div>
+                                                                <!-- Modal footer -->
+                                                                <div class="modal-footer">
+                                                                        <button type="submit" name="role_edit" value="Edit"  class="btn btn-info">Confirm</button>
+                                                                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php
                                                             }
                                                         }

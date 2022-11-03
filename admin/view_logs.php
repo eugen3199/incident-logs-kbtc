@@ -120,7 +120,9 @@
                                 ?>
                         <tr>
                             <td><?php echo ++$i; ?></td>
-                            <td class="px-1 py-1"><a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
+                            <td class="px-1 py-1">
+                                <a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo date('d/m/Y', strtotime($create_at)); ?></a>
+                            </td>
                             <td class="px-1 py-1"><a class="btn-link btn text-info" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
                             <td class="px-1 py-1"><?php echo $location; ?></td>
                             <td class="px-1 py-1"><?php echo $category; ?></td>
@@ -140,7 +142,7 @@
                         <!-- Edit Model Starts Here (KHT) -->
                         <div class="modal" id="detail<?php echo $l_id; ?>">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content bg-dark">
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
@@ -155,8 +157,8 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-success">Edit</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-info">Edit</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
                                         </div>
                                     </form>
                                 </div>

@@ -34,13 +34,13 @@
                         <div class="col-md-2">
                             <br>
                             <label>Start Date : </label>
-                            <input type="date" name="start_date" placeholder="03-31-2022" class="form-control" onchange='changeggAction(this.value)' style="width: 100%;">
+                            <input type="text" name="start_date" placeholder="<?php echo $_POST['start_date']; ?>" class="form-control form-date" style="width: 100%;" onfocus="(this.type='date')" onblur="(this.type='text')" id="sdate">
                         </div>
                         <br>
                         <div class="col-md-2">
                             <br>
                             <label>End Date : </label>
-                            <input type="date" name="end_date" style="width: 100%;" placeholder="" class="form-control" onchange='changeggAction(this.value)'>
+                            <input type="text" name="end_date" placeholder="<?php echo $_POST['end_date']; ?>" class="form-control form-date" style="width: 100%;" onfocus="(this.type='date')" onblur="(this.type='text')" id="edate">
                         </div>
                         <br>
                         <div class="col-md-2">
@@ -271,7 +271,7 @@
                                 if (isset($_POST['incident'])) {
                                     $incident = htmlspecialchars($_POST['incident']);
                                 }
-                                $dstr = date('Y-m-d', strtotime($_POST['start_date']));
+                                $dstr = date('d/m/Y', strtotime($_POST['start_date']));
                                 if ($location == '*') {
                                     if ($category == '*') {
                                         if ($subcat == '*') {
@@ -410,7 +410,7 @@
                                 <td class="px-1 py-1">
 
                                 <!-- Edit button Starts Here (KHT) -->
-                                    <a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a>
+                                    <a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo date('d/m/Y', strtotime($create_at)); ?></a>
                                 <!-- Edit button Ends Here (KHT) -->
                                 </td>
                                 <td class="px-1 py-1">
@@ -437,7 +437,7 @@
                             <!-- Edit Model Starts Here (KHT) -->
                             <div class="modal" id="detail<?php echo $l_id; ?>">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                    <div class="modal-content bg-dark">
 
                                         <!-- Modal Header -->
                                         <div class="modal-header">
@@ -452,8 +452,8 @@
                                             </div>
                                                 <!-- Modal footer -->
                                             <div class="modal-footer">
-                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-success">Edit</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-info">Edit</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
                                             </div>
                                         </form>
                                     </div>
@@ -462,7 +462,7 @@
 
                             <div class="modal" id="edit_time<?php echo $l_id; ?>">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                    <div class="modal-content bg-dark">
 
                                         <!-- Modal Header -->
                                         <div class="modal-header">
@@ -477,8 +477,8 @@
                                             </div>
                                                 <!-- Modal footer -->
                                             <div class="modal-footer">
-                                                <button type="submit" name="edit_time" value="Edit"  class="btn btn-success">Edit</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" name="edit_time" value="Edit"  class="btn btn-info">Edit</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
                                             </div>
                                         </form>
                                     </div>
@@ -495,6 +495,8 @@
                                 unset($_POST['category']);
                                 unset($_POST['subcat']);
                                 unset($_POST['incident']);
+                                unset($_POST['start_date']);
+                                unset($_POST['end_date']);
                             }
                             ?>
                         </tbody>
@@ -668,6 +670,8 @@
                 <?php
             }
         }
+
+        
 
     ?>
 </script>

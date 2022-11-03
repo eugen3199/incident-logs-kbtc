@@ -6,7 +6,7 @@
                 <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="home"){echo "secondary";}else{echo "black";}?>" href="index.php">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="catalog"){echo "secondary";}else{echo "black";}?>" href="category.php">Services Catalog<br>Category</a> 
+                <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="catalog"){echo "secondary";}else{echo "black";}?>" href="category.php">Services Catalogue<br>Category</a> 
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="vlogs"){echo "secondary";}else{echo "black";}?>" href="view_logs.php">Incident Logs</a>
