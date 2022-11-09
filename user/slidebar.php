@@ -15,12 +15,6 @@
                 <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="advlogs"){echo "secondary";}else{echo "black";}?>" href="advance_view_logs.php">Advance Search<br>Incident Logs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="location"){echo "secondary";}else{echo "black";}?>" href="location.php">Locations</a> 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light bg-<?php if ($_SESSION['cpage']=="member"){echo "secondary";}else{echo "black";}?>" href="member.php">Members</a> 
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-light bg-black" href="logout.php"> Logout</a>
             </li>
         </ul>
