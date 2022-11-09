@@ -149,35 +149,26 @@
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
       <form action="backend.php" method="post">
-                    
-                    <div class="form-group ">
-                            <label for="category">Incident:</label>
-                            <input type="hidden" name="incident" value="<?php echo $incident_id;  ?>">
-                            <input type="text" disabled class="form-control" placeholder="Enter Sub Category"
-                                id="category"  value="<?php echo $question; ?>" required>
-                        </div>
-                    <div class="form-group ">
-                        <label for="category">Solution :</label>
-                        <textarea type="text" class="form-control" placeholder="Write Solution" name="solution" style="height: 200px;"
-                            id="category" required></textarea>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                       
-                    </div>
-                
+        <div class="modal-body">
+            <div class="form-group ">
+                <label for="category">Incident:</label>
+                <input type="hidden" name="incident" value="<?php echo $incident_id;?>">
+                <input type="text" disabled class="form-control" placeholder="Enter Sub Category" id="category"  value="<?php echo $question; ?>" required>
+            </div>
+            <div class="form-group ">
+                <label for="category">Solution :</label>
+                <textarea type="text" class="form-control" placeholder="Write Solution" name="solution" style="height: 200px;" id="category" required></textarea>
+            </div>                
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <input type="submit" name="solution_create" class="btn btn-outline-primary" value="Create">
+        <input type="submit" name="solution_create" class="btn btn-outline-primary" value="Create">
         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
       </div>
-
+     </form>
     </div>
-    </form>
   </div>
 </div>
 <?php
