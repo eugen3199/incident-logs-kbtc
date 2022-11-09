@@ -121,6 +121,38 @@
                                                         <p  data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" ><a class="text-info" href="#">Solution <?php echo $number; ?></a></p>
                                                     </td>
                                                 </tr>
+                                                <div class="modal" id="detail<?php echo $value['id'] ?>">
+                                                  <div class="modal-dialog">
+                                                    <div class="modal-content bg-dark p-2">
+
+                                                      <!-- Modal Header -->
+                                                      <div class="modal-header">
+                                                        <h4 class="modal-title"> Solution</h4>
+                                                        <button type="button" class="btn close" data-dismiss="modal">&times;</button>
+                                                      </div>
+
+                                                      <!-- Modal body -->
+                                                      <div class="modal-body">
+                                                       <?php echo $value['answer']; ?>
+                                                                
+                                                      </div>
+
+                                                      <!-- Modal footer -->
+                                                      <div class="modal-footer">
+                                                        <form action="logs.php" method="post">
+                                                            <input type="hidden" name="cat_id" value="<?php echo $cat_id; ?>">
+                                                            <input type="hidden" name="sub_id" value="<?php echo $sub_id; ?>">
+                                                            <input type="hidden"  name="inc_id" value="<?php echo $incident_id; ?>">
+                                                            <input type="hidden"  name="answer_id" value="<?php echo $value['id']; ?>">
+                                                            <input type="submit" name="redirect_log" class="btn btn-info" value="Log with this solution" />
+                                                        </form>
+                                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                                      </div>
+
+                                                    </div>
+
+                                                  </div>
+                                                </div>
                                                 <?php
                                                         }
                                                     }
