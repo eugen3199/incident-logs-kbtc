@@ -148,7 +148,7 @@ function image_filter($image,$location){
         $cat_id = htmlspecialchars($_POST['category']);
         $sub_id = htmlspecialchars($_POST['subcategory']);
         $incident = htmlspecialchars($_POST['incident']);
-        $date = date("d/m/Y");
+        $date = date("d-m-Y");
         $sql = "INSERT INTO incident(title,cat_id,sub_cat_id,create_at,status) VALUES ('$incident','$cat_id','$sub_id','$date',1)";
         $result = mysqli_query($connect,$sql);
         if($result){
@@ -191,7 +191,7 @@ function image_filter($image,$location){
     if(isset($_POST['solution_create'])){       
         $incident = htmlspecialchars($_POST['incident']);
         $solution = htmlspecialchars($_POST['solution']);
-        $date = date("d/m/Y");
+        $date = date("d-m-Y");
         $sql = "INSERT INTO solution(incident_id,answer,member_id,create_date,status) VALUES ($incident,'$solution',1,'$data',1)";
         $result = mysqli_query($connect, $sql);
         if($result){
@@ -235,7 +235,7 @@ function image_filter($image,$location){
        $answer_id = htmlspecialchars($_POST["answer_id"]);
        $location  = htmlspecialchars($_POST["location"]);
        $remark = htmlspecialchars($_POST["remark"]);
-       $date = date("d/m/Y");
+       $date = date("d-m-Y");
 	date_default_timezone_set('Asia/Yangon');
 	$_time = date("h:i:sa");
 	$user = $_SESSION['username'];
@@ -263,7 +263,7 @@ function image_filter($image,$location){
     /* Log Date Edit */
     if(isset($_POST["date_edit"])){
         $id = htmlspecialchars($_POST["id"]);
-        $date = date('d/m/Y', strtotime($_POST['date']));
+        $date = date('d-m-Y', strtotime($_POST['date']));
         $sql = "UPDATE logs SET create_at='$date' WHERE id=$id";
         $result = mysqli_query($connect,$sql);
         if($result){
@@ -308,7 +308,7 @@ function image_filter($image,$location){
        $job_title= htmlspecialchars($_POST["job_title"]);
        $password = password_hash(htmlspecialchars($_POST["password"]),PASSWORD_DEFAULT);
        $role = htmlspecialchars($_POST["role"]);
-       $date = date("d/m/Y");
+       $date = date("d-m-Y");
        $sql = "SELECT * FROM member WHERE name='$username' OR email='$useremail'";
        $result = mysqli_query($connect, $sql);
        $row = mysqli_num_rows($result);
