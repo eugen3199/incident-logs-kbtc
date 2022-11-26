@@ -82,7 +82,7 @@ function image_filter($image,$location){
        $answer_id = htmlspecialchars($_POST["answer_id"]);
        $location  = htmlspecialchars($_POST["location"]);
        $remark = htmlspecialchars($_POST["remark"]);
-       $date = date("d/m/Y");
+       $date = date("d-m-Y");
     date_default_timezone_set('Asia/Yangon');
     $_time = date("h:i:sa");
     $user = $_SESSION['username'];
