@@ -1,31 +1,44 @@
 <?php
-            include "head.php";
-            include "alert.php";
-        ?>
+    include "head.php";
+    include "nav.php";
+    include "alert.php";
+    $_SESSION['cpage'] = "vlogs";
+?>
 <div class="d-flex" id="wrapper">
+    <div class="container-fluid px-0">
+        <div class="d-flex" id="wrapper">
+            <div id="page-content-wrapper">
+                <div class="row  collapse show no-gutters d-flex">
     <!-- Sidebar-->
     <?php
-                include "slidebar.php";
-           ?>
+        include "slidebar.php";
+    ?>
+        
     <!-- Page content wrapper-->
-    <div id="page-content-wrapper">
+    <div class="col p-3">
+
         <!-- Top navigation-->
         <?php
-                    include "nav.php";
-                ?>
+        include "nav.php";
+        ?>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="shadow-sm my-3 px-3 pt-3 card">
+            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
                 <h3>Incident Logs</h3>
                 <hr>
-
+            </div>
+            <div class="shadow-sm my-3 p-3 pb-3 card bg-black text-light">
                 <!-- View All Logs -->
-
-                <!--<a href="export.php" class="btn btn-primary ">Download As CSV</a>-->
-
-                <button onclick="window.print()" class="btn btn-secondary" style="width: 100px;">Print</button>
+                <div class="row">
+                    <div class="col-6">
+                        <h5><u>View All Incident Logs</u></h5>
+                    </div>
+                    <div class="col-6">
+                        <button onclick="window.print()" class="btn btn-info text-light float-right" style="width: 100px;">Print</button>
+                    </div>
+                </div>
                 <br>
-                <table id="example" class="table table-striped table-bordered table-sm">
+                <table id="example" class="table table-dark table-responsive-sm table-striped table-bordered table-sm">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -107,8 +120,10 @@
                                 ?>
                         <tr>
                             <td><?php echo ++$i; ?></td>
-                            <td class="px-1 py-1"><a class="btn-link btn" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo $create_at; ?></a></td>
-                            <td class="px-1 py-1"><a class="btn-link btn" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
+                            <td class="px-1 py-1">
+                                <a class="btn-link btn text-info" data-toggle="modal" data-target="#detail<?php echo $l_id; ?>" ><?php echo date('d/m/Y', strtotime($create_at)); ?></a>
+                            </td>
+                            <td class="px-1 py-1"><a class="btn-link btn text-info" data-toggle="modal" data-target="#edit_time<?php echo $l_id; ?>" ><?php echo $_time; ?></a></td>
                             <td class="px-1 py-1"><?php echo $location; ?></td>
                             <td class="px-1 py-1"><?php echo $category; ?></td>
                             <td class="px-1 py-1"><?php echo $subcategory; ?></td>
@@ -127,7 +142,7 @@
                         <!-- Edit Model Starts Here (KHT) -->
                         <div class="modal" id="detail<?php echo $l_id; ?>">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="modal-content bg-dark">
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
@@ -142,8 +157,8 @@
                                         </div>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-success">Edit</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-info">Edit</button>
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
                                         </div>
                                     </form>
                                 </div>

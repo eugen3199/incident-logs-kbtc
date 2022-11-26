@@ -1,6 +1,7 @@
 <?php
             include "head.php";
             include "alert.php";
+            $_SESSION['cpage'] = "catalog";
             $redirect_log = $_POST["redirect_log"];
             if(!isset($redirect_log)){
                 header("Location:index.php");
