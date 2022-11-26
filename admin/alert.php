@@ -4,8 +4,8 @@
         ?>
 <script>
     Swal.fire(
-        'Good job!',
-        '<?php echo $_SESSION["success"]; ?>',
+        'Success!',
+        '<div class="text-light"><?php echo $_SESSION["success"]; ?></div>',
         'success'
     )
 </script>
@@ -17,8 +17,8 @@ $_SESSION["success"] = null;
         ?>
 <script>
     Swal.fire(
-        '',
-        '<?php echo $_SESSION["error"]; ?>',
+        'Failed',
+        '<div class="text-light"><?php echo $_SESSION["error"]; ?></div>',
         'error'
     )
 </script>

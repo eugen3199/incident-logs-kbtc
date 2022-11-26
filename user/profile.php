@@ -1,6 +1,7 @@
 <?php
             include "head.php";
             include "alert.php";
+            $_SESSION['cpage'] = "profile";
         ?>
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
