@@ -43,6 +43,7 @@ function image_filter($image,$location){
         error_message("File has error" , $location);
         die();
     }
+
 }
 
     /* incident_create */
@@ -175,4 +176,5 @@ function image_filter($image,$location){
             }
         }
     }
+
   ?>
