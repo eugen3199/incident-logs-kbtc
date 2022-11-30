@@ -29,11 +29,11 @@
            
             <div class="row">
                 <div class="col-12">
-                    <div class="shadow-sm px-3 pt-3 mb-3 card bg-black text-light">
+                    <div class="shadow-sm px-3 pt-3 mb-3 card">
                         <h3>Service Catalog</h3>
                         <hr>
                         <nav aria-label="breadcrumb text-info">
-                            <ol class="breadcrumb bg-black">
+                            <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-info" href="index.php">Dashboard</a></li>
                                 <li class="breadcrumb-item">Category</li>
                             </ol>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="shadow-sm px-3 pt-3 card bg-black text-light">
+                    <div class="shadow-sm px-3 pt-3 card">
                         <form action="backend.php" method="post">
                             <div class="form-group ">
                                 <h6><u>Create New Category</u></h6>
@@ -57,10 +57,10 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="shadow-sm px-3 pt-3 card bg-black text-light">
+                    <div class="shadow-sm px-3 pt-3 card">
                         <h6><u>All Categories</u></h6>
                         <br>
-                        <table class="table table-dark table-striped table-bordered table-sm">
+                        <table class="table table-striped table-bordered table-sm">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -90,7 +90,7 @@
                                         <!-- Edit button Starts Here (KHT) -->
                                     <div class="d-flex flex-row">
                                         <div class="py-auto">
-                                            <button class="text-light btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
+                                            <button class="btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
                                                 <h5><ion-icon name="pencil"></ion-icon></h5>
                                             </button>
                                         </div>
@@ -98,7 +98,7 @@
                                         <div class="py-auto">
                                             <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                                 <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                                <button class="text-light btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
+                                                <button class="btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
                                                  ><h5><ion-icon name="trash"></ion-icon></h5>
                                                 </button>
                                             </form>
@@ -111,7 +111,7 @@
                                 <div class="modal" id="detail<?php echo $value['id'] ?>">
                                     <div class="modal-dialog">
                                         
-                                        <div class="modal-content bg-dark">
+                                        <div class="modal-content">
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">

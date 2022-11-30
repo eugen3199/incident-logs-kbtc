@@ -23,22 +23,22 @@
         ?>
         <!-- Page content-->
         <div class="container-fluid">
-            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
+            <div class="shadow-sm my-3 px-3 py-3 card  ">
                 <h3>Incident Logs</h3>
                 <hr>
             </div>
-            <div class="shadow-sm my-3 p-3 pb-3 card bg-black text-light">
+            <div class="shadow-sm my-3 p-3 pb-3 card  ">
                 <!-- View All Logs -->
                 <div class="row">
                     <div class="col-6">
                         <h5><u>View All Incident Logs</u></h5>
                     </div>
                     <div class="col-6">
-                        <button onclick="window.print()" class="btn btn-info text-light float-right" style="width: 100px;">Print</button>
+                        <button onclick="window.print()" class="btn btn-info  float-right" style="width: 100px;">Print</button>
                     </div>
                 </div>
                 <br>
-                <table id="example" class="table table-dark table-responsive-sm table-striped table-bordered table-sm">
+                <table id="example" class="table  table-responsive-sm table-striped table-bordered table-sm">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -142,7 +142,7 @@
                         <!-- Edit Model Starts Here (KHT) -->
                         <div class="modal" id="detail<?php echo $l_id; ?>">
                             <div class="modal-dialog">
-                                <div class="modal-content bg-dark">
+                                <div class="modal-content ">
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">

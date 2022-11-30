@@ -112,7 +112,7 @@
 
 </head>
 
-<body class="bootstrap-dark bg-secondary">
+<body>
 
     <?php
         session_start();

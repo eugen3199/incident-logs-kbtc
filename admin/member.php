@@ -27,13 +27,13 @@
                             <!-- Category -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="shadow-sm px-3 pt-3 mb-3 card bg-black text-light">
+                                    <div class="shadow-sm px-3 pt-3 mb-3 card  ">
                                         <h3>Members</h3>
                                         <hr>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="shadow-sm px-3 pt-3 mb-3 card bg-black text-light">
+                                    <div class="shadow-sm px-3 pt-3 mb-3 card  ">
                                         <h5><u>Create New Member</u></h5>
                                         <br>
                                         <form action="backend.php" method="post">
@@ -73,16 +73,16 @@
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <input type="submit" name="member_create" class="btn btn-primary" value="Create">
+                                                <input type="submit" name="member_create" class="btn btn-outline-info" value="Create">
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="shadow-sm px-3 pt-3 mb-3 card bg-black text-light">
+                                    <div class="shadow-sm px-3 pt-3 mb-3 card  ">
                                         <h5><u>All Members</u></h5>
                                         <br>
-                                        <table id="example" class="table table-dark table-responsive-sm table-striped table-bordered table-sm">
+                                        <table id="example" class="table  table-responsive-sm table-striped table-bordered table-sm">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -129,7 +129,7 @@
                                                             <div class="p-0">
                                                                 <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                                                     <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                                                    <button class="text-light btn" type="submit" name="password_reset" value="Password reset" onclick="return confirm('Are you sure you want to reset password for this account?')">
+                                                                    <button class=" btn" type="submit" name="password_reset" value="Password reset" onclick="return confirm('Are you sure you want to reset password for this account?')">
                                                                     
                                                                         <h5><ion-icon name="key" ></ion-icon></h5>
                                                                     </button>
@@ -139,7 +139,7 @@
                                                             <div class="p-0">
                                                                 <form style="display:inline-block" class="form-display" action="backend.php" method="post">
                                                                     <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                                                    <button class="text-light btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
+                                                                    <button class=" btn" type="submit" name="category_delete" value="" onclick="return confirm('Are you sure you want to delete this Category?')"
                                                                      ><h5><span data-tooltip="Tooltip help here!" data-flow="right"><ion-icon name="trash"></ion-icon></span></h5>
                                                                     </button>
                                                                 </form>
@@ -149,7 +149,7 @@
                                                 </tr>
                                                 <div class="modal" id="role-<?php echo $value['id'] ?>">
                                                     <div class="modal-dialog">
-                                                        <div class="modal-content bg-dark">
+                                                        <div class="modal-content ">
 
                                                             <!-- Modal Header -->
                                                             <div class="modal-header">

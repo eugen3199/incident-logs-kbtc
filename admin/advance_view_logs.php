@@ -23,11 +23,11 @@
                         ?>
                         <!-- Page content-->
                         <div class="container-fluid">
-                            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
+                            <div class="shadow-sm my-3 px-3 py-3 card  ">
                                 <h3>Advanced Search Incident Logs</h3>
                                 <hr>
                             </div>
-                            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
+                            <div class="shadow-sm my-3 px-3 py-3 card  ">
                                 <h6><u>Filters</u></h6>
                                 <form action="advance_view_logs.php" method="post" class="form-inline">
                                     <div class="row">
@@ -204,19 +204,19 @@
 
                                         <div class="col-md-2 col-6">
                                             <br>
-                                            <input class="btn btn-info text-black" name="search" type="submit" value="Search" style="width: 100%;">
+                                            <input class="btn btn-outline-info" name="search" type="submit" value="Search" style="width: 100%;">
                                         </div>
                                         <div class="col-md-2 col-6">
                                             <br>
-                                            <input class="btn btn-info text-black" name="clear" type='submit' value="Clear" style="width: 100%;">
+                                            <input class="btn btn-outline-info" name="clear" type='submit' value="Clear" style="width: 100%;">
                                         </div>
                                     </div>
                                 </form>
                                 <br>
                                 <hr>
                                 <div class="container-fluid justify-content-center">
-                                    <h6 class="text-light">Results Found - <span id="result_count"></span></h6>
-                                    <table id="example" class="table table-responsive-sm table-dark table-striped table-bordered table-sm" width="100%">
+                                    <h6 class="">Results Found - <span id="result_count"></span></h6>
+                                    <table id="example" class="table table-responsive-sm  table-striped table-bordered table-sm" width="100%">
                                         <thead>
                                             <tr>
                                                 <th class="px-1 py-1">No</th>
@@ -437,7 +437,7 @@
                                             <!-- Edit Model Starts Here (KHT) -->
                                             <div class="modal" id="detail<?php echo $l_id; ?>">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content bg-dark">
+                                                    <div class="modal-content ">
 
                                                         <!-- Modal Header -->
                                                         <div class="modal-header">
@@ -452,8 +452,8 @@
                                                             </div>
                                                                 <!-- Modal footer -->
                                                             <div class="modal-footer">
-                                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-info">Edit</button>
-                                                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                                                                <button type="submit" name="date_edit" value="Edit"  class="btn btn-outline-info">Edit</button>
+                                                                <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cancel</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -462,7 +462,7 @@
 
                                             <div class="modal" id="edit_time<?php echo $l_id; ?>">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content bg-dark">
+                                                    <div class="modal-content ">
 
                                                         <!-- Modal Header -->
                                                         <div class="modal-header">
@@ -477,8 +477,8 @@
                                                             </div>
                                                                 <!-- Modal footer -->
                                                             <div class="modal-footer">
-                                                                <button type="submit" name="edit_time" value="Edit"  class="btn btn-info">Edit</button>
-                                                                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                                                                <button type="submit" name="edit_time" value="Edit"  class="btn btn-outline-info">Edit</button>
+                                                                <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cancel</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -503,10 +503,10 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
+                            <div class="shadow-sm my-3 px-3 py-3 card  ">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm mx-auto" id="dt1" width="100%">
+                                        <table class="table table-responsive-sm  table-striped table-bordered table-sm mx-auto" id="dt1" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th colspan="3">Category</th>
@@ -535,7 +535,7 @@
                                         </table>
                                     </div>
                                     <div class="col-sm-4">
-                                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm" id="dt2" width="100%">
+                                        <table class="table table-responsive-sm  table-striped table-bordered table-sm" id="dt2" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th colspan="3">Sub-Category</th>
@@ -564,7 +564,7 @@
                                         </table>
                                     </div>
                                     <div class="col-sm-4">
-                                        <table class="table table-responsive-sm table-dark table-striped table-bordered table-sm" id="dt3" width="100%">
+                                        <table class="table table-responsive-sm  table-striped table-bordered table-sm" id="dt3" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th colspan="3">Incident</th>

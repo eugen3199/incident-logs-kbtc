@@ -25,26 +25,26 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
+                                    <div class="shadow-sm my-3 px-3 py-3 card  ">
                                         <h3>Locations</h3>
                                         <hr>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="col-md-6">
-                                    <div class="shadow-sm my-3 px-3 py-3 card bg-black text-light">
+                                    <div class="shadow-sm my-3 px-3 py-3 card  ">
                                         <form action="backend.php" method="post" enctype="multipart/form">
                                             <input type="text" name="location" class="form-control" placeholder="Enter Your Location (Required) " required>
                                             <br>
-                                            <input type="submit" class="btn btn-primary" name="create_location" value="Create">
+                                            <input type="submit" class="btn btn-outline-info" name="create_location" value="Create">
                                         </form>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="shadow-sm my-3 p-3 card bg-black text-light">
+                                    <div class="shadow-sm my-3 p-3 card  ">
                                         <h6><u>All Locations</u></h6>
                                         <br>
-                                        <table class="table table-dark table-striped table-bordered table-sm">
+                                        <table class="table  table-striped table-bordered table-sm">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -65,7 +65,7 @@
                                                     <td>
                                                         <div class="d-flex flex-row">
                                                             <div class="p-1">
-                                                                <button class="text-light btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
+                                                                <button class=" btn" data-toggle="modal" data-target="#detail<?php echo $value['id']; ?>" >
                                                                 <h5><ion-icon name="pencil-outline"></ion-icon></h5></button>
                                                             </div>
                                                             <!-- Edit button Ends Here (KHT) -->
@@ -73,7 +73,7 @@
                                                                 <form style="display:inline-block" class="form-display" action="backend.php"
                                                                     method="post">
                                                                     <input type="hidden" value="<?php echo $value['id'] ?>" name="id">
-                                                                    <button class="text-light btn" type="submit" name="location_delete" value="Delete"
+                                                                    <button class=" btn" type="submit" name="location_delete" value="Delete"
                                                                         onclick="return confirm('Are you sure you want to delete this Incident?')"
                                                                         >
                                                                         <h5>

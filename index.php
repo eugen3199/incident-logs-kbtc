@@ -315,7 +315,7 @@ input[type=password]:placeholder {
 
 </style>
 </head>
-<body class="bootstrap-dark bg-secondary text-light">
+<body class="bootstrap-dark">
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -329,7 +329,8 @@ input[type=password]:placeholder {
     <form action="backend.php" method="post" style="margin-bottom:30px">
       <input class="form-control border-bottom" type="text" name="username" placeholder="Username">
       <input class="form-control border-bottom" type="password" name="password" placeholder="Password">
-      <hr class="bg-dark">
+      <br>
+      <br>
       <button type="submit" class="btn btn-info" name="login">Login</button>
 
     </form>
